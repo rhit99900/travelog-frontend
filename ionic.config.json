@@ -1,0 +1,7 @@
+{
+  "name": "travelog",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

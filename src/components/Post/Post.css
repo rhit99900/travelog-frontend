@@ -1,0 +1,49 @@
+ion-card.postContainer{
+  --background: none;
+  box-shadow: none;
+  margin-left: -20px;  
+}
+
+ion-chip.postAuthorContainer{
+  margin-left: 30px;
+  margin-bottom: 10px;
+  --background: none;
+}
+
+ion-card-content.postDetailsContainer{
+  margin-left: 20px;
+}
+
+ion-chip.postActionCountLabel{
+  font-size: 14px; 
+  --background: none;
+  padding: 0px 5px 3px 5px;
+  height: 20px;
+  margin-top: -4px
+}
+
+ion-icon.postActionIcons{
+  font-size: 20px
+}
+
+ion-label.postAuthorName, 
+ion-chip.postActionCountLabel{  
+  color: #000;
+}
+
+div.postActionContainer{
+  margin-bottom: 10px;
+}
+
+div.postImageContainer{
+  width: 100%;
+  height: auto;  
+  max-height: 40vh;
+  border-radius: 0 30px 30px 0;
+  overflow: hidden;  
+}
+
+div.postImageContainer img{
+  width: 100%;
+  object-fit: contain;
+}

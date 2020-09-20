@@ -1,0 +1,13 @@
+ion-toolbar.light{
+  --background: #FFFFFF;
+  --border-color: #FFFFFF;
+}
+
+ion-toolbar.light ion-title{
+  color: #000000;
+}
+
+ion-icon.headerMenuIcon{
+  color: #333333;
+  font-size: 25px;
+}
