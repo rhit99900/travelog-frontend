@@ -13,12 +13,13 @@ import {
 import { searchOutline, heartOutline, addCircleOutline, compassOutline } from 'ionicons/icons';
 import Routes from '../../Routes'
 
+import './Navigation.css'
+
 const Navigation = () => {
   return(
     <IonTabs>
       <IonRouterOutlet>
-        <IonTab>          
-        </IonTab>
+        <Routes />
       </IonRouterOutlet>      
       <IonTabBar slot="bottom" className="navigation">
         <IonTabButton tab="explore" href="/explore">

@@ -1,29 +1,26 @@
-import React, {useState, useEffect} from 'react'
-import {IonItem, IonInput, IonButton, IonIcon, IonPage, IonContent} from '@ionic/react'
-
+import React, { useState } from 'react'
+import { IonContent, IonPage, IonButton, IonInput, IonItem, IonIcon, IonText } from '@ionic/react'
 import { arrowForwardOutline } from 'ionicons/icons'
+
 import '../SplashScreen/Splash.css'
 
-import '../../components/SocialLogin'
-import SocialLogin from '../../components/SocialLogin'
+const Register = () => {
 
-const Login = () => {
-
-  const [ loginDetails, setLoginDetails ] = useState({
+  const [ registerDetails, setRegisterDetails ] = useState({
     username: null,
     password: null,
     email: null
   })
 
   const updateField = e => {
-    setLoginDetails({
-      ...loginDetails,
+    setRegisterDetails({
+      ...registerDetails,
       [e.target.name]:e.target.value
     })
   }
 
-  const handleLogin = e => {
-    console.log(loginDetails)
+  const handlerRegister = e => {
+    console.log(registerDetails)
   }
 
   return (
@@ -40,16 +37,18 @@ const Login = () => {
           </IonItem>
           <IonItem className="loginElement">
             <IonInput type="password" name="password" placeholder="Password" onIonChange={updateField}></IonInput>
+          </IonItem>
+          <IonItem className="loginElement">
+            <IonInput type="email" name="email" placeholder="Email" onIonChange={updateField}></IonInput>
           </IonItem>          
-          <IonButton className="primaryButton" onClick={handleLogin} expand="block">
-            Login
+          <IonButton className="primaryButton" onClick={handlerRegister} expand="block">
+            Register
             <IonIcon slot="end" icon={arrowForwardOutline} />
           </IonButton>
-          <SocialLogin />
         </div>
       </IonContent>
     </IonPage>
   )
 }
 
-export default Login;
+export default Register

@@ -1,0 +1,99 @@
+ion-card.loginContainer, ion-card.loginContainer ion-card-content{
+  --background: transparent;
+}
+
+ion-content.splash{
+  --background: url('/assets/graphics/splash-background.svg') #FFFFFF center;
+}
+
+ion-item.loginElement{
+  --background: #FFFFFF;
+  --border-width: 0px;
+  --border-color: transparent;  
+  --padding-start:0px;
+  --inner-padding-end:0px;
+  border-radius: 25px;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.16);  
+  margin-bottom: 15px;
+}
+
+ion-item.loginElement ion-input{
+  --placeholder-color: var(--light-teal);
+  --padding-start: 20px !important;
+  --color: #555555;
+  font-family: 'Montserrat', sans-serif;
+}
+
+ion-button.primaryButton{
+  --background: var(--crimson);
+  --background-activated: var(--crimson);
+  --border-radius: 25px;
+  --box-shadow: 3px 3px 6px rgba(0,0,0,0.16);
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+
+div.loginContainer{
+  width: 100%;
+  position: absolute;
+  bottom: 60px;
+  padding: 10px 20px;
+  background: transparent;
+  font-family: 'Montserrat', sans-serif  
+}
+
+.loginImageContainer{
+  width: 100%;
+  margin-top: 70px;
+  text-align: center;
+}
+
+.splashImageContainer{
+  width: 130%;
+  margin-left: -15%;
+  position: absolute;
+  bottom: 130px;
+  text-align: center;
+}
+
+.loginImageContainer h3{
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;  
+  color: #00070A;
+  font-weight:700;
+  margin-bottom: 5px;  
+}
+
+.loginImageContainer p{
+  color: #2BA296;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  margin-top: 5px;  
+}
+
+.splashImageContainer h2{
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;  
+  font-size: 37px;
+  color: #00070A;
+  font-weight:700;
+  margin-bottom: 5px;  
+}
+
+.splashImageContainer p{
+  color: #2BA296;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  margin-top: 5px;  
+}
+
+.loginImageContainer img{
+  margin-left: -30px
+}
+
+.splashImageContainer img{
+  width: 100%;
+  margin-left: -40px;    
+}

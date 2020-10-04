@@ -1,0 +1,12 @@
+ion-row.socialLoginContainer{
+  padding: 0 50px; 
+}
+
+ion-row.socialLoginContainer ion-col{
+  text-align: center;
+}
+
+ion-row.socialLoginContainer > ion-col:first-child{
+  --border-color: #FE346E;
+  --border-width: 1px;
+}
