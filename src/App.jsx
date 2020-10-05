@@ -1,13 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom';
 import {
   IonApp,  
-  IonRouterOutlet,  
 } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
 
-import Routes from './Routes'
 import Navigation from './components/Navigation'
+import dotenv from 'dotenv'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -27,11 +24,17 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import UserProvider from './contexts/UserContext'
+
+const dotenvConfig = dotenv.config()
+console.log(dotenvConfig);
 
 const App = () => {
   return(
-    <IonApp>      
-      <Navigation />
+    <IonApp>
+      <UserProvider>
+        <Navigation />
+      </UserProvider>
     </IonApp>
   )
 }

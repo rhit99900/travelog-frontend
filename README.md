@@ -6,4 +6,8 @@ This is the code repository of
 * Clone the Repository
 * Run `npm install`
 * Run `npm run start` to start see the code output.
-* Copy `.env-example` file to `.env.local` and add the respective API Path
+* Copy `.env-example` file to `.env` and add the respective API Path
+
+### UI Development Documentation
+
+[Adobe XD Web Prototype]()

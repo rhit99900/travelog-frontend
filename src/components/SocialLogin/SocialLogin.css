@@ -2,11 +2,24 @@ ion-row.socialLoginContainer{
   padding: 0 50px; 
 }
 
-ion-row.socialLoginContainer ion-col{
-  text-align: center;
+ion-row.socialLoginContainer > ion-col{
+  text-align: left;
+  padding-left: 25px;
 }
 
 ion-row.socialLoginContainer > ion-col:first-child{
-  --border-color: #FE346E;
-  --border-width: 1px;
+  border-right:thin solid #FE346E;
+  text-align: right;
+  padding-right: 25px;
+}
+
+
+ion-row.socialLoginContainer > ion-col > img{
+  width: 50px;
+}
+
+div.socialLogin p{
+  text-align:center;
+  font-size: 14px;
+  color: #000;
 }

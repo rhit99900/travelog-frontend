@@ -29,14 +29,14 @@ const Navigation = () => {
           <IonIcon icon={heartOutline} />            
         </IonTabButton>
         <IonTabButton tab="new" href="/new">
-          <IonIcon icon={addCircleOutline} />            
+          <IonIcon className="createTrigger" icon={addCircleOutline} />            
         </IonTabButton>
         <IonTabButton tab="search" href="/search">
           <IonIcon icon={searchOutline} />            
         </IonTabButton>
         <IonTabButton tab="profile" href="/profile">
           <IonChip className="tabNavigationProfileAvatar">
-            <IonAvatar>
+            <IonAvatar className="hasStories">
               <img src="https://picsum.photos/id/237/20/20" />
             </IonAvatar>
           </IonChip>

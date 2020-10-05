@@ -1,6 +1,10 @@
-import React, { useState } from 'react'
-import { IonContent, IonPage, IonButton, IonInput, IonItem, IonIcon, IonText } from '@ionic/react'
+import React, { useContext, useState } from 'react'
+import { IonContent, IonPage, IonButton, IonInput, IonItem, IonIcon } from '@ionic/react'
 import { arrowForwardOutline } from 'ionicons/icons'
+
+import SocialLogin from '../../components/SocialLogin'
+import { UserContext } from '../../contexts/UserContext'
+// import { AuthContext } from '../../contexts/AuthContext'
 
 import '../SplashScreen/Splash.css'
 
@@ -12,6 +16,9 @@ const Register = () => {
     email: null
   })
 
+  const { registerUser } = useContext(UserContext);  
+  // const { setCurrentUser } = useContext(AuthContext);
+
   const updateField = e => {
     setRegisterDetails({
       ...registerDetails,
@@ -19,15 +26,16 @@ const Register = () => {
     })
   }
 
-  const handlerRegister = e => {
-    console.log(registerDetails)
+  const handlerRegister = async () => {    
+    let user = await registerUser(registerDetails);    
+    console.log(user);
   }
 
   return (
     <IonPage>
       <IonContent className="light splash">
         <div className="loginImageContainer">
-          <img src="/assets/graphics/splash-screen.svg" />          
+          <img src="/assets/graphics/splash-screen.svg" alt="Splash Screen Image"/>
           <h3>Travelog</h3>
           <p>Write your travel stories</p>
         </div>
@@ -45,6 +53,7 @@ const Register = () => {
             Register
             <IonIcon slot="end" icon={arrowForwardOutline} />
           </IonButton>
+          <SocialLogin />
         </div>
       </IonContent>
     </IonPage>

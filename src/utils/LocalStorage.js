@@ -1,4 +1,3 @@
-
 class LocalStorage {
   static MemoryStorage = {};
 

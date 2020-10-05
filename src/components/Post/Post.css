@@ -23,8 +23,14 @@ ion-chip.postActionCountLabel{
 }
 
 ion-icon.postActionIcons{
-  font-size: 20px
+  font-size: 20px;  
+  --color: #000000;
 }
+
+ion-icon.postActionIcons.active{
+  color: var(--pink);
+}
+
 
 ion-label.postAuthorName, 
 ion-chip.postActionCountLabel{  
@@ -38,7 +44,7 @@ div.postActionContainer{
 div.postImageContainer{
   width: 100%;
   height: auto;  
-  max-height: 40vh;
+  max-height: 30vh;
   border-radius: 0 30px 30px 0;
   overflow: hidden;  
 }
@@ -46,4 +52,37 @@ div.postImageContainer{
 div.postImageContainer img{
   width: 100%;
   object-fit: contain;
+}
+
+
+div.postSaveActionContainer{
+  position: absolute;
+  right: 10px;    
+  margin-top: -20px;
+  z-index: 2; 
+}
+
+div.postSaveAction{
+  width: 40px;
+  height: 40px;
+  background: #212427;
+  border-radius:50%;  
+  text-align: center;
+  padding-top: 10px;
+  display: inline-block;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+div.postSaveAction:last-child{
+  margin-right: 0px;
+}
+
+div.postSaveAction ion-icon{
+  color: #FFFFFF;
+  font-size: 22px;  
+}
+
+div.postSaveAction ion-icon.active{
+  color: var(--pink);  
 }

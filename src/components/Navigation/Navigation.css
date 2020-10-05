@@ -4,3 +4,28 @@ ion-tab-bar.navigation{
   height: 60px;
   box-shadow: 0px 6px 13px 2px #333;  
 } 
+
+ion-tab-bar ion-tab-button{
+  --color-selected: var(--pink)
+}
+
+ion-chip.tabNavigationProfileAvatar{
+  margin: 0;
+  padding: 0;
+}
+
+ion-chip.tabNavigationProfileAvatar ion-avatar{
+  padding: 0px;
+  margin: 0;
+  width: 28px;
+  height: 28px;  
+}
+
+ion-chip.tabNavigationProfileAvatar ion-avatar.hasStories{
+  border: 2px solid var(--pink);
+  padding: 1px;
+}
+
+ion-icon.createTrigger{
+  font-size:38px;
+}

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {IonItem, IonInput, IonButton, IonIcon, IonPage, IonContent} from '@ionic/react'
 
 import { arrowForwardOutline } from 'ionicons/icons'
@@ -6,14 +6,17 @@ import '../SplashScreen/Splash.css'
 
 import '../../components/SocialLogin'
 import SocialLogin from '../../components/SocialLogin'
+import { UserContext } from '../../contexts/UserContext'
 
 const Login = () => {
 
   const [ loginDetails, setLoginDetails ] = useState({
-    username: null,
-    password: null,
-    email: null
+    // username: null,
+    password: null,   
+    email: null, 
   })
+
+  const { authenticateUser, thisUser } = useContext(UserContext);
 
   const updateField = e => {
     setLoginDetails({
@@ -22,8 +25,11 @@ const Login = () => {
     })
   }
 
-  const handleLogin = e => {
-    console.log(loginDetails)
+  const handleLogin = async e => {
+    let logged_in = await authenticateUser(loginDetails);
+    if(logged_in){
+      console.log(thisUser);
+    }
   }
 
   return (
@@ -35,8 +41,11 @@ const Login = () => {
           <p>Write your travel stories</p>
         </div>
         <div className="loginContainer">
-          <IonItem className="loginElement">
+          {/* <IonItem className="loginElement">
             <IonInput type="text" name="username" placeholder="Username" onIonChange={updateField}></IonInput>
+          </IonItem> */}
+          <IonItem className="loginElement">
+            <IonInput type="email" name="email" placeholder="Email" onIonChange={updateField}></IonInput>
           </IonItem>
           <IonItem className="loginElement">
             <IonInput type="password" name="password" placeholder="Password" onIonChange={updateField}></IonInput>
