@@ -13,6 +13,8 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import SplashScreen from './pages/SplashScreen'
 import Profile from './pages/User/Profile'
+import UserInterests from './pages/User/Interests'
+import UserSelectFollowing from './pages/User/SelectFollowing'
 
 const Routes = () => (
   <Router>
@@ -23,6 +25,8 @@ const Routes = () => (
       <Route path="/new" component={NewPost} exact={true} />
       <Route path="/search" component={Search} />        
       <Route path="/profile" component={Profile} />
+      <Route path="/interests" component={UserInterests} />
+      <Route path="/select-following" component={UserSelectFollowing} />
       <Route path="/" component={SplashScreen} exact={true} />
     </Switch>
   </Router>

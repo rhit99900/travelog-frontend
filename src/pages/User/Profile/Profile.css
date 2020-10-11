@@ -1,3 +1,9 @@
+div.profileContainer{
+  width:100%;
+  max-width: 1024px;
+  margin:auto;
+}
+
 div.profileImage{  
   max-height: 50vh;
   overflow: hidden;  
@@ -26,6 +32,11 @@ ion-button.followButton{
   left:50%;
   transform: translate(-50%,-50px);
   font-size:12px;
+}
+
+ion-button.followButton.following{
+  --background: #EEE;
+  color: #FE346E
 }
 
 ion-card-content.profileInfo{
@@ -112,4 +123,24 @@ div.profileHighlightsImage.viewed{
 
 div.profileHighlightsImage img{
   width:100%;
+}
+
+@media (max-width:500px){
+  div.profileContainer ion-col{
+    padding: 0px;
+  }
+}
+
+
+@media (min-width: 500px){
+  div.profileImage{
+    width:300px;
+    height:300px;
+    margin:auto
+  }
+
+  div.profileContainer{
+    background: #FAFAFA;
+  }  
+
 }

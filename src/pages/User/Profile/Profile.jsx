@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { IonContent, IonPage, IonCard, IonCardContent, IonButton, IonInput, IonItem, IonIcon, IonText } from '@ionic/react'
+import { IonContent, IonPage, IonCard, IonCardContent, IonButton, IonRow, IonCol, IonInput, IonItem, IonIcon, IonText } from '@ionic/react'
 import { arrowForwardOutline } from 'ionicons/icons'
 import { useHistory } from 'react-router-dom'
 
@@ -15,18 +15,24 @@ const Profile = (user) => {
     <IonPage>
       <IonContent className="light">
         <div className="profileContainer">
-          <IonCard className="profile">
-            <div class="profileImage">
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"/>
-            </div>            
-            <IonButton className="secondaryButton followButton">Follow</IonButton>
+        <IonRow>
+          <IonCol size-xs="12" size-md="6">
+            <IonCard className="profile">
+              <div class="profileImage">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"/>
+              </div>
+              <IonButton className="secondaryButton followButton following">Follow</IonButton>
+            </IonCard>
+          </IonCol>
+          <IonCol>
             <IonCardContent className="profileInfo">
               <h1>User Name</h1>
               <p>Lorem Ipsum Bio, Avid Traveller, Insane Human and other adjectives that may attract people to this profile</p>
               <ProfileStats />
-              <ProfileHighlights />                 
+              <ProfileHighlights />
             </IonCardContent>
-          </IonCard>
+          </IonCol>          
+        </IonRow>
         </div>
       </IonContent>
     </IonPage> 
