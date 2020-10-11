@@ -12,15 +12,19 @@ import Search from './pages/Search'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import SplashScreen from './pages/SplashScreen'
+import Profile from './pages/User/Profile'
 
 const Routes = () => (
   <Router>
-    <Route path="/register" component={Register} exact={true} />
-    <Route path="/login" component={Login} exact={true} />
-    <Route path="/explore" component={Explore} exact={true} />    
-    <Route path="/new" component={NewPost} exact={true} />
-    <Route path="/search" component={Search} />        
-    <Route path="/" component={SplashScreen} exact={true} ></Route>      
+    <Switch>
+      <Route path="/register" component={Register} exact={true} />
+      <Route path="/login" component={Login} exact={true} />
+      <Route path="/explore" component={Explore} exact={true} />    
+      <Route path="/new" component={NewPost} exact={true} />
+      <Route path="/search" component={Search} />        
+      <Route path="/profile" component={Profile} />
+      <Route path="/" component={SplashScreen} exact={true} />
+    </Switch>
   </Router>
 )
 

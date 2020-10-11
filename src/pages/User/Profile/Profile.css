@@ -1,0 +1,115 @@
+div.profileImage{  
+  max-height: 50vh;
+  overflow: hidden;  
+  border-radius: 0 0 20px 20px;
+}
+
+ion-card.profile{
+  padding: 0px;
+  margin: 0;  
+  border-radius: 0;
+  box-shadow: 0 0 0 #000;  
+}
+
+ion-button.secondaryButton{
+  --background: #FE346E;
+}
+
+ion-button.followButton{
+  width:30%;
+  max-width: 150px;
+  --border-radius: 24px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif; 
+  height: 28px;
+  position: absolute;
+  left:50%;
+  transform: translate(-50%,-50px);
+  font-size:12px;
+}
+
+ion-card-content.profileInfo{
+  text-align: center;
+}
+
+.profileInfo h1{
+  font-size:25px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #001D2C;  
+}
+
+.profileInfo p{
+  font-size:10px;
+  font-family: 'Montserrat', sans-serif;
+  color: #001D2C;
+  line-height: 13px;
+}
+
+div.profileInfoStats{
+  margin-top:25px;
+}
+
+.profileInfoStats .statsNumber h1{
+  font-size:29px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.profileInfoStats .statsNumber p{
+  font-size:11px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.profileInfoStats .statsNumber:first-child{
+  border-right: thin solid #000;
+}
+
+div.profileHighlightsContainer{
+  width: 100%;
+  margin-top:20px; 
+  align-content: initial;
+}
+
+div.profileHighlightsItem{  
+  display: inline-block;
+  margin-right: 12px;
+  vertical-align: top;   
+}
+
+div.profileHighlightsItem:last-child{
+  margin-right: 0px;
+}
+
+div.profileHighlightsImage{
+  width:45px;
+  height: 45px;
+  border-radius: 50%; 
+  overflow: hidden;   
+}
+
+div.profileHighlightsButton{
+  width:45px;
+  height: 45px;  
+  border-radius: 50%; 
+  overflow: hidden;
+  background: #FE346E;
+  color: #FFFFFF;
+  font-size: 17px; 
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;  
+  padding-top:11px;
+
+}
+
+div.profileHighlightsItem p{
+  font-size:9px;
+}
+
+div.profileHighlightsImage.viewed{
+  border: solid #FE346E 2px;      
+}
+
+div.profileHighlightsImage img{
+  width:100%;
+}

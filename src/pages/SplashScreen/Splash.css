@@ -2,8 +2,8 @@ ion-card.loginContainer, ion-card.loginContainer ion-card-content{
   --background: transparent;
 }
 
-ion-content.splash{
-  --background: url('/assets/graphics/splash-background.svg') #FFFFFF center;
+ion-content.splash{  
+  --background: url('/assets/graphics/splash-background.svg') #FFFFFF no-repeat center;
 }
 
 ion-item.loginElement{
@@ -36,7 +36,7 @@ ion-button.primaryButton{
 
 
 div.loginContainer{
-  width: 100%;
+  width: 100%;    
   position: absolute;
   bottom: 60px;
   padding: 10px 20px;
@@ -51,7 +51,7 @@ div.loginContainer{
 }
 
 .splashImageContainer{
-  width: 130%;
+  width: 130%;  
   margin-left: -15%;
   position: absolute;
   bottom: 130px;
@@ -97,4 +97,27 @@ div.loginContainer{
 .splashImageContainer img{
   width: 100%;
   margin-left: -40px;    
+}
+
+
+@media (min-width:500px){
+  div.splashImageContainer{
+    max-width:500px;
+    margin-left:0px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  div.loginImageContainer{
+    max-width:500px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  div.loginContainer{
+    max-width: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
