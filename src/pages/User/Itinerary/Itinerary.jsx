@@ -25,7 +25,7 @@ const Itinerary = () => {
     	<IonContent class="background" scroll="false">
     	<IonItem lines="none" class="ionItemNoBg">    
     	
-		 <IonIcon icon={arrowBackOutline} />
+		 <IonIcon icon={arrowBackOutline} class="arrowBack" />
 		 <IonBadge  class="buildingBadge" color="light">Building</IonBadge>
 		
 		 </IonItem>
