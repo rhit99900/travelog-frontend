@@ -86,7 +86,8 @@ div.itineraryHighlightsItem p{
   color: #fff; 
 }
 .itineraryInfo {
-   margin-top:55%;
+   margin-top:350px;
+   margin-left:20px;
 }
 .buildingBadge{
   padding:8px 40px 8px 40px;
@@ -102,3 +103,36 @@ div.itineraryHighlightsItem p{
 .arrowBack{
   color: #fff !important;
 }
+
+
+@media (min-height: 300px) {
+ .itineraryInfo {
+     margin-top:200px;     
+  }
+}
+
+
+@media (max-height: 900px){
+  .itineraryInfo {
+     margin-top:330px;     
+  }
+}
+
+
+@media (max-height: 800px){
+  .itineraryInfo {
+     margin-top:260px;     
+  }
+}
+
+@media (max-height: 700px){
+  .itineraryInfo {
+     margin-top:195px;     
+  }
+}
+
+
+
+
+
+

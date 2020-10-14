@@ -23,31 +23,31 @@ const Itinerary = () => {
   return (
     <IonPage>
     	<IonContent class="background" scroll="false">
-    	<IonItem lines="none" class="ionItemNoBg">    
+    	<IonItem lines="none" class="ionItemNoBg ion-margin-top">    
     	
 		 <IonIcon icon={arrowBackOutline} class="arrowBack" />
-		 <IonBadge  class="buildingBadge" color="light">Building</IonBadge>
+		 <IonBadge class="buildingBadge" color="light">Building</IonBadge>
 		
 		 </IonItem>
    		<IonItem lines="none" class="ionItemNoBg itineraryInfo">    
 		   <IonRow>
-			   <IonCol size="6">     
+			   <IonCol size="6" class="ion-padding-right">     
 				  <IonLabel>
 				    <h1>Paris, France</h1>    
 				    <h3><IonIcon slot="end" icon={personSharp} /> Richard Parker</h3>    
 				  </IonLabel>
 			  </IonCol>
-			  <IonCol size="4" class="ion-padding-top" >
+			  <IonCol size="4" class="ion-padding-top ion-padding-right" >
 			   	<IonButton shape="round">SAVE</IonButton>
 			  </IonCol>
-			  <IonCol size="1"   class="ion-padding-top" >
+			  <IonCol size="1"   class="ion-padding-top ion-padding-right" >
 			  <IonLabel>
 			  	<IonIcon slot="end" icon={personOutline} />
 			   <p class="smallTxt">1.4k</p>		 
 
 			  </IonLabel>
 			    </IonCol>
-			      <IonCol size="1" class="ion-padding-top" >
+			      <IonCol size="1" class="ion-padding-top ion-padding-right" >
 			   <IonLabel>
 			  	<IonIcon slot="end" icon={heartOutline} />
 			   <p class="smallTxt">1.4k</p>	 
