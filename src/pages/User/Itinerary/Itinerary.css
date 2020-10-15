@@ -1,0 +1,138 @@
+
+:root {
+  --ion-color-primary: #FE346E !important;
+
+}
+.background {   
+    --background: url('/assets/imgs/background.png') 0 0/100% 100% no-repeat;
+    --background-size: cover;
+}
+div.itineraryHighlightsContainer {
+  width: 100%;  
+  align-content: initial;
+   overflow:hidden;
+}
+
+
+div.itineraryHighlightsImage{
+  width:80px;
+  height:80px;
+   border-radius: 10px; 
+  overflow: hidden;   
+}
+
+div.itineraryHighlightsItem{  
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: bottom;   
+}
+
+div.itineraryHighlightsItem:last-child{
+  margin-right: 0px;
+}
+
+div.itineraryHighlightsImage.viewed{
+  border: solid #FFFFFF 1px;      
+}
+
+div.itineraryHighlightsImage img{
+  width:100%;
+}
+
+div.itineraryHighlightsContainer{
+  width: 100%;
+  align-content: initial;
+   overflow:hidden;
+}
+
+div.itineraryHighlightsButton{
+  width:80px;
+  height:80px;
+   border-radius: 10px; 
+  overflow: hidden;
+  background: #000000;
+  color: #FFFFFF;
+  font-size: 17px; 
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;  
+  padding-top: 30px;  
+}
+
+div.itineraryHighlightsItem p{
+  font-size:9px;
+}
+
+.pText {
+  font-style: "Montserrat, Light";
+  font-size: 10px;
+  line-height: 13px;
+  color: #030303;
+  text-align: left;
+}
+
+.moreBtn {
+  box-shadow: 3px 3px 6px #00000029;
+  border-radius: 24px;
+  opacity: 1;
+  text-align: left;
+  font: normal normal normal 20px/22px Montserrat;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+}
+
+.ionItemNoBg {
+   --background: none;
+  opacity:1;
+  color: #fff; 
+}
+.itineraryInfo {
+   margin-top:350px;
+   margin-left:20px;
+}
+.buildingBadge{
+  padding:8px 40px 8px 40px;
+  margin-left: 20%;
+  opacity: 0.5;
+  font-size: 20px;
+}
+.smallTxt {
+  color: #fff !important;
+  font-size:8px !important;
+}
+
+.arrowBack{
+  color: #fff !important;
+}
+
+
+@media (min-height: 300px) {
+ .itineraryInfo {
+     margin-top:200px;     
+  }
+}
+
+
+@media (max-height: 900px){
+  .itineraryInfo {
+     margin-top:330px;     
+  }
+}
+
+
+@media (max-height: 800px){
+  .itineraryInfo {
+     margin-top:260px;     
+  }
+}
+
+@media (max-height: 700px){
+  .itineraryInfo {
+     margin-top:195px;     
+  }
+}
+
+
+
+
+
+
