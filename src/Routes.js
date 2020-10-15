@@ -15,6 +15,7 @@ import SplashScreen from './pages/SplashScreen'
 import Profile from './pages/User/Profile'
 import UserInterests from './pages/User/Interests'
 import UserSelectFollowing from './pages/User/SelectFollowing'
+import Itinerary from './pages/User/Itinerary'
 
 const Routes = () => (
   <Router>
@@ -27,6 +28,7 @@ const Routes = () => (
       <Route path="/profile" component={Profile} />
       <Route path="/interests" component={UserInterests} />
       <Route path="/select-following" component={UserSelectFollowing} />
+      <Route path="/itinerary" component={Itinerary} />
       <Route path="/" component={SplashScreen} exact={true} />
     </Switch>
   </Router>
