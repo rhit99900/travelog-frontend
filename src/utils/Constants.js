@@ -40,3 +40,10 @@ export const USER_INTERESTS = [
     tags: []
   },
 ]
+
+
+export const GOOGLE_PHOTOS_CLIENT_ID = '656202371147-cbssnvv8ifb19b1vq9ss6mjfagbh5seg.apps.googleusercontent.com'
+export const GOOGLE_PHOTOS_CLIENT_SECRET = 'c_LyOUK7pgvv9ZCnBPF-6hZf'
+
+// https://developers.google.com/photos/library/guides/get-started
+// https://developers.google.com/identity/protocols/oauth2/javascript-implicit-flow
