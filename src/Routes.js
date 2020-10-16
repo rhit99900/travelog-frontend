@@ -16,6 +16,7 @@ import Profile from './pages/User/Profile'
 import UserInterests from './pages/User/Interests'
 import UserSelectFollowing from './pages/User/SelectFollowing'
 import Itinerary from './pages/User/Itinerary'
+import Gallery from './pages/User/Gallery'
 
 const Routes = () => (
   <Router>
@@ -30,6 +31,7 @@ const Routes = () => (
       <Route path="/select-following" component={UserSelectFollowing} />
       <Route path="/itinerary" component={Itinerary} />
       <Route path="/" component={SplashScreen} exact={true} />
+      <Route path="/gallery" component={Gallery} />
     </Switch>
   </Router>
 )
