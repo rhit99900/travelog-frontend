@@ -13,6 +13,9 @@ const API_ENDPOINTS = {
   },
   profiles:{
     url: api_base_url+'/profiles'
+  },
+  getGooglePhotos:{
+    url: 'https://photoslibrary.googleapis.com/v1/albums'
   }
 }
 

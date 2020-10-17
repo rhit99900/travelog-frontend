@@ -16,6 +16,7 @@ import Profile from './pages/User/Profile'
 import UserInterests from './pages/User/Interests'
 import UserSelectFollowing from './pages/User/SelectFollowing'
 import Itinerary from './pages/User/Itinerary'
+import GooglePhotos from './pages/GooglePhotos'
 
 const Routes = () => (
   <Router>
@@ -29,6 +30,8 @@ const Routes = () => (
       <Route path="/interests" component={UserInterests} />
       <Route path="/select-following" component={UserSelectFollowing} />
       <Route path="/itinerary" component={Itinerary} />
+      <Route path="/callback" component={Explore} />
+      <Route path="/photos" component={GooglePhotos} />
       <Route path="/" component={SplashScreen} exact={true} />
     </Switch>
   </Router>

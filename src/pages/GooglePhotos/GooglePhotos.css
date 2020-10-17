@@ -1,0 +1,9 @@
+ion-card.imageCard{
+  box-shadow: none;  
+}
+
+ion-card.imageCard .imageContainer{
+  width: 100%;
+  height: auto;  
+  transform: translateY(-20%);
+}
