@@ -4,14 +4,17 @@ const gapi = window.gapi
 let GoogleAuth;
 let isAuthenticated = false;
 
-gapi.load('client:auth2', () => {
-  gapi.auth2.init({
-    client_id: GOOGLE_PHOTOS.client_id
+
+if(gapi){
+  gapi.load('client:auth2', () => {
+    gapi.auth2.init({
+      client_id: GOOGLE_PHOTOS.client_id
+    })
+    GoogleAuth = gapi.auth2.getAuthInstance();
+    GoogleAuth.isSignedIn.listen(updateSigninStatus);
+    console.info('Google Photos APIs Loaded');
   })
-  GoogleAuth = gapi.auth2.getAuthInstance();
-  GoogleAuth.isSignedIn.listen(updateSigninStatus);
-  console.info('Google Photos APIs Loaded');
-})
+}
 
 const updateSigninStatus = (isSignedIn) => {
   console.log(isSignedIn);

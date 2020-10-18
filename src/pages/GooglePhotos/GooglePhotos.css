@@ -1,9 +1,33 @@
+ion-col.imageCardWrapper{
+  padding: 0px;
+}
+
 ion-card.imageCard{
-  box-shadow: none;  
+  box-shadow: none;
+  margin-inline-start: 2px; 
+  margin-inline-end: 2px;  
+}
+
+ion-card.imageCard p{
+  font-family: 'Montserrat',sans-serif;
+  color: #000000;
+  font-size:12px;
 }
 
 ion-card.imageCard .imageContainer{
   width: 100%;
-  height: auto;  
-  transform: translateY(-20%);
+  max-height: 150px;
+  overflow: hidden;
+}
+
+ion-segment.googlePhotoTab ion-segment-button{
+  --background: #FFFFFF;
+  --color: var(--pink);  
+  --background-checked: var(--pink);
+  --color-checked: #FFFFFF;
+}
+
+ion-segment.googlePhotoTab ion-segment-button ion-icon{
+  font-size: 15px;
+  margin-left: 10px;  
 }
