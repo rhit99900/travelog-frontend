@@ -1,0 +1,10 @@
+div.backButton{
+  position: absolute;
+  top: 40px;
+  left: 20px;  
+}
+
+div.backButton ion-icon{
+  color: var(--pink);
+  font-size: 20px;
+}

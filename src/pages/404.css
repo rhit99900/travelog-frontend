@@ -1,0 +1,15 @@
+.errorContainer { position: relative; }
+
+.errorContainer h3 { 
+  position: absolute; 
+  left: 50%; 
+  color: var(--pink); 
+  top: 50%; 
+  transform: translate(-50%, -50%); 
+  width: 100%; 
+  text-align: center; 
+}
+
+.errorContainer h3 ion-icon{
+  font-size: 30px;
+}

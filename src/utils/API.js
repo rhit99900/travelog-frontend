@@ -1,5 +1,5 @@
 // const api_base_url = process.env.API_BASE_URL
-const api_base_url = 'http://localhost:5000'
+const api_base_url = 'http://localhost:3000'
 
 const API_ENDPOINTS = {
   users: {

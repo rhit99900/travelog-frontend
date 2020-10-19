@@ -58,7 +58,7 @@ const authenticate = () => {
 }
 
 const loadPhotos = async (params) => {
-  return await gapi.client.photoslibrary.mediaItems.list(params);    
+  return await gapi.client.photoslibrary.mediaItems.list(params);
 }
 
 const loadAlbums = async (params) => {

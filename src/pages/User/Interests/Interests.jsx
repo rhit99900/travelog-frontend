@@ -5,17 +5,19 @@ import './Interests.css'
 import { arrowForwardOutline } from 'ionicons/icons'
 
 import {USER_INTERESTS} from '../../../utils/Constants'
+import { useHistory } from 'react-router'
 
 const UserInterests = () => {
 
   const interests = USER_INTERESTS;
+  const history = useHistory();
 
   const addInterest = (e) => {
     e.target.classList.add('active');
   }
 
   const submitInterest = () => {
-
+    history.push('/select-following')
   }
 
   return (

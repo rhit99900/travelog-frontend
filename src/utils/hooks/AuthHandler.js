@@ -5,11 +5,11 @@ import LocalStorage from '../LocalStorage'
 const useAuthHandler = () => {
 
   const setCurrentUser = (user) => {
-    LocalStorage.setItem('user', user);
+    LocalStorage.setItem('user', JSON.stringify(user));
   }
 
   const getCurrentUser = () => {
-    return LocalStorage.getItem('user');
+    return JSON.parse(LocalStorage.getItem('user'));
   }
 
   const unsetCurrentUser = () => {

@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 import '../SplashScreen/Splash.css'
 
 const Splash = () => {
-  let history = useHistory();
+  const history = useHistory();
 
   const handleNext = e => {    
     history.push('/register');

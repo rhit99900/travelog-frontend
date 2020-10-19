@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react'
 import { IonContent, IonPage, IonButton, IonInput, IonItem, IonIcon } from '@ionic/react'
-import { arrowForwardOutline } from 'ionicons/icons'
+import { arrowForwardOutline, reload } from 'ionicons/icons'
+import { useHistory } from 'react-router-dom'
 
 import SocialLogin from '../../components/SocialLogin'
 import { UserContext } from '../../contexts/UserContext'
-// import { AuthContext } from '../../contexts/AuthContext'
+import Loading from '../../components/Loading';
 
 import '../SplashScreen/Splash.css'
 
@@ -16,8 +17,8 @@ const Register = () => {
     email: null
   })
 
-  const { registerUser } = useContext(UserContext);  
-  // const { setCurrentUser } = useContext(AuthContext);
+  const { registerUser, loading, thisUser, getCurrentUser } = useContext(UserContext);  
+  const history = useHistory();
 
   const updateField = e => {
     setRegisterDetails({
@@ -28,7 +29,13 @@ const Register = () => {
 
   const handlerRegister = async () => {    
     let user = await registerUser(registerDetails);    
-    console.log(user);
+    if(user){
+      history.push('/interests');
+    }
+  }
+  
+  if(loading){
+    return (<Loading />)
   }
 
   return (
@@ -57,7 +64,7 @@ const Register = () => {
         </div>
       </IonContent>
     </IonPage>
-  )
+  )  
 }
 
 export default Register

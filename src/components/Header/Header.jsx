@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import {IonButton, IonButtons, IonHeader, IonIcon, IonTitle, IonToolbar} from '@ionic/react';
 
 import { menuOutline,  searchOutline} from 'ionicons/icons';
@@ -27,4 +27,4 @@ const Header = () => {
   )
 }
 
-export default Header;
+export default memo(Header);

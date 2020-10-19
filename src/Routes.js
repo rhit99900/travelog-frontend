@@ -18,13 +18,18 @@ import UserSelectFollowing from './pages/User/SelectFollowing'
 import Itinerary from './pages/User/Itinerary'
 import GooglePhotos from './pages/GooglePhotos'
 import Gallery from './pages/User/Gallery'
+import _404 from './pages/404'
+
+const PrivateRoute = ({path, component, exact}) => {
+  return (
+    <Route path={path} component={component} exact={exact} />
+  )
+}
 
 const Routes = () => (
   <Router>
-    <Switch>
-      <Route path="/register" component={Register} exact={true} />
-      <Route path="/login" component={Login} exact={true} />
-      <Route path="/explore" component={Explore} exact={true} />    
+    <Switch>      
+      <PrivateRoute path="/explore" component={Explore} exact={true} />    
       <Route path="/new" component={NewPost} exact={true} />
       <Route path="/search" component={Search} />        
       <Route path="/profile" component={Profile} />
@@ -32,9 +37,12 @@ const Routes = () => (
       <Route path="/select-following" component={UserSelectFollowing} />
       <Route path="/itinerary" component={Itinerary} />
       <Route path="/callback" component={Explore} />
-      <Route path="/import" component={GooglePhotos} />
-      <Route path="/" component={SplashScreen} exact={true} />
+      <Route path="/import" component={GooglePhotos} />      
       <Route path="/gallery" component={Gallery} />
+      <Route>
+        <_404 />
+      </Route>
+
     </Switch>
   </Router>
 )
