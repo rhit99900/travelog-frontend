@@ -11,13 +11,18 @@ import { IonContent,
 		 IonIcon,
 		 IonSegment,
 		 IonSegmentButton,
-		 IonItem, IonLabel, IonBadge,IonCardContent, IonCardHeader, IonCardSubtitle } from '@ionic/react';
+		 IonItem, 
+		 IonLabel, 
+		 IonBadge,
+		 IonCardContent, 
+		 IonCardHeader, 
+		 IonCardSubtitle } from '@ionic/react';
 
 import { arrowForwardSharp, personSharp, personOutline, heartOutline, arrowBackOutline} from 'ionicons/icons';
 
 import './Itinerary.css';
 
-import ItineraryHighlights from '../../../components/Itinerary/Highlights'
+import ItineraryHighlights from '../../components/Itinerary/Highlights'
 
 const Itinerary = () => {
   return (
