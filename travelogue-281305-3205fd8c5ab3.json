@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "travelogue-281305",
+  "private_key_id": "3205fd8c5ab3df8839980dcd7992a912e8be3f97",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDSdei6m34wzxbC\nA/mzqwVX2t+yuUvPisL72L21yGv4jh7qZ6A3vaoX8nm7XUseMpxa0JCgoB9+OZ3f\nqGZNKpKznIfD75ThBYE/CYmMy3v3gPl4oqr2m32QXRXvO7AhfInWXbYC26wj8Dej\nbN/Zek50pY02uOXfdMzHw9EahT4AV2MhiecUGjHxXgbNfqovpdByGm0t9B7io4e/\nxkMXCs3NenCThGsgb8+2Dbq/BcxJqD8j8ynLt+UWDHidzELOXIWDQCSUXwJ28EX0\nPcoIXCRdkYcHhVYMBfJT6Ws49fsAh2GzxLhFV4KBRQB+HEg/yUqFnBySOJS3t1Ad\nZbTgZdp3AgMBAAECggEAVMFAKppBDPXxA8wnDIh0e+d8i9ScZ6XJlTO5XpIqjSvq\n3lpCBwCeFcvD40UUYcJe/iGdBNrHJAWfAvmlzTC2aJfCgxEiQyZ84L5+AtHViByM\nGt1jfTGsNO2PzkqayTmGpuoRSQBfSA/O0EUhtsrO+qHLBz0Z8c3vRAmjVYtQJ0FO\nrq/x4xlhgEunFqCKex1cw9F/uARFYeopXMJxm24Wrw6yQACMYWTNjn9RhppGNmcj\nVHC1EabFj1fY27JH23wsWhr+wp4GEd6+qRh5lRac7R+LsQolmdXEqaxvKnp86s9+\nHDujffTWvfBl0eEQbbbB4B/S1nIvdoPkikMa5HpNUQKBgQD245CY3aDbI9VKMmht\nDixJjnwWiLcvzVHpgX2MANpdeglegj+GE1E5vjoz/HlajZIpxac4GbEQMTp/PET7\nZ3TTmJHVav3XhN/nXwGmAa6eKa33DWryTSgbtbp7CaNbJWbDTWPVaH3skSp41owy\nUq7wvrM9Zdte892pZbVhERPtZwKBgQDaOjHPgAAJxpA53sUyUGYOTiSnsP1FT+Fn\neD8jU78imwCoUHSAixLPkmNEM4I6N3Qjsu0oh4JtphpJ2rSsULnxZhKU2SVBbjjj\nx/fQay86k5Tyq7xYNnhkz8R0ySnrqUlH4E01RoZ2Q/7FiT4cO7A0qr/aHL4ShiRW\nrcJ72DtwcQKBgDghfNqEaPHpr7ByzXMd6cu/bU7iPmPL1ne0TQrrlrnx6PdnvXGK\nKslqCmmPWTfRQA3nNiF3Fd6MkrQiy7wsxU7mPSG8dYHuX8mGvCU19LFY4IhusIXu\nLNQ/+OnIQy+RzU9R5QS8AQUr6/AVN0KpscRiVvX6lml8IEVHLnmnHFS5AoGBAMlq\nPN8PfPmI00UWX1t46Tj61soPiTOX7qrZSS0J9rex6IFxAJZDxjDfI8+m2uNwmzj3\nw/xMVg1t6YWQ3oDMYVJ0q2HGqaQiX0+dGRS8WPLvk+IGr+ebHrOtL926bX6c2I4G\ncDxjw2cUiuk3KqRUUuXJUxm0vZnLRW7bIU283d+BAoGBAMpgDfE0xoO3jgmW2N12\nDXNDpkVNrjx8xx4EBMWO3I5YGq23Azd3f/1As0aaJCoyMFGhzQS7sg1vQloXEXKC\n9iCPjYC13RHIn+1Wnzwq5Z4Tzr4dNV5uspVP7MaI4rCjgPTjLxoK7g1Xh5jJVEKS\ng1x+5djr7bu3hkeWfIEUQ3y+\n-----END PRIVATE KEY-----\n",
+  "client_email": "media-bucket@travelogue-281305.iam.gserviceaccount.com",
+  "client_id": "107066140726397957892",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/media-bucket%40travelogue-281305.iam.gserviceaccount.com"
+}

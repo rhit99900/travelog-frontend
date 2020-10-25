@@ -8,6 +8,10 @@ body{
   font-family: 'Montserrat', sans-serif; 
 }
 
+.light{
+  --background: #FFFFFF;
+}
+
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
@@ -86,7 +90,8 @@ body{
   /* Custom Colors */
   --pink: #FE346E;
   --crimson: #C42606;
-  --light-teal: #2BA296
+  --light-teal: #2BA296;
+  --black: #212121;
 }
 
 @media (prefers-color-scheme: dark) {

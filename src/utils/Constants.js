@@ -64,3 +64,12 @@ export const GOOGLE_PHOTOS = {
   client_secret:'06qi_qXOLUKo4H8uq8HH6PNd',
   redirect_uris:['https://travelog.rohitsnair.xyz/travelog/', 'http://localhost:3000/callback']
 }
+
+export const IMAGE_FILTER = {
+  grayscale: {
+    r: 0.2126,
+    g: 0.7152,
+    b: 0.0722,
+  },
+  
+}

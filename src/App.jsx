@@ -25,15 +25,18 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import UserProvider from './contexts/UserContext'
+import StorageProvider from './contexts/StorageContext';
 
-const dotenvConfig = dotenv.config()
-console.log(dotenvConfig);
+// const dotenvConfig = dotenv.config()
+// console.log(dotenvConfig);
 
 const App = () => {
   return(
     <IonApp>
       <UserProvider>
-        <Navigation />
+        <StorageProvider>
+          <Navigation />
+        </StorageProvider>
       </UserProvider>
     </IonApp>
   )

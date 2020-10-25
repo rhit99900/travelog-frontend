@@ -6,12 +6,9 @@ import {
   Switch
 } from 'react-router-dom'
 
-import Explore from './pages/Explore'
+import Explore from './pages/Feed/Explore'
 import NewPost from './pages/NewPost'
 import Search from './pages/Search'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import SplashScreen from './pages/SplashScreen'
 import Profile from './pages/User/Profile'
 import UserInterests from './pages/User/Interests'
 import UserSelectFollowing from './pages/User/SelectFollowing'
@@ -38,7 +35,7 @@ const Routes = () => (
       <Route path="/itinerary" component={Itinerary} />
       <Route path="/callback" component={Explore} />
       <Route path="/import" component={GooglePhotos} />      
-      <Route path="/gallery" component={Gallery} />
+      <Route path="/gallery" component={Gallery} />      
       <Route>
         <_404 />
       </Route>
