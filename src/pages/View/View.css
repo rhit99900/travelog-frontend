@@ -170,3 +170,12 @@
     .itemContent {       
         top: 66% !important;
     }
+
+
+.swiper-slide {
+  width: calc(100% / N) !important;
+}
+
+.content {
+    margin-left: -27px;
+}

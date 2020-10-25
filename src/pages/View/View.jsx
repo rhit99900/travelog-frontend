@@ -33,19 +33,14 @@ import './View.css';
 const slideOpts = {
     initialSlide: 0,
     speed: 400,
-    spaceBetween: 5,
+    spaceBetween: 10,
+    slidesPerView: 1.1,
+    loop: true,
     pagination: {
         el: '.swiper-pagination',
         type: 'bullets',
         clickable: true
-    },
-    coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-    },
+    }
 };
 
 function next(slide, index) {
@@ -99,14 +94,14 @@ const View = () => {
 	
 	</IonHeader>	 
   
-        <IonSlides id="slides" className="IonSlides" clickable={true} pager={true} options={slideOpts}>
+        <IonSlides id="slides"  className="IonSlides" clickable={true} pager={true} options={slideOpts}>
        
   {[1,2,3,4].map((item, index) => (      
         <IonSlide>
          <div line="none" className="mainDiv" >
          	<p className="headerContent">
 	         	<span className="leftContent" slot="left">08:45 AM</span>
-	         	<span className="content text-right" slot="left">Notre Dam cathedral</span>	   
+	         	<span className="content" slot="left">Notre Dam cathedral</span>	   
 	         </p>      
        		<img height="100%" src="https://picsum.photos/536/354" className="slideImg"/>
          </div> 
