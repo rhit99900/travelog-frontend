@@ -15,10 +15,10 @@ import SplashScreen from './pages/SplashScreen'
 import Profile from './pages/User/Profile'
 import UserInterests from './pages/User/Interests'
 import UserSelectFollowing from './pages/User/SelectFollowing'
-import Itinerary from './pages/User/Itinerary'
-import View from './pages/User/View'
+import Itinerary from './pages/Itinerary'
+import View from './pages/View'
 import GooglePhotos from './pages/GooglePhotos'
-import Gallery from './pages/User/Gallery'
+import Gallery from './pages/Gallery'
 import _404 from './pages/404'
 
 const PrivateRoute = ({path, component, exact}) => {

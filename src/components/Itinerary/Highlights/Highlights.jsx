@@ -1,6 +1,6 @@
 import React from 'react'
 
-import '../../../pages/User/Itinerary/Itinerary.css'
+import '../../../pages/Itinerary/Itinerary.css'
 
 import HighlightItem from './HighlightItem'
 import HighlightMore from './HighlightMore'

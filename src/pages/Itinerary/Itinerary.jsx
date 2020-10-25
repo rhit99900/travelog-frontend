@@ -22,7 +22,7 @@ import { arrowForwardSharp, personSharp, personOutline, heartOutline, arrowBackO
 
 import './Itinerary.css';
 
-import ItineraryHighlights from '../../../components/Itinerary/Highlights'
+import ItineraryHighlights from '../../components/Itinerary/Highlights'
 
 const Itinerary = () => {
   return (

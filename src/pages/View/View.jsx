@@ -43,8 +43,8 @@ const View = () => {
 			<IonRow>
 		  		<IonCol size='8'>
 			         <IonLabel>
-			            <h1 class="placeHeader">Paris, France</h1>    
-			            <h3 class="placeSubHeader"><IonIcon slot="end" icon={personSharp} /> Richard Parker</h3>    
+			            <h1 class="header">Paris, France</h1>    
+			            <h3 class="subHeader"><IonIcon slot="end" icon={personSharp} /> Richard Parker</h3>    
 			          </IonLabel>
 	          	</IonCol>
 

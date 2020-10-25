@@ -10,9 +10,8 @@
         margin-top: 2.8rem;
     }
 
-    .swiper-slide img {
-        max-height: 50%;
-        max-width: 80%;
+    .swiper-slide img {    
+        max-width: 100%;
         margin: 60px 0 40px;
         pointer-events: none;
     }
@@ -55,19 +54,19 @@
         opacity: 0.5;
     }
 
-    h1.placeHeader {
-        color: var(--unnamed-color-001d2c);
+    h1.header {
+        color: var(--unnamed-color-001d2c) !important;
         text-align: left;
-        font: normal normal bold 20px/22px Montserrat !important;
+        font: normal normal bold 20px/0px Montserrat !important;
         letter-spacing: 0px;
         color: #001D2C;
         opacity: 1;
     }
 
-    h3.placeSubHeader {
+    h3.subHeader {
         color: var(--unnamed-color-001d2c);
         text-align: left;
-        font: normal normal 600 13px/22px Montserrat;
+        font: normal normal 600 13px/40px Montserrat;
         letter-spacing: 0px;
         color: #001D2C;
         opacity: 1;
