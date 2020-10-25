@@ -1,31 +1,51 @@
 import React from 'react';
-import { IonContent, 
-		 IonHeader, 
-		 IonPage, 
-		 IonTitle, 
-		 IonToolbar,
-		 IonGrid,
-		 IonRow,
-		 IonCol, 
+import {
+    IonContent,
+    IonHeader,
+    IonPage,
+    IonTitle,
+    IonToolbar,
+    IonGrid,
+    IonRow,
+    IonCol,
 
-		 IonButton,
-		 IonFooter,
-		 IonIcon,
-		 IonSegment,
-		 Event,
-		 IonSlides, IonSlide,
-		 IonItem, IonLabel, IonBadge,IonCardContent, IonCardHeader, IonCardSubtitle, IonThumbnail, IonImg } from '@ionic/react';
+    IonButton,
+    IonFooter,
+    IonIcon,
+    IonSegment,
+    Event,
+    IonSlides,
+    IonSlide,
+    IonItem,
+    IonLabel,
+    IonBadge,
+    IonCardContent,
+    IonCardHeader,
+    IonCardSubtitle,
+    IonThumbnail,
+    IonImg
+} from '@ionic/react';
 
-import { searchOutline, personSharp, chatboxOutline, heartOutline, heartSharp} from 'ionicons/icons';
+import { searchOutline, personSharp, chatboxOutline, heartOutline, heartSharp } from 'ionicons/icons';
 
 
 import './View.css';
 const slideOpts = {
-  initialSlide: 0,
-  speed: 400,
-   spaceBetween: 100,
-  grabCursor: true,
-   effect: 'fade'
+    initialSlide: 0,
+    speed: 400,
+    spaceBetween: 5,
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+    },
+    coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+    },
 };
 
 function next(slide, index) {
@@ -35,8 +55,8 @@ function next(slide, index) {
 
 
 const View = () => {
-  return (
-  <IonPage>
+    return (
+        <IonPage>
     <IonContent fullscreen class="ion-padding" scroll-y="false" className="light">
 	<IonHeader>
 		<IonGrid>
@@ -79,7 +99,7 @@ const View = () => {
 	
 	</IonHeader>	 
   
-        <IonSlides id="slides" className="IonSlides" pager={true} options={slideOpts}>
+        <IonSlides id="slides" className="IonSlides" clickable={true} pager={true} options={slideOpts}>
        
   {[1,2,3,4].map((item, index) => (      
         <IonSlide>
@@ -109,7 +129,7 @@ const View = () => {
     </IonContent>
   </IonPage>
 
-  );
+    );
 };
 
 export default View;
