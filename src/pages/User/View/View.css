@@ -99,25 +99,30 @@
         background: var(--unnamed-color-001d2c) 0% 0% no-repeat padding-box;
         background: #001D2C 0% 0% no-repeat padding-box;
         opacity: 1;
+         
     }
 
     .swiper-pagination-bullet-active {
         width: 30px;
         height: 30px;
-        transition: all .3s ease;
+        transition: all 0.4s ease;
     }
 
-    .slideImg {
-        border-radius: 3% !important;
+    .slideImg {       
+        top: 15px;
+        left: 0px;
+        position: absolute;
+        margin-top: 36px !important;       
+        border-radius: 5% !important;
         width: 100% !important;
-        height: 100%;
-        margin: 0px !important;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2) !important;
     }
 
     .mainDiv {
         background-color: #001D2C;
         border-radius: 3%;
-        height: 40%
+        margin-bottom:22%;
+       height: 35%;       
     }
 
     .headerContent {
@@ -136,7 +141,6 @@
         float: right;
     }
 
-   
     .contentDivCommentTxt {
         color: var(--unnamed-color-001d2c);
         text-align: right;
@@ -161,4 +165,8 @@
       font-family: 'Montserrat', sans-serif;  
       font-weight: bold;
       font-size: 12px;
+    }
+
+    .itemContent {       
+        top: 66% !important;
     }
