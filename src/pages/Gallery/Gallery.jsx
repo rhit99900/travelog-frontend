@@ -19,43 +19,43 @@ import { searchOutline, personSharp, chatboxOutline, heartOutline } from 'ionico
 
 const Gallery = () => {
     return (
-        <IonPage>
+        <IonPage id="galleryPage">
       <IonContent className="light">       
      <IonHeader>
     <IonGrid>
       <IonRow>
           <IonCol size='8'>
                <IonLabel>
-                  <h1 class="placeHeader">Paris, France</h1>    
-                  <h3 class="placeSubHeader"><IonIcon slot="end" icon={personSharp} /> Richard Parker</h3>    
+                  <h1 className="placeHeader">Paris, France</h1>    
+                  <h3 className="placeSubHeader"><IonIcon slot="end" icon={personSharp} /> Richard Parker</h3>    
                 </IonLabel>
               </IonCol>
 
-              <IonCol size="2">      
-                <IonLabel>    
-                   <span class="commentTxt">256</span>  <IonIcon class="smallIcons" slot="end" icon={chatboxOutline}> 98</IonIcon>             
+              <IonCol size="2" className="ion-margin-top">      
+                <IonLabel >    
+                   <span className="commentTxt">256</span>  <IonIcon className="smallIcons" slot="end" icon={chatboxOutline}> 98</IonIcon>             
                </IonLabel>
              </IonCol>
 
-             <IonCol size="2" >
+             <IonCol size="2" className="ion-margin-top">
                <IonLabel>
-                   <span class="commentTxt">576</span>  <IonIcon class="smallIcons" slot="end" icon={heartOutline}> 98</IonIcon>             
+                   <span className="commentTxt">576</span>  <IonIcon className="smallIcons" slot="end" icon={heartOutline}> 98</IonIcon>             
                 </IonLabel>
               </IonCol>
             </IonRow>
 
         <IonRow>
           <IonCol size='4'>
-            <IonLabel class="active">Photos</IonLabel>
+            <IonLabel className="active">Photos</IonLabel>
           </IonCol>
         <IonCol size='4'>
-             <IonLabel class="default">Places</IonLabel>
+             <IonLabel className="default">Places</IonLabel>
            </IonCol>
            <IonCol size='2'>
-             <IonLabel class="default">...</IonLabel>
+             <IonLabel className="default">...</IonLabel>
            </IonCol>
            <IonCol size="1">
-             <IonIcon class="searchIcon" icon={searchOutline} />
+             <IonIcon className="searchIcon" icon={searchOutline} />
            </IonCol>
            </IonRow>
        </IonGrid>

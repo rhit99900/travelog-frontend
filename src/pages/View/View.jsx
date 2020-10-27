@@ -51,43 +51,43 @@ function next(slide, index) {
 
 const View = () => {
     return (
-        <IonPage>
-    <IonContent fullscreen class="ion-padding" scroll-y="false" className="light">
+        <IonPage id="viewPage">
+    <IonContent fullscreen className="ion-padding" scroll-y="false" className="light">
 	<IonHeader>
 		<IonGrid>
 			<IonRow>
 		  		<IonCol size='8'>
 			         <IonLabel>
-			            <h1 class="header">Paris, France</h1>    
-			            <h3 class="subHeader"><IonIcon slot="end" icon={personSharp} /> Richard Parker</h3>    
+			            <h1 className="header">Paris, France</h1>    
+			            <h3 className="subHeader"><IonIcon slot="end" icon={personSharp} /> Richard Parker</h3>    
 			          </IonLabel>
 	          	</IonCol>
 
 	          	<IonCol size="2">      
 		          	<IonLabel>    
-		               <span class="commentTxt">256</span>  <IonIcon class="smallIcons" slot="end" icon={chatboxOutline}> 98</IonIcon>             
+		               <span className="commentTxt">256</span>  <IonIcon className="smallIcons" slot="end" icon={chatboxOutline}> 98</IonIcon>             
 		         	</IonLabel>
          		</IonCol>
 
 	         	<IonCol size="2" >
 		         	<IonLabel>
-		               <span class="commentTxt">576</span>  <IonIcon class="smallIcons" slot="end" icon={heartOutline}> 98</IonIcon>             
+		               <span className="commentTxt">576</span>  <IonIcon className="smallIcons" slot="end" icon={heartOutline}> 98</IonIcon>             
 		            </IonLabel>
 	            </IonCol>
           	</IonRow>
 
 	    	<IonRow>
 		  		<IonCol size='4'>
-	    			<IonLabel class="active">Photos</IonLabel>
+	    			<IonLabel className="active">Photos</IonLabel>
 	    		</IonCol>
 				<IonCol size='4'>
-	     			<IonLabel class="default">Places</IonLabel>
+	     			<IonLabel className="default">Places</IonLabel>
 	     		</IonCol>
 	     		<IonCol size='2'>
-	     			<IonLabel class="default">...</IonLabel>
+	     			<IonLabel className="default">...</IonLabel>
 	     		</IonCol>
 	     		<IonCol size="1">
-	     			<IonIcon class="searchIcon" icon={searchOutline} />
+	     			<IonIcon className="searchIcon" icon={searchOutline} />
 	     		</IonCol>
 	     		</IonRow>
 	     </IonGrid>

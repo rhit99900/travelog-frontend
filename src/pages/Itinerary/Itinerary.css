@@ -1,52 +1,52 @@
 :root {
     --ion-color-primary: #FE346E !important;
-
+      font-style: "Montserrat, Light" !important;
 }
 
-.background {
+#itineraryPage .background {
     --background: url('/assets/imgs/background.png') 0 0/100% 100% no-repeat;
     --background-size: cover;
 }
 
-div.itineraryHighlightsContainer {
+#itineraryPage div.itineraryHighlightsContainer {
     width: 100%;
     align-content: initial;
     overflow: hidden;
 }
 
 
-div.itineraryHighlightsImage {
+#itineraryPage div.itineraryHighlightsImage {
     width: 80px;
     height: 80px;
     border-radius: 10px;
     overflow: hidden;
 }
 
-div.itineraryHighlightsItem {
+#itineraryPage div.itineraryHighlightsItem {
     display: inline-block;
     margin-right: 5px;
     vertical-align: bottom;
 }
 
-div.itineraryHighlightsItem:last-child {
+#itineraryPage div.itineraryHighlightsItem:last-child {
     margin-right: 0px;
 }
 
-div.itineraryHighlightsImage.viewed {
+#itineraryPage div.itineraryHighlightsImage.viewed {
     border: solid #FFFFFF 1px;
 }
 
-div.itineraryHighlightsImage img {
+#itineraryPage div.itineraryHighlightsImage img {
     width: 100%;
 }
 
-div.itineraryHighlightsContainer {
+#itineraryPage div.itineraryHighlightsContainer {
     width: 100%;
     align-content: initial;
     overflow: hidden;
 }
 
-div.itineraryHighlightsButton {
+#itineraryPage div.itineraryHighlightsButton {
     width: 80px;
     height: 80px;
     border-radius: 10px;
@@ -59,19 +59,18 @@ div.itineraryHighlightsButton {
     padding-top: 30px;
 }
 
-div.itineraryHighlightsItem p {
+#itineraryPage div.itineraryHighlightsItem p {
     font-size: 9px;
 }
 
-.pText {
-    font-style: "Montserrat, Light";
+#itineraryPage .pText {  
     font-size: 10px;
     line-height: 13px;
     color: #030303;
     text-align: left;
 }
 
-.moreBtn {
+#itineraryPage .moreBtn {
     box-shadow: 3px 3px 6px #00000029;
     border-radius: 24px;
     opacity: 1;
@@ -81,56 +80,56 @@ div.itineraryHighlightsItem p {
     color: #FFFFFF;
 }
 
-.ionItemNoBg {
+#itineraryPage .ionItemNoBg {
     --background: none;
     opacity: 1;
     color: #fff;
 }
 
-.itineraryInfo {
+#itineraryPage .itineraryInfo {
     margin-top: 350px;
     margin-left: 20px;
 }
 
-.buildingBadge {
+#itineraryPage .buildingBadge {
     padding: 8px 40px 8px 40px;
     margin-left: 20%;
     opacity: 0.5;
     font-size: 20px;
 }
 
-.smallTxt {
+#itineraryPage .smallTxt {
     color: #fff !important;
     font-size: 8px !important;
 }
 
-.arrowBack {
+#itineraryPage .arrowBack {
     color: #fff !important;
 }
 
 
 @media (min-height: 300px) {
-    .itineraryInfo {
+    #itineraryPage .itineraryInfo {
         margin-top: 200px;
     }
 }
 
 
 @media (max-height: 900px) {
-    .itineraryInfo {
+    #itineraryPage .itineraryInfo {
         margin-top: 330px;
     }
 }
 
 
 @media (max-height: 800px) {
-    .itineraryInfo {
+    #itineraryPage .itineraryInfo {
         margin-top: 260px;
     }
 }
 
 @media (max-height: 700px) {
-    .itineraryInfo {
+    #itineraryPage .itineraryInfo {
         margin-top: 195px;
     }
 }
