@@ -125,6 +125,6 @@ height: 24px;
     margin-left: -23%;
     transform: matrix(1, -0.02, 0.02, 1, 0, 0);
     max-width: 17% !important;
-max-height: 24% !important;
+    max-height: 24% !important;
     /*background: transparent url('img/gps.png') 0% 0% no-repeat padding-box;*/
 }
