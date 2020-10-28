@@ -19,6 +19,7 @@ import Itinerary from './pages/Itinerary'
 import View from './pages/View'
 import GooglePhotos from './pages/GooglePhotos'
 import Gallery from './pages/Gallery'
+import SubGallery from './pages/SubGallery'
 import _404 from './pages/404'
 
 const PrivateRoute = ({path, component, exact}) => {
@@ -41,6 +42,7 @@ const Routes = () => (
       <Route path="/callback" component={Explore} />
       <Route path="/import" component={GooglePhotos} />      
       <Route path="/gallery" component={Gallery} />
+      <Route path="/subgallery" component={SubGallery} />
       <Route>
         <_404 />
       </Route>
