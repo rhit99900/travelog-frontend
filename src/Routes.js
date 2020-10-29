@@ -38,7 +38,7 @@ const Routes = () => (
       <Route path="/interests" component={UserInterests} />
       <Route path="/select-following" component={UserSelectFollowing} />
       <Route path="/itinerary" component={Itinerary} />
-     <Route path="/view" component={View} />
+      <Route path="/view" component={View} />
       <Route path="/callback" component={Explore} />
       <Route path="/import" component={GooglePhotos} />      
       <Route path="/gallery" component={Gallery} />

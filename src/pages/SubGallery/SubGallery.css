@@ -87,23 +87,13 @@
 
 #subGalleryPage .slideBoxCol {
    left:5%;
+   width: 100%;
 }
 
 #subGalleryPage .verticalGalleryItem {
     margin-top:30%;
 }
 
-#subGalleryPage .slideBoxCol>p {
-    
-top: 0px;
-left: 0px;
-width: 17px;
-height: 24px;
-
-
- --background: url('https://www.freepngimg.com/download/symbol/62766-map-symbol-computer-location-icons-free-download-png-hd.png') 10 10/100% 100% no-repeat;opacity: 1;
-
-}
 
 #subGalleryPage .galleryGrid:after {
     content:"";
@@ -115,16 +105,58 @@ height: 24px;
     margin-bottom:30%;
     border: 2px dashed #CF2B59;
     --background: transparent url('https://www.freepngimg.com/download/symbol/62766-map-symbol-computer-location-icons-free-download-png-hd.png') 0% 0% no-repeat padding-box;
-
     opacity: 1;
+    margin-left:2px;
 }
 
-.myImage {
-  margin-top: 97%;
+#subGalleryPage .gpsImgTag {
+    margin-top: 80%;
     position: absolute;
-    margin-left: -23%;
-    transform: matrix(1, -0.02, 0.02, 1, 0, 0);
-    max-width: 17% !important;
-    max-height: 24% !important;
-    /*background: transparent url('img/gps.png') 0% 0% no-repeat padding-box;*/
+    margin-left: -26px;
+    background-color: #fff;
+    padding-top: 5px;
+    padding-bottom: 6px;
+}
+
+div.roundIcon {
+    width: 28px;
+    height: 28px;
+    background: #CF2B59;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 8px;
+    display: inline-block;
+    margin-top: -26px !important;
+    cursor: pointer;
+    color: #fff;
+    font-size: 12px;
+    opacity: 1;
+    position: absolute;
+    left: 260%;
+}
+
+.imgCaption {
+    width: 175px;
+    height: 24px;
+    text-align: left;
+    font: normal normal 600 25px/17px Montserrat;
+    letter-spacing: 0px;
+    color: #F5F5F5 !important;
+    opacity: 1;
+    position: absolute;
+    top: 75%;
+    left: 23%;
+    font-size: 20px !important;
+}
+
+@media (max-width:350px) {
+    #subGalleryPage .gpsImgTag {        
+        margin-left: -24px;       
+    }
+}
+
+@media (min-width:400px) {
+    #subGalleryPage .gpsImgTag {        
+        margin-left: -28px;       
+    }
 }

@@ -15,7 +15,7 @@ import {
     IonHeader
 } from '@ionic/react'
 import './SubGallery.css'
-import { searchOutline, personSharp, chatboxOutline, heartOutline } from 'ionicons/icons'
+import { searchOutline, personSharp, chatboxOutline, heartOutline, returnDownForward } from 'ionicons/icons'
 
 const SubGallery = () => {
     return (
@@ -68,8 +68,12 @@ const SubGallery = () => {
               {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18].map((item, index) => (      
                <IonRow>    
               <IonCol key={index}  size="4" className="slideBoxCol">
-                    <img className="myImage" src="/assets/gps.svg"/>
+                    <img className="gpsImgTag" src="/assets/gps.svg"/>
                <img className="imageTag" src="https://picsum.photos/536/354"/>
+               <IonLabel className="imgCaption">Le Grenier Pain</IonLabel>
+                   <div className="roundIcon">
+         {index} 
+        </div>
               </IonCol>  
                   </IonRow>           
                 ))}         
