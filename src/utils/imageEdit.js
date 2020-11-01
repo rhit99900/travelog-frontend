@@ -54,7 +54,7 @@ class Filters{
         sourceHeight = image.height,
         w = sourceWidth,
         h = sourceHeight,
-        output = this.createImageData(w,h)
+        output = this.createImageData(w,h),
         dst = output.data,
         alphaFac = opaque ? 1 : 0
 
@@ -184,7 +184,7 @@ class Filters{
 
   Revert = (filter) => {
     switch (filter) {
-      case value:
+      case 'something':
         
         break;
     

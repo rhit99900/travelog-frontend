@@ -10,31 +10,21 @@ var canvas, context;
 
 const Editor = ({image}) => {
 
-  // const [ scale, setScale ] = useState(1);
   const [ rotate, setRotate ] = useState(0);
   
   const [ img, setImg ] = useState();
   const [ editedMedia, setEditedMedia ] = useState(null);
 
+  // Initialising Filter Object from Filter Class 
   const FilterObj = new Filters
   const { HorizontalFlip, VerticalFlip, Luminance, Grayscale, Sepia } = FilterObj;
   
   const { uploadItem } = useContext(StorageContext)
 
 
-  // const dataURLtoBlob = (dataURL, imageType) => {
-  //   const binary = atob(dataURL.split(',')[1]);
-  //   const array = [];
-  //   let i = 0;
-  //   while (i < binary.length) {
-  //     array.push(binary.charCodeAt(i));
-  //     i += 1;
-  //   }
-  //   return new Blob([new Uint8Array(array)], { type: imageType });
-  // };
-
   const saveImage = async (e) => {        
-    const rawImage = canvas.toDataURL('image/jpeg', 1);
+    const rawImage = canvas.toDataURL('image/jpeg', 0.3);
+    console.log(rawImage);
     const imageType = `image/${rawImage.split(';')[0].split('/')[1]}`;
       
     let image = await uploadItem({
@@ -49,7 +39,7 @@ const Editor = ({image}) => {
     let img = new Image()
     img.src = path
     img.crossOrigin = "anonymous"
-    setImg(img);
+    setImg(img);    
     return img;  
   }
 
@@ -59,13 +49,13 @@ const Editor = ({image}) => {
         draw(img);
       },50)
       return; 
-    }
+    }          
 
-    console.log(img.naturalWidth, img.naturalHeight);
-    console.log(canvas.width, canvas.height);
-
+    canvas.height = img.naturalHeight;
+    canvas.width = img.naturalWidth;
     context.drawImage(img, 0, 0, canvas.width, img.naturalHeight * canvas.width / img.naturalWidth);        
   }
+  
 
   const resize = (img) => {
 
@@ -127,11 +117,12 @@ const Editor = ({image}) => {
   }
   
   const buildCanvas = () => {
-    canvas = document.getElementById('canvas')
+    canvas = document.getElementById('canvas')    
     context = canvas.getContext('2d')
     // Load image from url or Path Name;
     const img = loadImage(image);
-    draw(img)
+    console.log(img.naturalWidth);
+    draw(img);
   }
 
   useEffect(() => {        

@@ -4,8 +4,9 @@ ion-card.mediaWrapper{
 
 ion-card.mediaWrapper canvas{
   width: 100% !important;
+  height: auto !important;
   /* height: calc(100% * 3 / 5) !important; */
-  height: 60vh !important;
+  /* height: 60vh !important; */
 }
 
 canvas#canvas{
