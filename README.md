@@ -21,3 +21,4 @@ This is the code repository for Travelog Frontend
 * [Canvas Filters](https://github.com/kig/canvasfilters/blob/master/filters.js)
 * [Canvas Filters Usage](https://github.com/kig/canvasfilters/blob/master/index.html)
 * [CamanJS Filter](https://github.com/meltingice/CamanJS-Plugins/)
+* [CamanJS Example](http://camanjs.com/examples/)
