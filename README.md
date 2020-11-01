@@ -15,3 +15,9 @@ This is the code repository for Travelog Frontend
 ### Ionic Framework Documentation
 
 [Ionic Framework](https://ionicframework.com/docs)
+
+
+### Image Filter Reference: 
+* [Canvas Filters](https://github.com/kig/canvasfilters/blob/master/filters.js)
+* [Canvas Filters Usage](https://github.com/kig/canvasfilters/blob/master/index.html)
+* [CamanJS Filter](https://github.com/meltingice/CamanJS-Plugins/)
