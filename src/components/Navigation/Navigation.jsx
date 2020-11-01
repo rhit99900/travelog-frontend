@@ -45,7 +45,9 @@ const RouterOutlet = () => (
 const InitialRoute = memo(({path, exact, component}) => {
   const { thisUser } = useContext(UserContext);      
 
-  if(thisUser && (path === '/' || path === '/login' || path === '/register')){
+  console.log(thisUser);
+
+  if(thisUser !== null && thisUser.length > 0 && (path === '/' || path === '/login' || path === '/register')){
     return <Redirect to='/explore' />
   }
   else{

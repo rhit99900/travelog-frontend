@@ -28,7 +28,7 @@ const BUCKET_NAME = 'travelog-media-storage'
 
 const downloadFile = async function(file){
   return new Promise((resolve, reject) => {
-    let request = https.get(file.url, function(response){        
+    const request = https.get(file.url, function(response){        
       if(response.statusCode === 200){
         var tempfile = fs.createWriteStream(destination + '/' + md5(file.url) + '.' + file.extension);
         response.pipe(tempfile);
@@ -41,6 +41,17 @@ const downloadFile = async function(file){
   })
 }
 
+const uploadFileFromData = async function(file){
+  return new Promise((resolve, reject) => {
+    let data = file.data.replace('data:image/jpeg;base64,','').replace(' ','+');    
+    let buffer = Buffer.from(data,'base64');    
+    var tempFile = fs.writeFile(destination + '/' + md5(file.data) + '.' + file.extension, buffer, 'base64', error => {
+      if(error) reject(error);      
+    })    
+    resolve(destination + '/' + md5(file.data) + '.' + file.extension);
+  })
+}
+
 const deleteTemp = function(file){
   try{
     fs.unlinkSync(file)
@@ -50,12 +61,11 @@ const deleteTemp = function(file){
 }
 
 app.post('/upload', urlencodedParser, async function(request, res){  
-  if(request.body.url){    
+  if(request.body.url){
     const file = request.body;
     let fileName = await downloadFile(file);
-    // console.log('FileName', fileName);
-    if(fileName){
-      // console.log(path.join(destination,fileName));
+    
+    if(fileName){      
       storage.bucket(BUCKET_NAME).upload(fileName, {
         destination: md5(file.url)+'.'+file.extension,
         contentType: file.mime,
@@ -71,6 +81,28 @@ app.post('/upload', urlencodedParser, async function(request, res){
           deleteTemp(fileName);
         }
       })          
+    }
+  }
+  else{    
+    const file = request.body;
+    let fileName = await uploadFileFromData(file);
+
+    if(fileName){
+      storage.bucket(BUCKET_NAME).upload(fileName, {
+        destination: md5(file.name)+'.'+file.extension,
+        contentType: file.mime,
+        metadata: {
+          sourceURL: 'HTML Canvas',
+        }
+      }, (err, file) => {
+        if(err !== null){
+          res.status(500).send(err);
+        }
+        else{          
+          res.status(200).send(file);
+          deleteTemp(fileName);
+        }
+      }) 
     }
   }
 });

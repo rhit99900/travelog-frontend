@@ -1,11 +1,11 @@
 ## Travelog Frontent
-This is the code repository of 
+This is the code repository for Travelog Frontend
 
-### Set up the Code
+### Project Setup
 
 * Clone the Repository
 * Run `npm install`
-* Run `npm run start` to start see the code output.
+* Run `npm run start-dev` to start see the code output.
 * Copy `.env-example` file to `.env` and add the respective API Path
 
 ### UI Development Documentation

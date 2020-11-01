@@ -25,12 +25,23 @@ const useHandler = () => {
   const [ loadedMedia, setLoadedMedia ] = useState();
 
   const uploadItem = async (media) => {    
-      
-    const mediaData = {
-      url: media.baseUrl,
-      name: media.name,
-      extension: media.mimeType.split('/')[1],
-      mime: media.mimeType,
+
+    let mediaData;
+    if(media.baseUrl){
+      mediaData = {
+        url: media.baseUrl,
+        name: media.name,
+        extension: media.mimeType.split('/')[1],
+        mime: media.mimeType,
+      }
+    }
+    else{
+      mediaData = {
+        data: media.data,
+        name: media.name,
+        extension: media.mimeType.split('/')[1],
+        mime: media.mimeType
+      }
     }
 
     const headers = { 

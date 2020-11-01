@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react'
 import API from '../utils/API'
 import useAuthHandler from '../utils/hooks/AuthHandler'
+import usePostHandler from '../utils/hooks/PostHandler'
 
 export const UserContext = createContext({
   thisUser: {},
@@ -11,6 +12,7 @@ export const UserContext = createContext({
   getCurrentUser: () => {}, 
   unsetCurrentUser: () => {},
   accessLevel: () => {},
+  createPost: () => {},
 });
 
 
@@ -32,6 +34,7 @@ const useHandler = () => {
   const [ loading, setLoading ] = useState(false);
 
   const { setCurrentUser, getCurrentUser, unsetCurrentUser, accessLevel } = useAuthHandler();
+  const { createPost }  = usePostHandler()
 
   let existsUser = getCurrentUser();
   
@@ -106,7 +109,8 @@ const useHandler = () => {
     setCurrentUser, 
     getCurrentUser, 
     unsetCurrentUser, 
-    accessLevel
+    accessLevel,
+    createPost
   }
 }
 

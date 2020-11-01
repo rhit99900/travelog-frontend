@@ -1,5 +1,10 @@
-import { IonButton, IonCol, IonInput, IonRow, IonGrid } from '@ionic/react';
-import React, { useEffect, useState } from 'react'
+import { IonButton, IonCol, IonInput, IonRow, IonGrid, IonIcon } from '@ionic/react';
+import React, { useEffect, useState, useContext } from 'react'
+import { StorageContext } from '../../contexts/StorageContext'
+
+import Filters from '../../utils/imageEdit'
+
+import path from 'path'
 
 var canvas, context;
 
@@ -7,38 +12,37 @@ const Editor = ({image}) => {
 
   // const [ scale, setScale ] = useState(1);
   const [ rotate, setRotate ] = useState(0);
-  // const [ width, setWidth ] = useState(280);
-  // const [ height, setHeight ] = useState(300);
-  // const [ editor, setEditor ] = useState(null);
+  
   const [ img, setImg ] = useState();
   const [ editedMedia, setEditedMedia ] = useState(null);
+
+  const FilterObj = new Filters
+  const { HorizontalFlip, VerticalFlip, Luminance, Grayscale, Sepia } = FilterObj;
   
-  // const [ canvas, setCanvas ] = useState();
-  // const [ context, setContext ] = useState();
+  const { uploadItem } = useContext(StorageContext)
 
-  // const setEditorRef = editorRef => {
-  //   if(editorRef) setEditor(editorRef);
-  // }
 
-  const dataURLtoBlob = (dataURL, imageType) => {
-    const binary = atob(dataURL.split(',')[1]);
-    const array = [];
-    let i = 0;
-    while (i < binary.length) {
-      array.push(binary.charCodeAt(i));
-      i += 1;
-    }
-    return new Blob([new Uint8Array(array)], { type: imageType });
-  };
+  // const dataURLtoBlob = (dataURL, imageType) => {
+  //   const binary = atob(dataURL.split(',')[1]);
+  //   const array = [];
+  //   let i = 0;
+  //   while (i < binary.length) {
+  //     array.push(binary.charCodeAt(i));
+  //     i += 1;
+  //   }
+  //   return new Blob([new Uint8Array(array)], { type: imageType });
+  // };
 
-  const saveImage = (e) => {
-    const rawImage = canvas.toDataURL('image/jpeg', 0.7);
-    // setEditedMedia(rawImage);    
+  const saveImage = async (e) => {        
+    const rawImage = canvas.toDataURL('image/jpeg', 1);
     const imageType = `image/${rawImage.split(';')[0].split('/')[1]}`;
-    const blob = (dataURLtoBlob(rawImage, imageType));
-  
-    const file = new File([blob], 'image', { type: imageType, lastModified: Date.now() });
-    console.log(file);
+      
+    let image = await uploadItem({
+      name: 'image',
+      mimeType: imageType,
+      data: rawImage,
+    });
+    console.log(image);
   }
 
   const loadImage = (path) => {
@@ -55,36 +59,31 @@ const Editor = ({image}) => {
         draw(img);
       },50)
       return; 
-    }      
+    }
 
     console.log(img.naturalWidth, img.naturalHeight);
+    console.log(canvas.width, canvas.height);
 
-    context.drawImage(img, 0, 0, canvas.width, img.naturalHeight * canvas.width / img.naturalWidth);    
-    context.save();
+    context.drawImage(img, 0, 0, canvas.width, img.naturalHeight * canvas.width / img.naturalWidth);        
   }
 
   const resize = (img) => {
 
   }
 
-  const addFilter = () => {
-    let imgData = context.getImageData(0, 0, canvas.width, canvas.height), 
-        pxData = imgData.data, 
-        length = pxData.length; 
-        for(var x = 0; x < length; x+=4) { 
-            //convert to grayscale 
-            var r = pxData[x], 
-                g = pxData[x + 1], 
-                b = pxData[x + 2], 
-            sepiaR = r * .393 + g * .769 + b * .189, 
-            sepiaG = r * .349 + g * .686 + b * .168, 
-            sepiaB = r * .272 + g * .534 + b * .131; 
-            pxData[x] = sepiaR; 
-            pxData[x + 1] = sepiaG; 
-            pxData[x + 2] = sepiaB;                              
-        } 
-                      
-    //paint sepia image back 
+  const addFilter = (type) => {
+    let imgData = context.getImageData(0, 0, canvas.width, canvas.height);
+
+    switch (type) {
+      case 'grayscale':
+        imgData = Grayscale(imgData);    
+        break;
+      case 'luminance':
+        imgData = Luminance(imgData);
+        break;
+      default:
+        break;
+    }      
     context.putImageData(imgData, 0, 0); 
   }
 
@@ -109,6 +108,22 @@ const Editor = ({image}) => {
     context.translate(config.x, config.y)
     context.rotate(config.r)
     draw(imageCopy)
+  }
+
+  const flip = (direction) => {
+    let imgData = context.getImageData(0, 0, canvas.width, canvas.height);
+
+    switch (direction) {
+      case 'horizontal':
+        imgData = HorizontalFlip(imgData)
+        break;
+      case 'vertical':
+        imgData = VerticalFlip(imgData)
+        break;
+      default:
+        break;
+    }
+    context.putImageData(imgData, 0, 0); 
   }
   
   const buildCanvas = () => {
@@ -144,10 +159,14 @@ const Editor = ({image}) => {
         <img src={editedMedia} />
       ): null}
       
-      <IonButton type="range" onClick={e => rotateImage(90)}>Rotate +90 </IonButton>
-      <IonButton type="range" onClick={e => rotateImage(-90)}>Rotate -90 </IonButton>
-      <IonButton type="range" onClick={e => addFilter()}>Sepia </IonButton>
-      <IonButton type="button" expand="block" onClick={saveImage}>Next</IonButton>
+      <IonButton className="imageEditorAction" onClick={e => rotateImage(-90)}><IonIcon src="/assets/icon/rotate-left.svg" /></IonButton>
+      <IonButton className="imageEditorAction" onClick={e => rotateImage(90)}><IonIcon src="/assets/icon/rotate-right.svg" /></IonButton>      
+      <IonButton className="imageEditorAction" onClick={e => addFilter('grayscale')}>Grayscale </IonButton>
+      <IonButton className="imageEditorAction" onClick={e => addFilter('luminance')}>Luminance </IonButton>
+      <IonButton className="imageEditorAction" onClick={e => flip('horizontal')}>Horizonal Flip </IonButton>
+      <IonButton className="imageEditorAction" onClick={e => flip('vertical')}>Vertical Flip </IonButton>
+      <IonButton className="imageEditorAction" onClick={e => rotateImage(90)}><IonIcon src="/assets/icon/resize.svg" /></IonButton>  
+      <IonButton className="imageEditorAction" type="button" expand="block" onClick={saveImage}>Next</IonButton>
     </>
   )
 }

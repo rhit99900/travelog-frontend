@@ -4,8 +4,8 @@
 }
 
 .background {
-    --background: url('/assets/imgs/background.png') 0 0/100% 100% no-repeat;
-    --background-size: cover;
+    --background: #FFFFFF url('/assets/imgs/background.png') 0 0/100% 100% no-repeat;
+    --background-size: contain;
 }
 
 div.itineraryHighlightsContainer {
@@ -133,4 +133,8 @@ div.itineraryHighlightsItem p {
     .itineraryInfo {
         margin-top: 195px;
     }
+}
+
+ion-footer.light, ion-footer.light ion-toolbar{
+    --background: #FFFFFF;
 }

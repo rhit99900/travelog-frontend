@@ -27,61 +27,53 @@ import ItineraryHighlights from '../../components/Itinerary/Highlights'
 const Itinerary = () => {
   return (
     <IonPage>
-    	<IonContent class="background" scroll="false">
-    	<IonItem lines="none" class="ionItemNoBg ion-margin-top">    
-    	
-		 <IonIcon icon={arrowBackOutline} class="arrowBack" />
-		 <IonBadge class="buildingBadge" color="light">Building</IonBadge>
-		
-		 </IonItem>
-   		<IonItem lines="none" class="ionItemNoBg itineraryInfo">    
-		   <IonRow>
-			   <IonCol size="6" class="ion-padding-right">     
-				  <IonLabel>
-				    <h1>Paris, France</h1>    
-				    <h3><IonIcon slot="end" icon={personSharp} /> Richard Parker</h3>    
-				  </IonLabel>
-			  </IonCol>
-			  <IonCol size="4" class="ion-padding-top ion-padding-right" >
-			   	<IonButton shape="round">SAVE</IonButton>
-			  </IonCol>
-			  <IonCol size="1"   class="ion-padding-top ion-padding-right" >
-			  <IonLabel>
-			  	<IonIcon slot="end" icon={personOutline} />
-			   <p class="smallTxt">1.4k</p>		 
-
-			  </IonLabel>
-			    </IonCol>
+    	<IonContent className="background" scroll="false">
+				<IonItem lines="none" class="ionItemNoBg ion-margin-top">
+					<IonIcon icon={arrowBackOutline} class="arrowBack" />
+					<IonBadge class="buildingBadge" color="light">Building</IonBadge>		
+				</IonItem>
+				<IonItem lines="none" class="ionItemNoBg itineraryInfo">    
+					<IonRow>
+						<IonCol size="6" class="ion-padding-right">     
+							<IonLabel>
+								<h1>Paris, France</h1>    
+								<h3><IonIcon slot="end" icon={personSharp} /> Richard Parker</h3>    
+							</IonLabel>
+						</IonCol>
+						<IonCol size="4" class="ion-padding-top ion-padding-right" >
+							<IonButton shape="round">SAVE</IonButton>
+						</IonCol>
+						<IonCol size="1"   class="ion-padding-top ion-padding-right" >
+							<IonLabel>
+								<IonIcon slot="end" icon={personOutline} />
+								<p class="smallTxt">1.4k</p>		 
+							</IonLabel>
+						</IonCol>
 			      <IonCol size="1" class="ion-padding-top ion-padding-right" >
-			   <IonLabel>
-			  	<IonIcon slot="end" icon={heartOutline} />
-			   <p class="smallTxt">1.4k</p>	 
-
-			  </IonLabel>
-
-			  </IonCol>
-		  </IonRow>
-		</IonItem>
-     
-       <ItineraryHighlights /> 
-    </IonContent>
-
-    <IonFooter className="ion-no-border">
-      <IonToolbar>
-      <IonRow>
-       <IonCol size="6">
-       		<img src="assets/imgs/Capture.PNG"/>
-        </IonCol>
-         <IonCol size="6">
-           <p class="pText">The best baguette in paris, there iterally is an award for that and it belongs to these guys! Must visit for breakfast. try their Almond and apricot bread, Chocolate tarts and Pain au chocolates. Probably the best way to begin your day in this beautiful city.</p>
-   			  <IonButton class="moreBtn"  shape="round"> 
- 				MORE               
-                <IonIcon slot="end" icon={arrowForwardSharp} />                
-              </IonButton>           
-         </IonCol>
-       </IonRow>
-      </IonToolbar>
-    </IonFooter>
+							<IonLabel>
+								<IonIcon slot="end" icon={heartOutline} />
+								<p class="smallTxt">1.4k</p>	 		
+							</IonLabel>
+						</IonCol>
+					</IonRow>
+				</IonItem>   
+				<ItineraryHighlights /> 
+			</IonContent>
+			<IonFooter className="ion-no-border light">
+				<IonToolbar>
+					<IonRow>
+						<IonCol size="3">
+							<img src="assets/imgs/Capture.PNG"/>
+						</IonCol>
+						<IonCol size="9">
+							<p class="pText">The best baguette in paris, there iterally is an award for that and it belongs to these guys! Must visit for breakfast. try their Almond and apricot bread, Chocolate tarts and Pain au chocolates. Probably the best way to begin your day in this beautiful city.</p>
+							<IonButton class="moreBtn" shape="round"> 
+								MORE <IonIcon slot="end" icon={arrowForwardSharp} />                
+							</IonButton>           
+						</IonCol>
+					</IonRow>
+				</IonToolbar>
+			</IonFooter>
     </IonPage>
   );
 };
