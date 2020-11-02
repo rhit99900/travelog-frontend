@@ -12,7 +12,7 @@ const { Storage } = require('@google-cloud/storage')
 
 // app.use(express.static(path.join(__dirname, 'build')));
 
-let jsonParser = bodyParser.json()
+let jsonParser = bodyParser.json({limit: '20mb'})
 let urlencodedParser = bodyParser.urlencoded({extended: false})
 
 app.use(bodyParser.urlencoded({extended: false}))

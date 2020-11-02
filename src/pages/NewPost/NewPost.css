@@ -64,3 +64,25 @@ ion-button.imageEditorAction{
   --padding-end: 5px;
   font-size: 14px;
 }
+
+div.imageFilterView{
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+div.imageFilterView img{
+  width: 100%;
+}
+
+div.imageFilterView.grayscale img{
+  filter: grayscale(1)
+}
+
+div.imageFilterView.invert img{
+  filter: invert(1)
+}

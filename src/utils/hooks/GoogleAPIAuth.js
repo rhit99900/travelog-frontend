@@ -1,23 +1,20 @@
-import {GOOGLE_PHOTOS_API_KEY, GOOGLE_PHOTOS} from '../Constants'
-
-const gapi = window.gapi
+import {GOOGLE_PHOTOS_API_KEY, GOOGLE_PHOTOS, GOOGLE_API} from '../Constants'
 let GoogleAuth;
 let isAuthenticated = false;
 
 
-if(gapi){
-  gapi.load('client:auth2', () => {
-    gapi.auth2.init({
+if(GOOGLE_API){
+  GOOGLE_API.load('client:auth2', () => {
+    GOOGLE_API.auth2.init({
       client_id: GOOGLE_PHOTOS.client_id
     })
-    GoogleAuth = gapi.auth2.getAuthInstance();
+    GoogleAuth = GOOGLE_API.auth2.getAuthInstance();
     GoogleAuth.isSignedIn.listen(updateSigninStatus);
     console.info('Google Photos APIs Loaded');
   })
 }
 
-const updateSigninStatus = (isSignedIn) => {
-  console.log(isSignedIn);
+const updateSigninStatus = (isSignedIn) => {  
   if(isSignedIn) {
     isAuthenticated = true;
   }
@@ -38,31 +35,31 @@ const authenticate = () => {
         console.log('Sign In Error');
       })
       .then(() => {
-        gapi.client.setApiKey(GOOGLE_PHOTOS_API_KEY);
-        return gapi.client.load('https://photoslibrary.googleapis.com/$discovery/rest?version=v1')
+        GOOGLE_API.client.setApiKey(GOOGLE_PHOTOS_API_KEY);
+        return GOOGLE_API.client.load('https://photoslibrary.googleapis.com/$discovery/rest?version=v1')
           .then(() => {
-            console.log("GAPI client loaded for API");
+            console.log("GOOGLE_API client loaded for API");
           }, (err) => {
-            console.error("Error loading GAPI client for API", err);
+            console.error("Error loading GOOGLE_API client for API", err);
           })
       })
   }
   else{
-    return gapi.client.load('https://photoslibrary.googleapis.com/$discovery/rest?version=v1')
+    return GOOGLE_API.client.load('https://photoslibrary.googleapis.com/$discovery/rest?version=v1')
       .then(() => {
-        console.log("GAPI client loaded for API");
+        console.log("GOOGLE_API client loaded for API");
       }, (err) => {
-        console.error("Error loading GAPI client for API", err);
+        console.error("Error loading GOOGLE_API client for API", err);
       })    
   }
 }
 
 const loadPhotos = async (params) => {
-  return await gapi.client.photoslibrary.mediaItems.list(params);
+  return await GOOGLE_API.client.photoslibrary.mediaItems.list(params);
 }
 
 const loadAlbums = async (params) => {
-  return await gapi.client.photoslibrary.albums.list(params);
+  return await GOOGLE_API.client.photoslibrary.albums.list(params);
 }
 
 export const listPhotos = async () => {

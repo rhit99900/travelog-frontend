@@ -5,6 +5,7 @@ class Filters{
   constructor(){
     this.tempCanvas = document.createElement('canvas')
     this.tempContext = this.tempCanvas.getContext('2d')
+
   }
 
   getArray = (len) => {
@@ -45,6 +46,46 @@ class Filters{
 
     return output;
   }
+
+  identityMatrix = () => {
+    let matrix = this.getUint8Array(256);
+    for(let i=0; i < matrix.length; i++){
+      matrix[i] = i
+    }
+    return matrix;
+  }
+
+  applyMatrix = (image, matrix) => {
+    let output = this.createImageData(image.width, image.height);
+    let d = image.data;
+    let dst = output.data;
+    let r = matrix.r;
+    let g = matrix.g;
+    let b = matrix.b;
+    let a = matrix.a;
+    for (let i=0; i<d.length; i+=4) {
+      dst[i] = r[d[i]];
+      dst[i+1] = g[d[i+1]];
+      dst[i+2] = b[d[i+2]];
+      dst[i+3] = a[d[i+3]];
+    }
+    return output;
+  }
+
+  brightnessContrastMatrix = (brightness, contrast) => {
+    let matrix = this.getUint8Array(256),
+        contrastAdjust = -128 * contrast + 128,
+        brightnessAdjust = 255 * brightness,
+        adjust = contrastAdjust + brightnessAdjust
+    
+    for(let i=0; i < matrix.length; i++){
+      let c = i * contrast + adjust
+      matrix[i] = c < 0 ? 0 : (c > 255 ? 255 : c)
+    }
+    return matrix;
+  }
+
+
 
   convolve = (image, weights, opaque) => {
     let side = Math.round(Math.sqrt(weights.length)),
@@ -125,6 +166,22 @@ class Filters{
     return output;
   }
 
+  Noise = (image, value) => {
+
+  }
+
+  Resize = (size) => {
+
+  }
+
+  Rotate = (canvas, degrees) => {
+    let width, height, x,y
+    let angle = degrees % 360
+    // if(angle === 0){      
+    // }
+    let to_radians = Math.PI/180      
+  }
+
   Luminance = (image) => {
     let output = this.createImageData(image.width, image.height)
     let dst = output.data,
@@ -142,19 +199,32 @@ class Filters{
     return output;
   }  
 
+  Invert = (image) => {
+    let output = this.createImageData(image.width, image.height);
+    let d = image.data;
+    let dst = output.data;
+    for (let i=0; i<d.length; i+=4) {
+      dst[i] = 255 - d[i];
+      dst[i + 1] = 255 - d[i+1];
+      dst[i + 2] = 255 - d[i+2];
+      dst[i + 3] = d[i + 3];
+    }
+    return output;
+  }
+
   Sepia = (image) => {
 
   }
   
-  Grayscale = (image, revert = false) => {
+  Grayscale = (image, value, revert = false) => {
     let d = image.data;
     for(let i = 0; i < d.length; i+=4){      
       let r = d[i];
-      let g = d[i+1];
-      let b = d[i+2];
+      let g = d[i + 1];
+      let b = d[i + 2];
 
-      let v = 0.2126 * r + 0.7512 * g + 0.0722 * b;
-      d[i] = d[i+1] = d[i+2] = v;
+      let v = 0.34 * r + 0.5 * g + 0.16 * b;
+      d[i] = d[i + 1] = d[i + 2] = v * (1-0.1);
     }
     return image;
   }
@@ -163,15 +233,10 @@ class Filters{
     let d = image.data;
 
   }
-  
-  Brighten = (image, adjustment, revert = false) => {
-    let d = image.data;
-    for(let i = 0; i < d.length; i+=4){
-      d[i] += adjustment
-      d[i+1] += adjustment
-      d[i+2] += adjustment      
-    }
-    return image;
+
+  BrightnessContrast = (image, brightness, contrast) => {
+    let matrix = this.brightnessContrastMatrix(brightness, contrast);
+    return this.applyMatrix(image, {r: matrix, g: matrix, b: matrix, a: this.identityMatrix()});
   }
 
   GaussianBlur = (image, diameter) => {

@@ -1,29 +1,30 @@
-import { IonButton, IonCol, IonInput, IonRow, IonGrid, IonIcon } from '@ionic/react';
+import { IonButton, IonCol, IonInput, IonRow, IonGrid, IonIcon, IonImg } from '@ionic/react';
 import React, { useEffect, useState, useContext } from 'react'
 import { StorageContext } from '../../contexts/StorageContext'
 
 import Filters from '../../utils/imageEdit'
-
-import path from 'path'
+import { ICON_URLS } from '../../utils/Constants'
 
 var canvas, context;
 
 const Editor = ({image}) => {
-
-  const [ rotate, setRotate ] = useState(0);
   
   const [ img, setImg ] = useState();
   const [ editedMedia, setEditedMedia ] = useState(null);
+  
+  const [ imageData, setImageData ] = useState();
+
+  const [ imageEditParams, setImageEditParams] = useState({})
 
   // Initialising Filter Object from Filter Class 
   const FilterObj = new Filters
-  const { HorizontalFlip, VerticalFlip, Luminance, Grayscale, Sepia } = FilterObj;
+  const { HorizontalFlip, VerticalFlip, Luminance, Grayscale, Invert, BrightnessContrast, Rotate } = FilterObj;
   
   const { uploadItem } = useContext(StorageContext)
 
 
   const saveImage = async (e) => {        
-    const rawImage = canvas.toDataURL('image/jpeg', 0.3);
+    const rawImage = canvas.toDataURL('image/jpeg', 1);
     console.log(rawImage);
     const imageType = `image/${rawImage.split(';')[0].split('/')[1]}`;
       
@@ -44,16 +45,9 @@ const Editor = ({image}) => {
   }
 
   const draw = (img) => {    
-    if(!img.complete){
-      setTimeout(() => {
-        draw(img);
-      },50)
-      return; 
-    }          
-
-    canvas.height = img.naturalHeight;
-    canvas.width = img.naturalWidth;
-    context.drawImage(img, 0, 0, canvas.width, img.naturalHeight * canvas.width / img.naturalWidth);        
+    img.addEventListener('load', () => { 
+      context.drawImage(img, 0, 0, canvas.width, img.naturalHeight * canvas.width / img.naturalWidth);        
+    })
   }
   
 
@@ -61,43 +55,56 @@ const Editor = ({image}) => {
 
   }
 
-  const addFilter = (type) => {
+  const addFilter = (type, value = 0) => {
     let imgData = context.getImageData(0, 0, canvas.width, canvas.height);
+
+    setImageEditParams({...imageEditParams, [type]:value});
 
     switch (type) {
       case 'grayscale':
-        imgData = Grayscale(imgData);    
+        imgData = Grayscale(imageData);    
         break;
       case 'luminance':
-        imgData = Luminance(imgData);
+        imgData = Luminance(imageData);
+        break;
+      case 'invert':
+        imgData = Invert(imageData);
+        break;
+      case 'brightness':
+        imgData = BrightnessContrast(imageData, value, imageEditParams[type] ? imageEditParams[type]: 0)
+        break;
+      case 'contrast':
+        imgData = BrightnessContrast(imageData, imageEditParams[type] ? imageEditParams[type]: 0, value)
         break;
       default:
         break;
-    }      
+    }
+    context.clearRect(0,0,canvas.width, canvas.height)      
     context.putImageData(imgData, 0, 0); 
   }
 
   const rotateImage = (deg) => {
 
-    let config = {
-      x: 0,
-      y: 0,
-      r: deg * Math.PI/180
-    }
+    // let config = {
+    //   x: 0,
+    //   y: 0,
+    //   r: deg * Math.PI/180
+    // }
 
-    if(deg > 0){
-      config.x = canvas.width;
-    }
-    else{
-      config.y = canvas.height;
-    }
+    // if(deg > 0){
+    //   config.x = canvas.width;
+    // }
+    // else{
+    //   config.y = canvas.height;
+    // }
 
-    let imageCopy = loadImage(canvas.toDataURL());
+    // let imageCopy = loadImage(canvas.toDataURL());
 
-    context.clearRect(0,0,canvas.width, canvas.height)
-    context.translate(config.x, config.y)
-    context.rotate(config.r)
-    draw(imageCopy)
+    // context.clearRect(0,0,canvas.width, canvas.height)
+    // context.translate(config.x, config.y)
+    // context.rotate(config.r)
+    // draw(imageCopy)
+    let newCanvas = Rotate(canvas, deg)
   }
 
   const flip = (direction) => {
@@ -113,6 +120,7 @@ const Editor = ({image}) => {
       default:
         break;
     }
+    context.clearRect(0,0,canvas.width, canvas.height)
     context.putImageData(imgData, 0, 0); 
   }
   
@@ -121,14 +129,20 @@ const Editor = ({image}) => {
     context = canvas.getContext('2d')
     // Load image from url or Path Name;
     const img = loadImage(image);
-    console.log(img.naturalWidth);
-    draw(img);
+    img.addEventListener('load',() => {
+      console.log('loaded');
+      canvas.height = img.naturalHeight;
+      canvas.width = img.naturalWidth;
+      context.drawImage(img, 0, 0, canvas.width, img.naturalHeight * canvas.width / img.naturalWidth); 
+      setImageData(context.getImageData(0, 0, canvas.width, canvas.height));
+    })    
   }
 
   useEffect(() => {        
     buildCanvas();
   },[])
   
+  console.log(imageEditParams)
 
   return (
     <>
@@ -137,27 +151,34 @@ const Editor = ({image}) => {
       </div>
       <canvas id="canvas" className="editorCanvas">
         Sorry, not supported on Browser.
-      </canvas>
-      <IonGrid>
-        <IonRow>
-          <IonCol size="3">Rotate</IonCol>
-          <IonCol size="3">Resize</IonCol>
-          <IonCol size="3">B/W</IonCol>
-          <IonCol size="3">Sepia</IonCol>
-        </IonRow>
-      </IonGrid>
+      </canvas>      
       {editedMedia !== null ? (
         <img src={editedMedia} />
       ): null}
       
       <IonButton className="imageEditorAction" onClick={e => rotateImage(-90)}><IonIcon src="/assets/icon/rotate-left.svg" /></IonButton>
-      <IonButton className="imageEditorAction" onClick={e => rotateImage(90)}><IonIcon src="/assets/icon/rotate-right.svg" /></IonButton>      
-      <IonButton className="imageEditorAction" onClick={e => addFilter('grayscale')}>Grayscale </IonButton>
+      <IonButton className="imageEditorAction" onClick={e => rotateImage(90)}><IonIcon src="/assets/icon/rotate-right.svg" /></IonButton>            
       <IonButton className="imageEditorAction" onClick={e => addFilter('luminance')}>Luminance </IonButton>
-      <IonButton className="imageEditorAction" onClick={e => flip('horizontal')}>Horizonal Flip </IonButton>
-      <IonButton className="imageEditorAction" onClick={e => flip('vertical')}>Vertical Flip </IonButton>
-      <IonButton className="imageEditorAction" onClick={e => rotateImage(90)}><IonIcon src="/assets/icon/resize.svg" /></IonButton>  
+      <IonButton className="imageEditorAction" onClick={e => flip('vertical')}><IonIcon src={ICON_URLS.flipVertical} /></IonButton>
+      <IonButton className="imageEditorAction" onClick={e => flip('horizontal')}><IonIcon src={ICON_URLS.flipHorizonatal} /></IonButton>
+      <IonButton className="imageEditorAction" onClick={e => rotateImage(90)}><IonIcon src={ICON_URLS.resize} /></IonButton>  
       <IonButton className="imageEditorAction" type="button" expand="block" onClick={saveImage}>Next</IonButton>
+
+      <IonInput type="range" step="1" min="-10" max="10" 
+        value={imageEditParams.brightness ? imageEditParams.brightness : 0 }
+        onIonChange={e => addFilter('brightness',e.target.value)} 
+      />
+      <IonInput type="range" step="1" min="-10" max="10" 
+        value={imageEditParams.contrast ? imageEditParams.contrast : 0 }
+        onIonChange={e => addFilter('contrast',e.target.value)} 
+      />
+
+      <div className="filterView">
+        <div onClick={e => addFilter('grayscale')} className="imageFilterView grayscale"><img src={image} /></div>
+        <div onClick={e => addFilter('invert')} className="imageFilterView invert"><img src={image} /></div>
+      </div>              
+      
+
     </>
   )
 }

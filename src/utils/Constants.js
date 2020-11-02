@@ -1,3 +1,5 @@
+export const GOOGLE_API = window.gapi
+
 export const USER_INTERESTS = [
   {
     name: 'Romantic',
@@ -72,4 +74,12 @@ export const IMAGE_FILTER = {
     b: 0.0722,
   },
   
+}
+
+export const ICON_URLS = {
+  facebook: '/assets/icon/facebook.svg',
+  flipHorizonatal: '/assets/icon/flip-horizontal.svg',
+  flipVertical: '/assets/icon/flip-vertical.svg',
+  googlePlus: '/assets/icon/google-plus.svg',
+  resize: '/assets/icon/resize.svg'
 }
