@@ -14,12 +14,12 @@ import {
     IonItem,
     IonHeader
 } from '@ionic/react'
-import './Gallery.css'
-import { searchOutline, personSharp, chatboxOutline, heartOutline } from 'ionicons/icons'
+import './SubGallery.css'
+import { searchOutline, personSharp, chatboxOutline, heartOutline, returnDownForward } from 'ionicons/icons'
 
-const Gallery = () => {
+const SubGallery = () => {
     return (
-        <IonPage id="galleryPage">
+        <IonPage id="subGalleryPage">
       <IonContent className="light">       
      <IonHeader>
     <IonGrid>
@@ -62,20 +62,29 @@ const Gallery = () => {
   
   </IonHeader>   
 
+      <IonItem className="verticalGalleryItem">
          <IonGrid className="galleryGrid">           
-            <IonRow>    
+           
               {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18].map((item, index) => (      
+               <IonRow>    
               <IonCol key={index}  size="4" className="slideBoxCol">
+                    <img className="gpsImgTag" src="/assets/gps.svg"/>
                <img className="imageTag" src="https://picsum.photos/536/354"/>
-              </IonCol>             
+               <IonLabel className="imgCaption">Le Grenier Pain</IonLabel>
+                   <div className="roundIcon">
+         {index} 
+        </div>
+              </IonCol>  
+                  </IonRow>           
                 ))}         
-            </IonRow>
+        
          
        </IonGrid>
+      </IonItem>
        
       </IonContent>
     </IonPage>
     )
 }
 
-export default Gallery;
+export default SubGallery;

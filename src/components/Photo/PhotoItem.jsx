@@ -24,7 +24,6 @@ const PhotoItem = ({photo}) => {
         <div className="imageContainer">
           <img src={photo.baseUrl} />
         </div>
-        <IonButton>{photo.filename}<IonIcon icon={addCircle} /></IonButton>
       </IonCard>
     </IonCol>
   )

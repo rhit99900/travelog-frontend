@@ -18,14 +18,26 @@ const Editor = ({image}) => {
 
   // Initialising Filter Object from Filter Class 
   const FilterObj = new Filters
-  const { HorizontalFlip, VerticalFlip, Luminance, Grayscale, Invert, BrightnessContrast, Rotate } = FilterObj;
+  const { 
+    HorizontalFlip, 
+    VerticalFlip, 
+    Luminance, 
+    Grayscale, 
+    Invert, 
+    BrightnessContrast, 
+    Rotate,
+    Brightness,
+    Saturation,
+    SinCity,
+    Lomo,
+    Vintage,
+  } = FilterObj;
   
   const { uploadItem } = useContext(StorageContext)
 
 
   const saveImage = async (e) => {        
-    const rawImage = canvas.toDataURL('image/jpeg', 1);
-    console.log(rawImage);
+    const rawImage = canvas.toDataURL('image/jpeg', 1);    
     const imageType = `image/${rawImage.split(';')[0].split('/')[1]}`;
       
     let image = await uploadItem({
@@ -56,9 +68,8 @@ const Editor = ({image}) => {
   }
 
   const addFilter = (type, value = 0) => {
-    let imgData = context.getImageData(0, 0, canvas.width, canvas.height);
-
-    setImageEditParams({...imageEditParams, [type]:value});
+    let imgData = context.getImageData(0, 0, canvas.width, canvas.height);    
+    setImageEditParams({...imageEditParams, [type]:value});    
 
     switch (type) {
       case 'grayscale':
@@ -71,14 +82,23 @@ const Editor = ({image}) => {
         imgData = Invert(imageData);
         break;
       case 'brightness':
-        imgData = BrightnessContrast(imageData, value, imageEditParams[type] ? imageEditParams[type]: 0)
+        imgData = Brightness(imageData, value)
         break;
-      case 'contrast':
-        imgData = BrightnessContrast(imageData, imageEditParams[type] ? imageEditParams[type]: 0, value)
+      case 'saturation': 
+        imgData = Saturation(imageData,value)
+        break;
+      case 'sincity':
+        imgData = SinCity(imageData)
+        break;            
+      case 'vintage': 
+        imgData = Vintage(imageData)
+        break;
+      case 'lomo':
+        imgData = Lomo(imageData)
         break;
       default:
         break;
-    }
+    }    
     context.clearRect(0,0,canvas.width, canvas.height)      
     context.putImageData(imgData, 0, 0); 
   }
@@ -139,11 +159,9 @@ const Editor = ({image}) => {
   }
 
   useEffect(() => {        
-    buildCanvas();
+    buildCanvas();    
   },[])
   
-  console.log(imageEditParams)
-
   return (
     <>
       <div id="resizer">
@@ -161,23 +179,17 @@ const Editor = ({image}) => {
       <IonButton className="imageEditorAction" onClick={e => addFilter('luminance')}>Luminance </IonButton>
       <IonButton className="imageEditorAction" onClick={e => flip('vertical')}><IonIcon src={ICON_URLS.flipVertical} /></IonButton>
       <IonButton className="imageEditorAction" onClick={e => flip('horizontal')}><IonIcon src={ICON_URLS.flipHorizonatal} /></IonButton>
-      <IonButton className="imageEditorAction" onClick={e => rotateImage(90)}><IonIcon src={ICON_URLS.resize} /></IonButton>  
-      <IonButton className="imageEditorAction" type="button" expand="block" onClick={saveImage}>Next</IonButton>
-
-      <IonInput type="range" step="1" min="-10" max="10" 
-        value={imageEditParams.brightness ? imageEditParams.brightness : 0 }
-        onIonChange={e => addFilter('brightness',e.target.value)} 
-      />
-      <IonInput type="range" step="1" min="-10" max="10" 
-        value={imageEditParams.contrast ? imageEditParams.contrast : 0 }
-        onIonChange={e => addFilter('contrast',e.target.value)} 
-      />
+      <IonButton className="imageEditorAction" onClick={e => rotateImage(90)}><IonIcon src={ICON_URLS.resize} /></IonButton>
 
       <div className="filterView">
         <div onClick={e => addFilter('grayscale')} className="imageFilterView grayscale"><img src={image} /></div>
-        <div onClick={e => addFilter('invert')} className="imageFilterView invert"><img src={image} /></div>
+        {/* <div onClick={e => addFilter('invert')} className="imageFilterView invert"><img src={image} /></div> */}
+        <div onClick={e => addFilter('vintage')} className="imageFilterView vintage"><img src={image} /></div>
+        <div onClick={e => addFilter('lomo')} className="imageFilterView lomo"><img src={image} /></div>
+        <div onClick={e => addFilter('sincity')} className="imageFilterView sincity"><img src={image} /></div>
       </div>              
-      
+
+      <IonButton className="imageEditorAction" type="button" expand="block" onClick={saveImage}>Next</IonButton>
 
     </>
   )

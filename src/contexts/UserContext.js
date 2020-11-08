@@ -13,16 +13,17 @@ export const UserContext = createContext({
   unsetCurrentUser: () => {},
   accessLevel: () => {},
   createPost: () => {},
+  getUsers: () => {},  
 });
 
 
 const { Provider } = UserContext
 
 const UserProvider = ({ children }) => {
-  const { thisUser, authenticateUser, registerUser, loading, setCurrentUser, getCurrentUser, unsetCurrentUser, accessLevel } = useHandler()  
+  const { thisUser, authenticateUser, registerUser, loading, setCurrentUser, getCurrentUser, unsetCurrentUser, accessLevel, getUsers } = useHandler()  
 
   return (
-    <Provider value={{ loading, thisUser, authenticateUser, registerUser, setCurrentUser, getCurrentUser, unsetCurrentUser, accessLevel }}>
+    <Provider value={{ loading, thisUser, authenticateUser, registerUser, setCurrentUser, getCurrentUser, unsetCurrentUser, accessLevel, getUsers }}>
       {children}
     </Provider>
   )
@@ -101,6 +102,10 @@ const useHandler = () => {
     }
   }
 
+  const getUsers = () => {
+
+  }
+
   return{
     thisUser,
     loading,
@@ -110,7 +115,8 @@ const useHandler = () => {
     getCurrentUser, 
     unsetCurrentUser, 
     accessLevel,
-    createPost
+    createPost,
+    getUsers
   }
 }
 

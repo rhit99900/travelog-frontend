@@ -35,8 +35,8 @@
     "typescript": "3.8.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "start-dev": "nodemon ./server.js & npm run start",
+    "start-dev": "react-scripts start",
+    "start": "nodemon ./server.js & npm run start-dev",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

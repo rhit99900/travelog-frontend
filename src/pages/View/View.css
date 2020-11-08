@@ -1,42 +1,31 @@
-    .IonSlides {
+    #viewPage .IonSlides {
         height: 100%;
     }
 
-    .swiper-slide {
+    #viewPage ion-content {
+        top: 5px;
+    }
+
+    #viewPage .swiper-slide {
         display: block;
     }
 
-    .swiper-slide h2 {
+    #viewPage .swiper-slide h2 {
         margin-top: 2.8rem;
     }
 
-    .swiper-slide img {    
+    #viewPage .swiper-slide img {
         max-width: 100%;
         margin: 60px 0 40px;
         pointer-events: none;
     }
 
-    b {
-        font-weight: 500;
-    }
-
-    p {
-        padding: 0 40px;
-        font-size: 14px;
-        line-height: 1.5;
-        color: var(--ion-color-step-600, #60646b);
-    }
-
-    p b {
-        color: var(--ion-text-color, #000000);
-    }
-
-    .navigationMenu1 {
+    #viewPage .navigationMenu1 {
         width: 100%;
         margin-left: 7%
     }
 
-    .active {
+    #viewPage .active {
         color: var(--unnamed-color-001d2c);
         text-align: left;
         font: normal normal bold 20px/22px Montserrat;
@@ -45,7 +34,7 @@
         opacity: 1;
     }
 
-    .default {
+    #viewPage .default {
         color: var(--unnamed-color-001d2c);
         text-align: left;
         font: normal normal bold 20px/22px Montserrat;
@@ -54,7 +43,7 @@
         opacity: 0.5;
     }
 
-    h1.header {
+    #viewPage h1.header {
         color: var(--unnamed-color-001d2c) !important;
         text-align: left;
         font: normal normal bold 20px/0px Montserrat !important;
@@ -63,7 +52,7 @@
         opacity: 1;
     }
 
-    h3.subHeader {
+    #viewPage h3.subHeader {
         color: var(--unnamed-color-001d2c);
         text-align: left;
         font: normal normal 600 13px/40px Montserrat;
@@ -72,7 +61,7 @@
         opacity: 1;
     }
 
-    .commentTxt {
+    #viewPage .commentTxt {
         text-align: right;
         font: normal normal bold 10px/15px Montserrat;
         letter-spacing: 0px;
@@ -80,14 +69,14 @@
         opacity: 1;
     }
 
-    .smallIcons {
+    #viewPage .smallIcons {
         width: 16px;
         height: 16px;
         opacity: 0.7;
     }
 
-    .swiper-container-horizontal>.swiper-pagination-bullets {
-        bottom: 100px;
+    #viewPage .swiper-container-horizontal>.swiper-pagination-bullets {
+        bottom: 20%;
     }
 
     .swiper-pagination-bullet {
@@ -98,38 +87,41 @@
         background: var(--unnamed-color-001d2c) 0% 0% no-repeat padding-box;
         background: #001D2C 0% 0% no-repeat padding-box;
         opacity: 1;
-         
+
     }
 
-    .swiper-pagination-bullet-active {
+    #viewPage .swiper-pagination-bullet-active {
         width: 30px;
         height: 30px;
         transition: all 0.4s ease;
     }
 
-    .slideImg {       
+    .slideImg {
         top: 15px;
         left: 0px;
         position: absolute;
-        margin-top: 36px !important;       
+        margin-top: 36px !important;
         border-radius: 5% !important;
         width: 100% !important;
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2) !important;
-
     }
 
     .mainDiv {
         background-color: #001D2C;
         border-radius: 3%;
-        margin-bottom:15%;
-       height: 35%;       
+        margin-bottom: 15%;
+        height: 35%;
     }
 
     .headerContent {
-        padding-top: 10px;
-        padding-left: 16px;
+
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--ion-color-step-600, #60646b);
+
         color: #fff;
-        padding-right: 10px;
+        padding: 10px 10px 0px 10px;
+
     }
 
     .leftContent {
@@ -150,33 +142,34 @@
         opacity: 1;
     }
 
-    .commentDivsmallIcons {        
+    .commentDivsmallIcons {
         width: 16px;
         height: 16px;
         opacity: 0.7;
     }
 
     .ion-margin-left {
-      margin-left:10px;
+        margin-left: 10px;
     }
 
     .contextTxt {
-      color: #001D2C;
-      font-family: 'Montserrat', sans-serif;  
-      font-weight: bold;
-      font-size: 12px;
+        color: #001D2C;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        font-size: 12px;
+        margin-left: -18px;
     }
 
-    .itemContent {       
+    .itemContent {
         top: 66% !important;
     }
 
 
 
-.content {
-    margin-left: -30px;
-}
+    .content {
+        margin-left: -30px;
+    }
 
-.swiper-slide  {
- width: 92% !important;
-}
+    .swiper-slide {
+        width: 92% !important;
+    }

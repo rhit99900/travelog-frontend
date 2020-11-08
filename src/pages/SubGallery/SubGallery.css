@@ -1,0 +1,162 @@
+
+
+#subGalleryPage ion-header {
+    position: fixed;
+    background-color: #FFFFFF;
+}
+#subGalleryPage h1.placeHeader {
+    color: var(--unnamed-color-001d2c);
+    text-align: left;
+    font: normal normal bold 20px/22px Montserrat !important;
+    letter-spacing: 0px;
+    color: #001D2C;
+    opacity: 1;
+}
+
+#subGalleryPage h3.placeSubHeader {
+    color: var(--unnamed-color-001d2c);
+    text-align: left;
+    font: normal normal 600 13px/22px Montserrat;
+    letter-spacing: 0px;
+    color: #001D2C;
+    opacity: 1;
+}
+
+#subGalleryPage .commentTxt {
+    text-align: right;
+    font: normal normal bold 10px/15px Montserrat;
+    letter-spacing: 0px;
+    color: #7F7F7F;
+    opacity: 1;
+}
+
+#subGalleryPage .smallIcons {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+}
+
+#subGalleryPage .searchIcon {
+    opacity: 0.5;
+    top: 183px;
+    left: 318px;
+    width: 23px;
+    height: 23px;
+}
+
+#subGalleryPage .commentTxt {
+    vertical-align: top;
+    font: normal normal bold 10px/15px Montserrat;
+    letter-spacing: 0px;
+    color: #7F7F7F;
+    opacity: 1;
+    padding-top: 19px;
+}
+
+#subGalleryPage .active {
+    color: var(--unnamed-color-001d2c);
+    text-align: left;
+    font: normal normal bold 20px/22px Montserrat;
+    letter-spacing: 0px;
+    color: #001D2C;
+    opacity: 1;
+}
+
+#subGalleryPage .default {
+    color: var(--unnamed-color-001d2c);
+    text-align: left;
+    font: normal normal bold 20px/22px Montserrat;
+    letter-spacing: 0px;
+    color: #001D2C;
+    opacity: 0.5;
+}
+
+#subGalleryPage .smallIcons {
+    width: 15px;
+    height: 16px;
+    opacity: 0.7;
+}
+
+#subGalleryPage .imageTag {
+ max-width: 300%;
+   max-height: 190%;
+    background: transparent linear-gradient(180deg, #FFFFFF00 0%, #C8C8C837 23%, #383838C7 65%, #000000 100%) 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+}
+
+
+#subGalleryPage .slideBoxCol {
+   left:5%;
+   width: 100%;
+}
+
+#subGalleryPage .verticalGalleryItem {
+    margin-top:30%;
+}
+
+
+#subGalleryPage .galleryGrid:after {
+    content:"";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    margin-top:30%;
+    margin-bottom:30%;
+    border: 2px dashed #CF2B59;
+    --background: transparent url('https://www.freepngimg.com/download/symbol/62766-map-symbol-computer-location-icons-free-download-png-hd.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    margin-left:2px;
+}
+
+#subGalleryPage .gpsImgTag {
+    margin-top: 80%;
+    position: absolute;
+    margin-left: -26px;
+    background-color: #fff;
+    padding-top: 5px;
+    padding-bottom: 6px;
+}
+
+div.roundIcon {
+    width: 28px;
+    height: 28px;
+    background: #CF2B59;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 8px;
+    display: inline-block;
+    margin-top: -26px !important;
+    cursor: pointer;
+    color: #fff;
+    font-size: 12px;
+    opacity: 1;
+    position: absolute;
+    left: 260%;
+}
+
+.imgCaption {
+    width: 175px;
+    height: 24px;
+    text-align: left;
+    font: normal normal 600 25px/17px Montserrat;
+    letter-spacing: 0px;
+    color: #F5F5F5 !important;
+    opacity: 1;
+    position: absolute;
+    top: 75%;
+    left: 23%;
+    font-size: 20px !important;
+}
+
+@media (max-width:350px) {
+    #subGalleryPage .gpsImgTag {        
+        margin-left: -24px;       
+    }
+}
+
+@media (min-width:400px) {
+    #subGalleryPage .gpsImgTag {        
+        margin-left: -28px;       
+    }
+}

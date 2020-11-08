@@ -86,3 +86,11 @@ div.imageFilterView.grayscale img{
 div.imageFilterView.invert img{
   filter: invert(1)
 }
+
+div.imageFilterView.vintage img{
+  filter: grayscale(1) contrast(5) sepia(80);
+}
+
+div.imageFilterView.lomo img{
+  filter: brightness(15) saturate(-20) brightness(5);
+}

@@ -1,4 +1,4 @@
-h1.placeHeader {
+#galleryPage h1.placeHeader {
     color: var(--unnamed-color-001d2c);
     text-align: left;
     font: normal normal bold 20px/22px Montserrat !important;
@@ -7,7 +7,7 @@ h1.placeHeader {
     opacity: 1;
 }
 
-h3.placeSubHeader {
+#galleryPage h3.placeSubHeader {
     color: var(--unnamed-color-001d2c);
     text-align: left;
     font: normal normal 600 13px/22px Montserrat;
@@ -16,8 +16,7 @@ h3.placeSubHeader {
     opacity: 1;
 }
 
-
-.commentTxt {
+#galleryPage .commentTxt {
     text-align: right;
     font: normal normal bold 10px/15px Montserrat;
     letter-spacing: 0px;
@@ -25,13 +24,13 @@ h3.placeSubHeader {
     opacity: 1;
 }
 
-.smallIcons {
+#galleryPage .smallIcons {
     width: 16px;
     height: 16px;
     opacity: 0.7;
 }
 
-.searchIcon {
+#galleryPage .searchIcon {
     opacity: 0.5;
     top: 183px;
     left: 318px;
@@ -39,7 +38,7 @@ h3.placeSubHeader {
     height: 23px;
 }
 
-.commentTxt {
+#galleryPage .commentTxt {
     vertical-align: top;
     font: normal normal bold 10px/15px Montserrat;
     letter-spacing: 0px;
@@ -48,7 +47,7 @@ h3.placeSubHeader {
     padding-top: 19px;
 }
 
-.active {
+#galleryPage .active {
     color: var(--unnamed-color-001d2c);
     text-align: left;
     font: normal normal bold 20px/22px Montserrat;
@@ -57,8 +56,7 @@ h3.placeSubHeader {
     opacity: 1;
 }
 
-
-.default {
+#galleryPage .default {
     color: var(--unnamed-color-001d2c);
     text-align: left;
     font: normal normal bold 20px/22px Montserrat;
@@ -67,23 +65,23 @@ h3.placeSubHeader {
     opacity: 0.5;
 }
 
-.smallIcons {
+#galleryPage .smallIcons {
     width: 15px;
     height: 16px;
     opacity: 0.7;
 }
 
-.imageTag {
-    width: 99%;
-    height: 99%;
-
+#galleryPage .imageTag {
+    max-width: calc(calc(4 / var(--ion-grid-columns, 4)) * 100%) !important;
+    max-height: calc(calc(4 / var(--ion-grid-columns, 4)) * 100%)
 }
 
-.galleryGrid {
-    margin-left: -3px;
+#galleryPage .galleryGrid {
+    margin-left: -4px;
     padding-right: 0px;
 }
 
-..slideBoxCol {
+#galleryPage .slideBoxCol {
     padding: 1px !important;
+    margin-top: -4px;
 }

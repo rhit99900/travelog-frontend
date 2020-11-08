@@ -1,3 +1,16 @@
+class Calculate{
+  randomRange = (min, max, getFloat = false) => {
+    let rand = min + (Math.random() * (max - min))
+    if(getFloat) return rand
+    else return Math.round(rand)
+  }
+
+  luminance = (rgba) => {
+    return (0.299 * rgba.r) + (0.587 * rgba.g) + (0.114 * rgba.b)
+  }
+}
+
+const calculate = new Calculate()
 
 // Class Filter to apply filter by passing image Data of the image in canvas
 class Filters{
@@ -212,8 +225,18 @@ class Filters{
     return output;
   }
 
-  Sepia = (image) => {
-
+  Sepia = (image, sepia = 100) => {       
+    sepia /= 100
+    let d = image.data;
+    for(let i = 0; i < d.length; i+=4){  
+      // All three color channels have special conversion factors that 
+      // define what sepia is. Here we adjust each channel individually, 
+      // with the twist that you can partially apply the sepia filter. 
+      d[i] = Math.min(255,(d[i] * (1 - (0.607 * sepia))) + (d[i + 1] * (0.769 * sepia)) + (d[i + 2] * (0.189 * sepia)))
+      d[i + 1] = Math.min(255,(d[i] * (0.349 * sepia)) + (d[i + 1] * ( 1 - (0.314 * sepia))) + (d[i + 2] * (0.168 * sepia)))
+      d[i + 2] = Math.min(255,(d[i] * (0.272 * sepia)) + (d[i + 1] * (0.534 * sepia)) + (d[i + 2] * (1 - (0.869 * sepia))))            
+    }
+    return image;
   }
   
   Grayscale = (image, value, revert = false) => {
@@ -234,17 +257,221 @@ class Filters{
 
   }
 
-  BrightnessContrast = (image, brightness, contrast) => {
+  BrightnessContrast = (image, brightness = false, contrast = false) => {
     let matrix = this.brightnessContrastMatrix(brightness, contrast);
     return this.applyMatrix(image, {r: matrix, g: matrix, b: matrix, a: this.identityMatrix()});
   }
 
+  Channels = (image, options) => {
+    let value
+    if(typeof options !== 'object'){
+      return 
+    }
+    for (let j in options){
+      if(!{}.hasOwnProperty.call(options, j)) continue;
+      value = options[j]      
+      if(value === 0){
+        delete options[j]
+        continue;
+      }
+      options[j] /= 100
+    }
+    if(options.length === 0){
+
+    }
+    let d = image.data
+    for(let i = 0; i < d.length; i+=4){  
+      if(options.red !== null){
+        if(options.red > 0){
+          d[i] += (255 - d[i]) * options.red
+        } else {
+          d[i] -= d[i] * Math.abs(options.red)
+        }
+      }
+      if(options.green !== null){
+        if(options.green > 0){
+          d[i + 1] += (255 - d[i + 1]) * options.green
+        } else {
+          d[i + 1] -= d[i + 1] * Math.abs(options.green)
+        }
+      }
+      if(options.blue !== null){
+        if(options.blue > 0){
+          d[i + 2] += (255 - d[i + 2]) * options.blue
+        } else {
+          d[i + 2] -= d[i + 2] * Math.abs(options.blue)
+        }
+      }
+    }
+    return image
+  }
+
+  Brightness = (image, brightness) => {
+    let d = image.data;    
+    for(let i = 0; i < d.length; i+=4){            
+      d[i] += brightness;
+      d[i + 1] += brightness;
+      d[i + 2] += brightness;      
+    }
+    return image;
+  }
+
+  Contrast = (image, contrast) => {    
+    let d = image.data
+    contrast = Math.pow((contrast + 100) / 100, 2)
+
+    for(let i = 0; i < d.length; i+=4){      
+      // Red Channel
+      let r = d[i];      
+      r /= 255      
+      r -= 0.5      
+      r *= contrast      
+      r += 0.5      
+      r *= 255
+      d[i] = Math.round(r)      
+
+      // Green Channel
+      let g = d[i + 1]
+      g /= 255
+      g -= 0.5
+      g *= contrast
+      g += 0.5
+      g *= 255
+      d[i + 1] = Math.round(g)
+
+      // Blue Channel 
+      let b = d[i + 2]
+      b /= 255
+      b -= 0.5
+      b *= contrast
+      b += 0.5
+      b *= 255
+      d[i + 2] = Math.round(b)
+    }    
+    return image;
+  }
+
+  Saturation = (image, saturation) => {
+    saturation *= 0.01
+    let d = image.data;    
+    for(let i = 0; i < d.length; i+=4){    
+      let max = Math.max(d[i], d[i + 1], d[i + 2])
+      d[i] += d[i] !== max ? (max - d[i]) * saturation : 0
+      d[i + 1] += d[i + 1] !== max ? (max - d[i + 1]) * saturation : 0
+      d[i + 2] += d[i + 2] !== max ? (max - d[i + 2]) * saturation : 0
+    }
+    return image;
+  }
+
+  Vibrance = (image, vibrance) => {
+    let d = image.data;
+    for(let i = 0; i < d.length; i+=4){    
+      let max = Math.max(d[i], d[i + 1], d[i + 2])
+      let avg = (d[i] + d[i + 1] + d[i + 2])/3
+      let vibranceAmount = ((Math.abs(max - avg) * 2 / 255) * vibrance) / 100
+      d[i] += d[i] !== max ? (max - d[i]) * vibranceAmount : 0
+      d[i + 1] += d[i + 1] !== max ? (max - d[i + 1]) * vibranceAmount : 0
+      d[i + 2] += d[i + 2] !== max ? (max - d[i + 2]) * vibranceAmount : 0
+    }
+    return image;
+  }
+
+  Threshold = (image, threshold) => {
+    let d = image.data;    
+    for(let i = 0; i < d.length; i+=4){            
+      let r = d[i]
+      let g = d[i + 1]
+      let b = d[i + 2]
+      let v = (0.2126*r + 0.7152*g + 0.0722*b >= threshold) ? 255 : 0;
+      d[i] = d[i + 1] = d[i + 2] = v
+    }
+    return image;
+  }
+    
   GaussianBlur = (image, diameter) => {
     diameter = Math.abs(diameter)
     // if(diameter <= 1)
     let r = diameter/2
     let len = Math.ceil(diameter) - (1 - (Math.ceil(diameter)%2))
     let w
+  }  
+
+  Curves = (image, channels, controlPoints) => {
+    let algo
+    let last = controlPoints[controlPoints.length - 1]
+    if(typeof last === 'function'){
+      algo = last
+      controlPoints.pop()
+    }
+    else if(typeof last === 'string'){
+      // algo = Cal
+    }
+  }
+  
+
+  Gamma = (image, gamma) => {
+    let d = image.data;    
+    for(let i = 0; i < d.length; i+=4){    
+      d[i] = Math.pow(d[i] / 255, gamma) * 255
+      d[i + 1] = Math.pow(d[i + 1] / 255, gamma) * 255
+      d[i + 2] = Math.pow(d[i + 2] / 255, gamma) * 255
+    }
+    return image;
+  }
+
+  Exposure = (image, exposure) => {
+    let p = Math.abs(exposure) / 100
+    let control1 = [0, 255 * p],
+        control2 = [255 - (255*p), 255]
+    
+    if(exposure < 0){
+      control1 = control1.reverse()
+      control2 = control2.reverse()
+    }
+    return image;    
+  }
+
+  Noise = (image, noise) => {
+    noise = Math.abs(noise) * 2.55
+    let d = image.data
+    for(let i = 0; i < d.length; i+=4){   
+      let random = Math.random(noise * -1, noise)         
+      d[i] += random 
+      d[i + 1] += random
+      d[i + 2] += random    
+    }
+    return image;
+  }
+
+  // Preset Filters 
+  Vintage = (image) => {
+    image = this.Grayscale(image)
+    image = this.Contrast(image, 5)
+    image = this.Noise(image, 3)
+    image = this.Sepia(image, 100)
+    image = this.Channels(image, {red: 8, blue: 2, green: 4})
+    image = this.Gamma(image, 0.87)
+    return image;
+  }
+
+  Lomo = (image) => {
+    image = this.Brightness(image, 15)
+    image = this.Exposure(image, 15)
+    image = this.Saturation(image, -20)
+    image = this.Gamma(image, 1.8)
+    image = this.Brightness(image, 5)
+    return image;
+  }
+
+  Clarity = (image) => {
+    image = this.Vibrance(image, 20)
+    return image;    
+  }
+
+  SinCity = (image) => {
+    image = this.Contrast(image, 100)
+    image = this.Brightness(image, 15)
+    return image;
   }
 
   Revert = (filter) => {

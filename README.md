@@ -8,6 +8,9 @@ This is the code repository for Travelog Frontend
 * Run `npm run start-dev` to start see the code output.
 * Copy `.env-example` file to `.env` and add the respective API Path
 
+### API DOcs
+[API Docs Specs Swagger](http://35.192.86.242:3001/docs)
+
 ### UI Development Documentation
 
 [Adobe XD Web Prototype](https://xd.adobe.com/view/ca985d95-1df0-4f23-9d15-8690d689c4e5-9fcb/)
