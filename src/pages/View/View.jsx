@@ -26,7 +26,7 @@ import {
     IonImg
 } from '@ionic/react';
 
-import { searchOutline, personSharp, chatboxOutline, heartOutline, heartSharp } from 'ionicons/icons';
+import { searchOutline, personSharp, chatboxOutline, heartOutline, heartSharp, arrowBackOutline } from 'ionicons/icons';
 
 
 import './View.css';
@@ -54,10 +54,16 @@ const View = () => {
         <IonPage id="viewPage">
     <IonContent fullscreen className="ion-padding" scroll-y="false" className="light">
 	<IonHeader>
+	
 		<IonGrid>
+		<IonRow className="arrowBackIonRow">
+			<IonCol>
+			<IonIcon icon={arrowBackOutline} className="arrowBack margin-bottom" />
+			</IonCol>
+			</IonRow>
 			<IonRow>
 		  		<IonCol size='8'>
-			         <IonLabel>
+			         <IonLabel>			          
 			            <h1 className="header">Paris, France</h1>    
 			            <h3 className="subHeader"><IonIcon slot="end" icon={personSharp} /> Richard Parker</h3>    
 			          </IonLabel>
@@ -107,8 +113,8 @@ const View = () => {
          </div> 
         <IonItem lines="none">
          <IonLabel className="leftContent">    
-           <span className="contentDivCommentTxt">256</span>  <IonIcon className="smallIcons" slot="end" icon={chatboxOutline}> 98</IonIcon>             
-     	 	&nbsp;<span className="contentDivCommentTxt ion-margin-left">576</span>  <IonIcon className="smallIcons" color="primary" slot="end" icon={heartSharp}> 98</IonIcon>            
+           <span className="contentDivCommentTxt">256</span>  <IonIcon className="small<LikeIcons" slot="end" icon={chatboxOutline}> 98</IonIcon>             
+     	 	&nbsp;<span className="contentDivCommentTxt ion-margin-left">576</span>  <IonIcon className="smallLikeIcons" color="primary" slot="end" icon={heartSharp}> 98</IonIcon>            
      	  </IonLabel>         
      	   </IonItem>
 

@@ -36,6 +36,10 @@
     border: solid #FFFFFF 1px;
 }
 
+#itineraryPage div.itineraryHighlightsButton {
+     border: solid #FFFFFF 1px;
+}
+
 #itineraryPage div.itineraryHighlightsImage img {
     width: 100%;
 }
@@ -78,6 +82,7 @@
     font: normal normal normal 20px/22px Montserrat;
     letter-spacing: 0px;
     color: #FFFFFF;
+    height: 50px;
 }
 
 #itineraryPage .ionItemNoBg {
@@ -87,8 +92,7 @@
 }
 
 #itineraryPage .itineraryInfo {
-    margin-top: 350px;
-    margin-left: 20px;
+    margin-top: 350px;    
 }
 
 #itineraryPage .buildingBadge {
