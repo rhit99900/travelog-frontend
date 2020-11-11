@@ -111,13 +111,12 @@ const View = () => {
 	         </p>      
        		<img height="100%" src="https://picsum.photos/536/354" className="slideImg"/>
          </div> 
-        <IonItem lines="none">
+        <IonItem lines="none" className="iconsLeft">
          <IonLabel className="leftContent">    
-           <span className="contentDivCommentTxt">256</span>  <IonIcon className="small<LikeIcons" slot="end" icon={chatboxOutline}> 98</IonIcon>             
+           <span className="contentDivCommentTxt">256</span>  <IonIcon className="smallLikeIcons" slot="end" icon={chatboxOutline}> 98</IonIcon>             
      	 	&nbsp;<span className="contentDivCommentTxt ion-margin-left">576</span>  <IonIcon className="smallLikeIcons" color="primary" slot="end" icon={heartSharp}> 98</IonIcon>            
      	  </IonLabel>         
      	   </IonItem>
-
     		<IonItem lines="none" className="text-left contextTxt">         
          	First stop the iconic Notre Dame cathedral, we got here nice and early, best to avoid the ilnes.
          	This allowed us to climp the towers to enjoy Paris from a gargoyale's panormic perspective and to admire the gargoyales and grotesques themselves.        	

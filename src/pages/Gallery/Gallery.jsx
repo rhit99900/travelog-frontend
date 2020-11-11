@@ -15,7 +15,7 @@ import {
     IonHeader
 } from '@ionic/react'
 import './Gallery.css'
-import { searchOutline, personSharp, chatboxOutline, heartOutline } from 'ionicons/icons'
+import { searchOutline, personSharp, chatboxOutline, heartOutline, arrowBackOutline } from 'ionicons/icons'
 
 const Gallery = () => {
     return (
@@ -23,7 +23,12 @@ const Gallery = () => {
       <IonContent className="light">       
      <IonHeader>
     <IonGrid>
-      <IonRow>
+      <IonRow className="arrowBackIonRow">
+        <IonCol>
+          <IonIcon icon={arrowBackOutline} className="arrowBack margin-bottom" />
+        </IonCol>
+      </IonRow>
+        <IonRow>
           <IonCol size='8'>
                <IonLabel>
                   <h1 className="placeHeader">Paris, France</h1>    
@@ -65,7 +70,7 @@ const Gallery = () => {
          <IonGrid className="galleryGrid">           
             <IonRow>    
               {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18].map((item, index) => (      
-              <IonCol key={index}  size="4" className="slideBoxCol">
+              <IonCol key={index}  size="4" size-sm  className="slideBoxCol">
                <img className="imageTag" src="https://picsum.photos/536/354"/>
               </IonCol>             
                 ))}         

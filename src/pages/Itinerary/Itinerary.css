@@ -111,6 +111,11 @@
     color: #fff !important;
 }
 
+#itineraryPage .iconsCol 
+{
+    width: 48px !important;
+    margin-left: 0px !important;
+}
 
 @media (min-height: 300px) {
     #itineraryPage .itineraryInfo {

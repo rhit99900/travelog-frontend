@@ -79,10 +79,11 @@
         width: 20px;
         height: 20px;
         opacity: 0.7;
+        margin-left: 30px;
     }
 
     #viewPage .swiper-container-horizontal>.swiper-pagination-bullets {
-        bottom: 20%;
+        bottom: 25%;
     }
 
     .swiper-pagination-bullet {
@@ -129,6 +130,7 @@
     .leftContent {
         float: left;
         margin-right: 100px;
+        font-size: 16px;
     }
 
     .rightContent {
@@ -142,6 +144,9 @@
         letter-spacing: 0px;
         color: #001D2C;
         opacity: 1;
+        position:absolute;
+        top:13px;
+        
     }
 
     .commentDivsmallIcons {
@@ -159,7 +164,7 @@
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
         font-size: 14px;
-        margin-left: -18px;
+        margin-left: -21px;
     }
 
     .itemContent {
@@ -168,6 +173,7 @@
 
     .content {
         margin-left: -30px;
+        font-size: 16px;
     }
 
     .swiper-slide {
@@ -181,4 +187,8 @@
         width: 24px;
         height: 24px;
         font-weight: bold;
+    }
+
+    .iconsLeft {
+        margin-left:-20px;
     }

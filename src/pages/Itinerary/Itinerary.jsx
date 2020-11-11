@@ -47,13 +47,13 @@ const Itinerary = () => {
 			   	<IonButton shape="round">SAVE</IonButton>
 			  </IonCol>
 
-			  <IonCol size="1" className="ion-padding-top ion-padding-right" >
+			  <IonCol size="1" className="iconsCol ion-padding-top ion-padding-right" >
 			  	<IonLabel>
 				  	<IonIcon slot="end" icon={personOutline} />
 				   	<p className="smallTxt">1.4k</p>			  
 			   	</IonLabel>
 			   </IonCol>
-			   <IonCol size="1" className="ion-padding-top ion-padding-right" >
+			   <IonCol size="1" className="iconsCol ion-padding-top ion-padding-right" >
 				   <IonLabel>
 					   <IonIcon slot="end" icon={heartOutline} />
 					   <p className="smallTxt">1.4k</p>	 
