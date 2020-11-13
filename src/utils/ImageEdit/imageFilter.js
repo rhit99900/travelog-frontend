@@ -1,16 +1,6 @@
-class Calculate{
-  randomRange = (min, max, getFloat = false) => {
-    let rand = min + (Math.random() * (max - min))
-    if(getFloat) return rand
-    else return Math.round(rand)
-  }
+import { Calculate } from './libraryFunctions'
 
-  luminance = (rgba) => {
-    return (0.299 * rgba.r) + (0.587 * rgba.g) + (0.114 * rgba.b)
-  }
-}
-
-const calculate = new Calculate()
+const Cal = new Calculate()
 
 // Class Filter to apply filter by passing image Data of the image in canvas
 class Filters{
@@ -19,16 +9,11 @@ class Filters{
     this.tempCanvas = document.createElement('canvas')
     this.tempContext = this.tempCanvas.getContext('2d')
 
-  }
-
-  getArray = (len) => {
-    if(len.length) return len.slice(0);
-      return new Array(len)
-  }
+  }  
 
   getUint8Array = (len) => {
     if(typeof Float32Array === 'undefined'){
-      return this.getArray(len)
+      return Cal.getArray(len)
     }
     else{
       return new Uint8Array(len)
@@ -37,7 +22,7 @@ class Filters{
   
   getFloat32Array = (len) => {
     if(typeof Float32Array === 'undefined'){
-      return this.getArray(len);
+      return Cal.getArray(len);
     }
     else{
       return new Float32Array(len);
@@ -408,6 +393,23 @@ class Filters{
     }
   }
   
+  Hue = (image, hue) => {
+    let d = image.data;    
+    for(let i = 0; i < d.length; i+=4){
+      let hsv = Cal.rgbToHSV(d[i], d[i + 1], d[i + 2]);
+      let h = hsv.h * 100 
+      h += Math.abs(hue)
+      h = h % 100 
+      h /= 100
+      hsv.h = h
+      
+      let rgb = Cal.hsvToRGB(hsv.h, hsv.s, hsv.v)
+      d[i] = rgb.r
+      d[i + 1] = rgb.g
+      d[i + 2] = rgb.b
+    }
+    return image;
+  }
 
   Gamma = (image, gamma) => {
     let d = image.data;    
@@ -473,6 +475,21 @@ class Filters{
     image = this.Brightness(image, 15)
     return image;
   }
+
+  Sunrise = (image) => {
+    // image = this.Exposure(image, 3.5)
+    image = this.Saturation(image, -5)
+    image = this.Vibrance(image, 50)
+    image = this.Sepia(image, 60)
+    // image = this.Colorize(image, '#e87b22', 10)
+    // image = this.Channels(image, { r: 8, b: 8})
+    image = this.Contrast(image, 5)
+    image = this.Gamma(image, 1.2)
+    // image = this.Vignette(image, "55%", 25)
+    return image;
+  }
+
+  
 
   Revert = (filter) => {
     switch (filter) {

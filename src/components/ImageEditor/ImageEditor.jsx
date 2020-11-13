@@ -2,7 +2,7 @@ import { IonButton, IonCol, IonInput, IonRow, IonGrid, IonIcon, IonImg } from '@
 import React, { useEffect, useState, useContext } from 'react'
 import { StorageContext } from '../../contexts/StorageContext'
 
-import Filters from '../../utils/imageEdit'
+import Filters from '../../utils/ImageEdit/imageFilter'
 import { ICON_URLS } from '../../utils/Constants'
 
 var canvas, context;
