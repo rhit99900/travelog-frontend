@@ -15,7 +15,7 @@ import {
     IonHeader
 } from '@ionic/react'
 import './SubGallery.css'
-import { searchOutline, personSharp, chatboxOutline, heartOutline, returnDownForward } from 'ionicons/icons'
+import { searchOutline, personSharp, chatboxOutline, heartOutline, returnDownForward, arrowBackOutline } from 'ionicons/icons'
 
 const SubGallery = () => {
     return (
@@ -23,6 +23,11 @@ const SubGallery = () => {
       <IonContent className="light">       
      <IonHeader>
     <IonGrid>
+    <IonRow className="arrowBackIonRow">
+      <IonCol>
+      <IonIcon icon={arrowBackOutline} className="arrowBack margin-bottom" />
+      </IonCol>
+      </IonRow>
       <IonRow>
           <IonCol size='8'>
                <IonLabel>

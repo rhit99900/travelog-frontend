@@ -42,27 +42,25 @@ const Itinerary = () => {
 				    <h3><IonIcon slot="end" icon={personSharp} /> Richard Parker</h3>    
 				  </IonLabel>
 			  </IonCol>
+
 			  <IonCol size="4" className="ion-padding-top ion-padding-right" >
 			   	<IonButton shape="round">SAVE</IonButton>
 			  </IonCol>
-			  <IonCol size="1"   className="ion-padding-top ion-padding-right" >
-			  <IonLabel>
-			  	<IonIcon slot="end" icon={personOutline} />
-			   <p className="smallTxt">1.4k</p>		 
 
-			  </IonLabel>
-			    </IonCol>
-			      <IonCol size="1" className="ion-padding-top ion-padding-right" >
-			   <IonLabel>
-			  	<IonIcon slot="end" icon={heartOutline} />
-			   <p className="smallTxt">1.4k</p>	 
-
-			  </IonLabel>
-
+			  <IonCol size="1" className="iconsCol ion-padding-top ion-padding-right" >
+			  	<IonLabel>
+				  	<IonIcon slot="end" icon={personOutline} />
+				   	<p className="smallTxt">1.4k</p>			  
+			   	</IonLabel>
+			   </IonCol>
+			   <IonCol size="1" className="iconsCol ion-padding-top ion-padding-right" >
+				   <IonLabel>
+					   <IonIcon slot="end" icon={heartOutline} />
+					   <p className="smallTxt">1.4k</p>	 
+				   </IonLabel>
 			  </IonCol>
 		  </IonRow>
-		</IonItem>
-     
+		</IonItem>     
        <ItineraryHighlights /> 
     </IonContent>
 

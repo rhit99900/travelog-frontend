@@ -75,8 +75,15 @@
         opacity: 0.7;
     }
 
+    #viewPage  .smallLikeIcons  {
+        width: 20px;
+        height: 20px;
+        opacity: 0.7;
+        margin-left: 30px;
+    }
+
     #viewPage .swiper-container-horizontal>.swiper-pagination-bullets {
-        bottom: 20%;
+        bottom: 25%;
     }
 
     .swiper-pagination-bullet {
@@ -102,8 +109,7 @@
         position: absolute;
         margin-top: 36px !important;
         border-radius: 5% !important;
-        width: 100% !important;
-        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2) !important;
+        width: 100% !important;        
     }
 
     .mainDiv {
@@ -114,19 +120,17 @@
     }
 
     .headerContent {
-
         font-size: 14px;
         line-height: 1.5;
         color: var(--ion-color-step-600, #60646b);
-
         color: #fff;
         padding: 10px 10px 0px 10px;
-
     }
 
     .leftContent {
         float: left;
         margin-right: 100px;
+        font-size: 16px;
     }
 
     .rightContent {
@@ -140,6 +144,9 @@
         letter-spacing: 0px;
         color: #001D2C;
         opacity: 1;
+        position:absolute;
+        top:13px;
+        
     }
 
     .commentDivsmallIcons {
@@ -156,20 +163,32 @@
         color: #001D2C;
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
-        font-size: 12px;
-        margin-left: -18px;
+        font-size: 14px;
+        margin-left: -21px;
     }
 
     .itemContent {
         top: 66% !important;
     }
 
-
-
     .content {
         margin-left: -30px;
+        font-size: 16px;
     }
 
     .swiper-slide {
         width: 92% !important;
+    }
+
+    .arrowBackIonRow {
+        margin-bottom: 15px;
+    }
+    .arrowBack {
+        width: 24px;
+        height: 24px;
+        font-weight: bold;
+    }
+
+    .iconsLeft {
+        margin-left:-20px;
     }
