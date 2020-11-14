@@ -72,8 +72,8 @@
 }
 
 #galleryPage .imageTag {
-    max-width: calc(calc(4 / var(--ion-grid-columns, 4)) * 100%) !important;
-    max-height: calc(calc(4 / var(--ion-grid-columns, 4)) * 100%);
+    width: 100%;    
+    height: 100%;
     border-radius: 8px;
     padding-right: 2px;
 }
@@ -85,5 +85,5 @@
 
 #galleryPage .slideBoxCol {
     padding: 1px !important;
-    margin-top: -4px;
+    margin-top: 1px;
 }

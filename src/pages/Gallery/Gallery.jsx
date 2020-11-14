@@ -1,86 +1,49 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import {
     IonContent,
-    IonPage,
-    IonSegment,
-    IonSegmentButton,
+    IonPage,    
     IonRow,
-    IonCol,
-    IonInput,
-    IonGrid,
-    IonIcon,
-    IonLabel,
-    IonItem,
-    IonHeader
+    IonCol,    
+    IonGrid,    
 } from '@ionic/react'
 import './Gallery.css'
-import { searchOutline, personSharp, chatboxOutline, heartOutline, arrowBackOutline } from 'ionicons/icons'
+
+import PostDetailHeader from '../../components/PostDetailHeader'
 
 const Gallery = () => {
-    return (
-        <IonPage id="galleryPage">
-      <IonContent className="light">       
-     <IonHeader>
-    <IonGrid>
-      <IonRow className="arrowBackIonRow">
-        <IonCol>
-          <IonIcon icon={arrowBackOutline} className="arrowBack margin-bottom" />
-        </IonCol>
-      </IonRow>
-        <IonRow>
-          <IonCol size='8'>
-               <IonLabel>
-                  <h1 className="placeHeader">Paris, France</h1>    
-                  <h3 className="placeSubHeader"><IonIcon slot="end" icon={personSharp} /> Richard Parker</h3>    
-                </IonLabel>
-              </IonCol>
 
-              <IonCol size="2" className="ion-margin-top">      
-                <IonLabel >    
-                   <span className="commentTxt">256</span>  <IonIcon className="smallIcons" slot="end" icon={chatboxOutline}> 98</IonIcon>             
-               </IonLabel>
-             </IonCol>
+  const [styles, setStyles] = useState({})
+  const grid = React.createRef()
 
-             <IonCol size="2" className="ion-margin-top">
-               <IonLabel>
-                   <span className="commentTxt">576</span>  <IonIcon className="smallIcons" slot="end" icon={heartOutline}> 98</IonIcon>             
-                </IonLabel>
-              </IonCol>
-            </IonRow>
+  useEffect(() => {    
+    if(grid.current.children.length > 0){
+      setTimeout(() => {
+        console.log(grid.current.children[0].clientWidth)
+        let width = grid.current.children[0].clientWidth;
+        if(width !== 0 && styles.height !== width){
+          setStyles({...styles, height: width, width: width})
+        }
+      },1000)
+    }
+  })
 
-        <IonRow>
-          <IonCol size='4'>
-            <IonLabel className="active">Photos</IonLabel>
-          </IonCol>
-        <IonCol size='4'>
-             <IonLabel className="default">Places</IonLabel>
-           </IonCol>
-           <IonCol size='2'>
-             <IonLabel className="default">...</IonLabel>
-           </IonCol>
-           <IonCol size="1">
-             <IonIcon className="searchIcon" icon={searchOutline} />
-           </IonCol>
-           </IonRow>
-       </IonGrid>
-  
-  </IonHeader>   
-
-         <IonGrid className="galleryGrid">           
-            <IonRow>    
-              {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18].map((item, index) => (      
-              <IonCol key={index}  size="4" size-sm  className="slideBoxCol">
-               <img className="imageTag" src="https://picsum.photos/536/354"/>
+  return (
+    <IonPage id="galleryPage">
+      <IonContent className="light">
+        <PostDetailHeader />
+        <IonGrid className="galleryGrid">           
+          <IonRow ref={grid}>    
+            {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18].map((item, index) => (      
+              <IonCol key={index}  size="4" size-sm  className="slideBoxCol" style={styles}>
+                <img className="imageTag" src="https://picsum.photos/536/354"/>
               </IonCol>             
-                ))}         
-            </IonRow>
-         
-       </IonGrid>
-       
+            ))}         
+          </IonRow>         
+        </IonGrid>       
       </IonContent>
     </IonPage>
-    )
+  )
 }
 
 export default Gallery;

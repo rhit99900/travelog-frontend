@@ -389,8 +389,40 @@ class Filters{
       controlPoints.pop()
     }
     else if(typeof last === 'string'){
-      // algo = Cal
+      algo = Cal[last]
     }
+    else{
+      algo = Cal.bezier
+    }
+
+    if(typeof channels === 'string') channels = channels.split("")    
+    if(channels[0] === 'v') channels = [0, 1, 2]
+
+    if(controlPoints.length < 2){
+      return false;
+    }
+
+    let bezier = algo(controlPoints, 0, 255)
+    let start = controlPoints[0]
+    if(start[0] > 0){
+      for(let i = 0; i <= start[0]; i++){
+        bezier[i] = start[1]
+      }
+    }
+    let end = controlPoints[controlPoints.length - 1]
+    if(end[0] < 255){
+      for(let i=end[0]; i <= 255; i++){
+        bezier[i] = end[1];
+      }    
+    }
+    let d = image.data
+    for(let i = 0; i < d.length; i+=4){
+      for(let j = 0; j < channels.length; j++){
+        d[i + channels[j]] = bezier[d[i + channels[j]]]
+      }
+    }
+
+    return image
   }
   
   Hue = (image, hue) => {
@@ -430,7 +462,33 @@ class Filters{
       control1 = control1.reverse()
       control2 = control2.reverse()
     }
+
+    image = this.Curves('rgb',[0,0],control1, control2, [255,255]);
     return image;    
+  }
+
+  Colorize = (image, options) => {
+    let rgb = {}, level
+    if(options.length === 2){
+      rgb = Cal.hexToRGB(options[0])
+      console.log(rgb);
+      level = options[1]
+    }
+    else if(options.length === 4){
+      rgb = {
+        r: options[0],
+        g: options[1],
+        b: options[2]
+      }
+      level = options[3]
+    }
+    let d = image.data
+    for(let i = 0; i < d.length; i+=4){         
+      d[i] = (d[i] - rgb.r) * (level / 100)
+      d[i + 1] = (d[i + 1] - rgb.g) * (level / 100)
+      d[i + 2] = (d[i + 2] - rgb.b) * (level / 100)
+    }
+    return image;
   }
 
   Noise = (image, noise) => {
@@ -458,7 +516,7 @@ class Filters{
 
   Lomo = (image) => {
     image = this.Brightness(image, 15)
-    image = this.Exposure(image, 15)
+    // image = this.Exposure(image, 15)
     image = this.Saturation(image, -20)
     image = this.Gamma(image, 1.8)
     image = this.Brightness(image, 5)
@@ -481,13 +539,23 @@ class Filters{
     image = this.Saturation(image, -5)
     image = this.Vibrance(image, 50)
     image = this.Sepia(image, 60)
-    // image = this.Colorize(image, '#e87b22', 10)
+    // image = this.Colorize(image, ['#e87b22', 10])
     // image = this.Channels(image, { r: 8, b: 8})
     image = this.Contrast(image, 5)
     image = this.Gamma(image, 1.2)
-    // image = this.Vignette(image, "55%", 25)
+    if(this.Vignette) image = this.Vignette(image, "55%", 25)
     return image;
   }
+
+  Grungy = (image) => {
+    image = this.Gamma(image, 1.5)
+    image = this.Saturation(image, -60)
+    image = this.Contrast(image, 5)
+    image = this.Noise(image, 5)
+    return image;
+  }
+  
+
 
   
 

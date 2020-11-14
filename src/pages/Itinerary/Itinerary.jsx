@@ -64,7 +64,7 @@ const Itinerary = () => {
        <ItineraryHighlights /> 
     </IonContent>
 
-    <IonFooter className="ion-no-border">
+    <IonFooter className="light ion-no-border">
       <IonToolbar>
       <IonRow>
        <IonCol size="6">

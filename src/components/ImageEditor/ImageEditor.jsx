@@ -5,7 +5,10 @@ import { StorageContext } from '../../contexts/StorageContext'
 import Filters from '../../utils/ImageEdit/imageFilter'
 import { ICON_URLS } from '../../utils/Constants'
 
+import './ImageEditor.css'
+
 var canvas, context;
+
 
 const Editor = ({image}) => {
   
@@ -24,7 +27,7 @@ const Editor = ({image}) => {
     Luminance, 
     Grayscale, 
     Invert, 
-    BrightnessContrast, 
+    Sunrise, 
     Rotate,
     Brightness,
     Saturation,
@@ -96,6 +99,9 @@ const Editor = ({image}) => {
       case 'lomo':
         imgData = Lomo(imageData)
         break;
+      case 'sunrise':
+        imgData = Sunrise(imageData)
+        break;
       default:
         break;
     }    
@@ -153,8 +159,10 @@ const Editor = ({image}) => {
       console.log('loaded');
       canvas.height = img.naturalHeight;
       canvas.width = img.naturalWidth;
-      context.drawImage(img, 0, 0, canvas.width, img.naturalHeight * canvas.width / img.naturalWidth); 
-      setImageData(context.getImageData(0, 0, canvas.width, canvas.height));
+      context.drawImage(img, 0, 0, canvas.width, img.naturalHeight * canvas.width / img.naturalWidth);
+      const originalImageData = context.getImageData(0,0,canvas.width,canvas.height);       
+      setImageData(originalImageData);
+      
     })    
   }
 
@@ -175,8 +183,7 @@ const Editor = ({image}) => {
       ): null}
       
       <IonButton className="imageEditorAction" onClick={e => rotateImage(-90)}><IonIcon src="/assets/icon/rotate-left.svg" /></IonButton>
-      <IonButton className="imageEditorAction" onClick={e => rotateImage(90)}><IonIcon src="/assets/icon/rotate-right.svg" /></IonButton>            
-      <IonButton className="imageEditorAction" onClick={e => addFilter('luminance')}>Luminance </IonButton>
+      <IonButton className="imageEditorAction" onClick={e => rotateImage(90)}><IonIcon src="/assets/icon/rotate-right.svg" /></IonButton>
       <IonButton className="imageEditorAction" onClick={e => flip('vertical')}><IonIcon src={ICON_URLS.flipVertical} /></IonButton>
       <IonButton className="imageEditorAction" onClick={e => flip('horizontal')}><IonIcon src={ICON_URLS.flipHorizonatal} /></IonButton>
       <IonButton className="imageEditorAction" onClick={e => rotateImage(90)}><IonIcon src={ICON_URLS.resize} /></IonButton>
@@ -187,6 +194,7 @@ const Editor = ({image}) => {
         <div onClick={e => addFilter('vintage')} className="imageFilterView vintage"><img src={image} /></div>
         <div onClick={e => addFilter('lomo')} className="imageFilterView lomo"><img src={image} /></div>
         <div onClick={e => addFilter('sincity')} className="imageFilterView sincity"><img src={image} /></div>
+        <div onClick={e => addFilter('sunrise')} className="imageFilterView sunrise"><img src={image} /></div>
       </div>              
 
       <IonButton className="imageEditorAction" type="button" expand="block" onClick={saveImage}>Next</IonButton>
