@@ -1,5 +1,5 @@
 // const api_base_url = process.env.API_BASE_URL
-const api_base_url = 'http://35.192.86.242:3001'
+const api_base_url = 'http://api.travelog.voyage/'
 
 const API_ENDPOINTS = {
   users: {
