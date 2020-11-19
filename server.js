@@ -10,7 +10,7 @@ const md5 = require('md5')
 const { Storage } = require('@google-cloud/storage')
 
 
-// app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 let jsonParser = bodyParser.json({limit: '20mb'})
 let urlencodedParser = bodyParser.urlencoded({extended: false})
