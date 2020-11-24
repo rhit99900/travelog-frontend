@@ -1,7 +1,7 @@
 {
   "name": "travelog",
   "version": "0.0.1",
-  "homepage": "./",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@capacitor/core": "2.4.0",
