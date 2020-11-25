@@ -8,6 +8,10 @@ This is the code repository for Travelog Frontend
 * Run `npm run start-dev` to start see the code output.
 * Copy `.env-example` file to `.env` and add the respective API Path
 
+## Build and Deploy
+* Run `npm run build` to build the code.
+* and `rsync -avz build/ <username>@travelog.voyage:/var/www/travelog-frontend` to update the code on the server.
+
 ### API DOcs
 [API Docs Specs Swagger](http://35.192.86.242:3001/docs)
 
