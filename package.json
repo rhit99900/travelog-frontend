@@ -1,6 +1,7 @@
 {
   "name": "travelog",
   "version": "0.0.1",
+  "homepage": "",
   "private": true,
   "dependencies": {
     "@capacitor/core": "2.4.0",
@@ -39,7 +40,7 @@
     "start": "nodemon ./server.js & npm run start-dev",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject"    
   },
   "eslintConfig": {
     "extends": "react-app"
