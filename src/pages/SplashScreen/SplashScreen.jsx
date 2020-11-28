@@ -25,6 +25,7 @@ const Splash = () => {
             Get Started
             <IonIcon slot="end" icon={arrowForwardOutline} />
           </IonButton>
+          <p>Already, have an account?</p>
         </div>
       </IonContent>
     </IonPage>

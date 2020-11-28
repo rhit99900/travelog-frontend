@@ -11,8 +11,7 @@ import './Explore.css';
 const Explore = () => {
   return (
     <IonPage>    
-      <IonContent fullscreen className="light"> 
-        <Header/>
+      <IonContent fullscreen className="light">         
         <PostContainer/>
       </IonContent>
     </IonPage>

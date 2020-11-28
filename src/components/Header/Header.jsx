@@ -3,14 +3,23 @@ import {IonButton, IonButtons, IonHeader, IonIcon, IonTitle, IonToolbar} from '@
 
 import { menuOutline,  searchOutline} from 'ionicons/icons';
 
+import { menuController } from '@ionic/core';
+
 import './Header.css';
 
 const Header = () => {
+
+  const openMenu = () => {
+    console.log('Open Menu Called');
+    menuController.enable(true,'onlyMenu');
+    menuController.open('onlyMenu')
+  }
+
   return(
     <IonHeader collapse="condense">
       <IonToolbar mode="md" className="light">
         <IonButtons slot="start">
-          <IonButton>
+          <IonButton onClick={openMenu}>
             <IonIcon className="headerMenuIcon" icon={menuOutline}></IonIcon>
           </IonButton>
         </IonButtons>
