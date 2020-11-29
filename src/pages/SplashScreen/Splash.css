@@ -32,16 +32,24 @@ ion-button.primaryButton{
   margin-top: 20px;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
+  height: 2.5em;
+  font-size: 1.1em;
 }
 
 
 div.loginContainer{
   width: 100%;    
   position: absolute;
-  bottom: 60px;
+  bottom: 40px;
   padding: 10px 20px;
   background: transparent;
   font-family: 'Montserrat', sans-serif  
+}
+
+div.loginContainer p{
+  color: var(--light-teal);
+  text-align: center;
+  font-size: 12px;
 }
 
 .loginImageContainer{
