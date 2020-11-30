@@ -33,7 +33,11 @@ const Login = () => {
     if(logged_in){
       history.push('/explore')
     }
-  }  
+  }
+  
+  const googleLogin = async e => {
+
+  }
 
   if(loading){
     return (<Loading />)

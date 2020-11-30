@@ -83,3 +83,6 @@ export const ICON_URLS = {
   googlePlus: '/assets/icon/google-plus.svg',
   resize: '/assets/icon/resize.svg'
 }
+
+export const GOOGLE_CLIENT_ID = '600454810956-nsp1l6ipvcvgh07cjjip2vo699evfnr0.apps.googleusercontent.com'
+export const FACEBOOK_APP_ID = '1031375140716080'

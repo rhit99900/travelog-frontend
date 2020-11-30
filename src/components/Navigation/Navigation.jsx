@@ -9,11 +9,17 @@ import Routes from '../../Routes'
 import './Navigation.css'
 import { UserContext } from '../../contexts/UserContext'
 
+import Menu from '../Menu'
+import Header from '../Header'
+
 import Login from '../../pages/Login'
 import Register from '../../pages/Register'
 import SplashScreen from '../../pages/SplashScreen'
 
 const RouterOutlet = () => (
+  <>
+  <Header/>
+  <Menu/>
   <IonTabs>
     <IonRouterOutlet>
       <Routes />
@@ -40,6 +46,7 @@ const RouterOutlet = () => (
       </IonTabButton>
     </IonTabBar>      
   </IonTabs>
+  </>
 )
 
 const InitialRoute = memo(({path, exact, component}) => {

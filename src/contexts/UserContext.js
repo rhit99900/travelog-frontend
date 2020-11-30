@@ -14,16 +14,38 @@ export const UserContext = createContext({
   accessLevel: () => {},
   createPost: () => {},
   getUsers: () => {},  
+  unsetActiveUser: () => {},
 });
 
 
 const { Provider } = UserContext
 
 const UserProvider = ({ children }) => {
-  const { thisUser, authenticateUser, registerUser, loading, setCurrentUser, getCurrentUser, unsetCurrentUser, accessLevel, getUsers } = useHandler()  
+  const { 
+    thisUser, 
+    loading, 
+    authenticateUser, 
+    registerUser,     
+    setCurrentUser, 
+    getCurrentUser, 
+    unsetCurrentUser, 
+    accessLevel, 
+    getUsers, 
+    unsetActiveUser } = useHandler()  
 
   return (
-    <Provider value={{ loading, thisUser, authenticateUser, registerUser, setCurrentUser, getCurrentUser, unsetCurrentUser, accessLevel, getUsers }}>
+    <Provider value={{ 
+      loading, 
+      thisUser, 
+      authenticateUser, 
+      registerUser, 
+      setCurrentUser, 
+      getCurrentUser, 
+      unsetCurrentUser, 
+      accessLevel, 
+      getUsers,
+      unsetActiveUser
+    }}>
       {children}
     </Provider>
   )
@@ -69,8 +91,16 @@ const useHandler = () => {
   }
 
   const unsetActiveUser = () => {
-    setThisUser({});
-    unsetCurrentUser();
+    try{
+      setThisUser({});
+      unsetCurrentUser();
+      return true;
+    }
+    catch(e){
+      console.error(e);
+      return false;
+    }
+    
   }
 
   const registerUser = async (data) => {
@@ -116,7 +146,8 @@ const useHandler = () => {
     unsetCurrentUser, 
     accessLevel,
     createPost,
-    getUsers
+    getUsers,
+    unsetActiveUser
   }
 }
 

@@ -1,0 +1,15 @@
+ion-menu.travelogMenu{
+  z-index: 10;
+  --background: rgba(0,0,0,0.5);
+}
+
+ion-menu ion-content.menuContent{
+  width: 100%;
+  --background: none;
+}
+
+ion-menu ion-content.menuContent ion-item,
+ion-menu ion-content.menuContent ion-list{
+  --background: none;
+  background: none;
+}
