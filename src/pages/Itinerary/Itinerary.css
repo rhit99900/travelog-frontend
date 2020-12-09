@@ -3,11 +3,6 @@
       font-style: "Montserrat, Light" !important;
 }
 
-#itineraryPage .background {
-    --background: url('/assets/imgs/background.png') 0 0/100% 100% no-repeat;
-    --background-size: cover;
-}
-
 #itineraryPage div.itineraryHighlightsContainer {
     width: 100%;
     align-content: initial;

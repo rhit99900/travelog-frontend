@@ -4,6 +4,7 @@ import { arrowForwardOutline } from 'ionicons/icons'
 import { Link, useHistory } from 'react-router-dom'
 
 import '../SplashScreen/Splash.css'
+import { styles } from '../../utils/styles'
 
 const Splash = () => {
   const history = useHistory();
@@ -14,7 +15,7 @@ const Splash = () => {
 
   return (
     <IonPage>
-      <IonContent className="light splash">
+      <IonContent className="light splash" style={styles.splash}>
         <div className="splashImageContainer">
           <img src="/assets/graphics/splash-screen.svg" />          
           <h2>Travelog</h2>

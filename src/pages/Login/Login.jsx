@@ -11,6 +11,8 @@ import SocialLogin from '../../components/SocialLogin'
 import { UserContext } from '../../contexts/UserContext'
 import Loading from '../../components/Loading'
 
+import { styles } from '../../utils/styles'
+
 const Login = () => {
 
   const [ loginDetails, setLoginDetails ] = useState({
@@ -46,7 +48,7 @@ const Login = () => {
 
   return (
     <IonPage>
-      <IonContent className="light splash">
+      <IonContent className="light splash" style={styles.splash}>
         <div className="loginImageContainer">
           <img src="/assets/graphics/splash-screen.svg" />          
           <h3>Travelog</h3>

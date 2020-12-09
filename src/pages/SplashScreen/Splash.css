@@ -2,9 +2,9 @@ ion-card.loginContainer, ion-card.loginContainer ion-card-content{
   --background: transparent;
 }
 
-ion-content.splash{  
-  --background: url('/assets/graphics/splash-background.svg') #FFFFFF no-repeat center;
-}
+/* ion-content.splash{  
+  background-image: url('/assets/graphics/splash-background.svg') #FFFFFF no-repeat center;
+} */
 
 ion-item.loginElement{
   --background: #FFFFFF;

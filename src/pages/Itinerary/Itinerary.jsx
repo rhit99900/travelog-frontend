@@ -21,13 +21,14 @@ import { IonContent,
 import { arrowForwardSharp, personSharp, personOutline, heartOutline, arrowBackOutline} from 'ionicons/icons';
 
 import './Itinerary.css';
+import { styles } from '../../utils/styles'
 
 import ItineraryHighlights from '../../components/Itinerary/Highlights'
 
 const Itinerary = () => {
   return (
     <IonPage id="itineraryPage">
-    	<IonContent className="background" scroll="false">
+    	<IonContent className="background" scroll="false" style={styles.itinerary}>
     	<IonItem lines="none" className="ionItemNoBg ion-margin-top">    
     	
 		 <IonIcon icon={arrowBackOutline} className="arrowBack" />

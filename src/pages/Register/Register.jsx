@@ -8,6 +8,7 @@ import { UserContext } from '../../contexts/UserContext'
 import Loading from '../../components/Loading';
 
 import '../SplashScreen/Splash.css'
+import { styles } from '../../utils/styles'
 
 const Register = () => {
 
@@ -40,7 +41,7 @@ const Register = () => {
 
   return (
     <IonPage>
-      <IonContent className="light splash">
+      <IonContent className="light splash" style={styles.splash}>
         <div className="loginImageContainer">
           <img src="/assets/graphics/splash-screen.svg" alt="Splash Screen Image"/>
           <h3>Travelog</h3>
