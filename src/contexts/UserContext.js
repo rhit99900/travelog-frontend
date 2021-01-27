@@ -2,6 +2,7 @@ import React, { createContext, useState, useEffect } from 'react'
 import API from '../utils/API'
 import useAuthHandler from '../utils/hooks/AuthHandler'
 import usePostHandler from '../utils/hooks/PostHandler'
+import { signOut } from './../utils/hooks/GoogleAPIAuth'
 
 export const UserContext = createContext({
   thisUser: {},
@@ -15,6 +16,8 @@ export const UserContext = createContext({
   createPost: () => {},
   getUsers: () => {},  
   unsetActiveUser: () => {},
+  socialLogin: () => {},
+  updateUser: () => {},
 });
 
 
@@ -31,7 +34,10 @@ const UserProvider = ({ children }) => {
     unsetCurrentUser, 
     accessLevel, 
     getUsers, 
-    unsetActiveUser } = useHandler()  
+    unsetActiveUser,
+    socialLogin,
+    updateUser
+  } = useHandler()  
 
   return (
     <Provider value={{ 
@@ -44,7 +50,9 @@ const UserProvider = ({ children }) => {
       unsetCurrentUser, 
       accessLevel, 
       getUsers,
-      unsetActiveUser
+      unsetActiveUser,
+      socialLogin,
+      updateUser
     }}>
       {children}
     </Provider>
@@ -90,11 +98,14 @@ const useHandler = () => {
     setCurrentUser(user);
   }
 
-  const unsetActiveUser = () => {
-    try{
+  const unsetActiveUser = async () => {    
+    try{      
       setThisUser({});
-      unsetCurrentUser();
-      return true;
+      unsetCurrentUser();      
+      const signedOut = await signOut();
+      if(signedOut){        
+        return true;
+      }
     }
     catch(e){
       console.error(e);
@@ -132,8 +143,49 @@ const useHandler = () => {
     }
   }
 
+  const updateUser = async (data) => {
+    setLoading(true);
+    if(data !== undefined && data !== null){
+      let user = await API.request('me', data, 'PUT', true)
+      if(user){        
+        setActiveUser(user)
+        setLoading(false)
+        return true         
+      }
+      else{
+        setLoading(false)
+        return false
+      }
+    }
+    else{
+      console.error('Invalid User Data');
+    }
+  }
+
   const getUsers = () => {
 
+  }
+
+  const socialLogin = async (data) => {
+    // setLoading(true);
+    const loginDetails = {}
+    if(data.hasOwnProperty('googleId')){
+      loginDetails.login_type = 'google'
+      loginDetails.social_login_token = data.accessToken
+      loginDetails.email = data.profileObj.email
+      // loginDetails.profile_image = data.profileObj.imageUrl
+      loginDetails.profile_image = 'new'
+    }
+    else if(data.hasOwnProperty('facebook')){
+      loginDetails.login_type = 'facebook'
+      loginDetails.email = data.profile.email      
+    }
+
+    let user = await API.request('social', loginDetails,'POST')
+    console.log(user);
+    if(user){      
+      setActiveUser(user)      
+    }
   }
 
   return{
@@ -147,7 +199,9 @@ const useHandler = () => {
     accessLevel,
     createPost,
     getUsers,
-    unsetActiveUser
+    unsetActiveUser,
+    socialLogin,
+    updateUser
   }
 }
 

@@ -1,3 +1,6 @@
+
+import LocalStorage from './LocalStorage'
+
 // const api_base_url = process.env.API_BASE_URL
 const api_base_url = 'http://api.travelog.voyage/'
 
@@ -16,11 +19,19 @@ const API_ENDPOINTS = {
   },
   getGooglePhotos:{
     url: 'https://photoslibrary.googleapis.com/v1/albums'
+  },
+  social: {
+    url: api_base_url + '/users/socialLogin'
+  },
+  me: {
+    url: api_base_url + '/user'
   }
 }
 
+
+
 const API = {
-  request: async (endpoint, data, method = 'GET') => {    
+  request: async (endpoint, data, method = 'GET', isAuth = false) => {    
     let headers = {};
     if(data.headers){
       headers = data.headers;
@@ -28,8 +39,10 @@ const API = {
     else{
       headers = { 
         "Accept": "application/json",
-        "Content-Type": "application/json",
-        "Authorization": "Bearer "+"travelogue-api"
+        "Content-Type": "application/json",       
+      }
+      if(isAuth){        
+        headers['Authorization'] = "Bearer " + LocalStorage.getItem('user');
       }
     }
 
@@ -39,8 +52,11 @@ const API = {
       body: data ? JSON.stringify(data) : undefined
     })
     .then(response => response.json())
-    .then(data => {           
-      return data.result;
+    .then(data => {      
+      if(data.result)     
+        return data.result;
+      else
+        return data
     })
     .catch((error)=> {
       console.error(error);

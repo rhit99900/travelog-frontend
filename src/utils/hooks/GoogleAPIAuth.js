@@ -3,14 +3,14 @@ let GoogleAuth;
 let isAuthenticated = false;
 
 
-if(GOOGLE_API){
+if(GOOGLE_API){  
   GOOGLE_API.load('client:auth2', () => {
     GOOGLE_API.auth2.init({
       client_id: GOOGLE_PHOTOS.client_id
     })
     GoogleAuth = GOOGLE_API.auth2.getAuthInstance();
+    console.log(GoogleAuth);
     GoogleAuth.isSignedIn.listen(updateSigninStatus);
-    console.info('Google Photos APIs Loaded');
   })
 }
 
@@ -23,6 +23,17 @@ const updateSigninStatus = (isSignedIn) => {
   }
 }
 
+export const signOut = async () => {
+  if(GOOGLE_API !== undefined){    
+    const auth2 = GOOGLE_API.auth2.getAuthInstance()  
+    auth2.signOut().then(() => {
+      return true;
+    })
+  }
+  else{  
+    return true
+  }
+}
 
 const authenticate = () => {
   if(!isAuthenticated){

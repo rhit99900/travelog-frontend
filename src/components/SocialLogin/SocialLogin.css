@@ -23,3 +23,7 @@ div.socialLogin p{
   font-size: 14px;
   color: #000;
 }
+
+ion-item.loginElement{
+  width: 100%;
+}

@@ -68,7 +68,7 @@ const Login = () => {
             Login
             <IonIcon slot="end" icon={arrowForwardOutline} />
           </IonButton>
-          <SocialLogin />
+          <SocialLogin/>
         </div>
       </IonContent>
     </IonPage>

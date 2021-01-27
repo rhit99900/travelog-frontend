@@ -4,20 +4,19 @@ import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonList,
 import { logOutOutline } from 'ionicons/icons'
 import './Menu.css'
 import { UserContext } from '../../contexts/UserContext'
-import { Redirect } from 'react-router'
+import { Redirect, useHistory} from 'react-router'
+
 
 const Menu = () => {
 
   const { unsetActiveUser } = useContext(UserContext)
+  const history = useHistory()
 
-  const logoutCurrentUser = () => {    
-    if(unsetActiveUser()){
-      return(
-        <Redirect to="/" />
-      )
-    }
-    else{
-    }
+  const logoutCurrentUser = async () => {        
+    let loggedOut = await unsetActiveUser()
+    if(loggedOut){      
+      history.push('/')
+    }    
   }
   
   return(  
