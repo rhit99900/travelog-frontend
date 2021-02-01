@@ -18,6 +18,7 @@ export const UserContext = createContext({
   unsetActiveUser: () => {},
   socialLogin: () => {},
   updateUser: () => {},
+  me: () => {},
 });
 
 
@@ -36,7 +37,8 @@ const UserProvider = ({ children }) => {
     getUsers, 
     unsetActiveUser,
     socialLogin,
-    updateUser
+    updateUser,
+    me,
   } = useHandler()  
 
   return (
@@ -52,7 +54,8 @@ const UserProvider = ({ children }) => {
       getUsers,
       unsetActiveUser,
       socialLogin,
-      updateUser
+      updateUser,
+      me
     }}>
       {children}
     </Provider>
@@ -66,13 +69,7 @@ const useHandler = () => {
 
   const { setCurrentUser, getCurrentUser, unsetCurrentUser, accessLevel } = useAuthHandler();
   const { createPost }  = usePostHandler()
-
-  let existsUser = getCurrentUser();
   
-  useEffect(() => {
-    setThisUser(existsUser);
-  },[])
-
   const authenticateUser = async (userData) => {  
     setLoading(true); 
     if(userData.username && userData.password){
@@ -188,6 +185,20 @@ const useHandler = () => {
     }
   }
 
+  const me = async () => {
+    let user = await API.request('me', undefined ,'GET', true)
+    if(user){
+      if(user.result && !thisUser){
+        setThisUser(user.result)
+        return user.result
+      }
+      else{
+        setThisUser(user)
+        return user;
+      }
+    }
+  }
+
   return{
     thisUser,
     loading,
@@ -201,7 +212,8 @@ const useHandler = () => {
     getUsers,
     unsetActiveUser,
     socialLogin,
-    updateUser
+    updateUser,
+    me
   }
 }
 

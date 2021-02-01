@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
-import { IonContent, IonPage, IonCard, IonCardContent, IonButton, IonRow, IonCol, IonInput, IonItem, IonIcon, IonText } from '@ionic/react'
-import { arrowForwardOutline } from 'ionicons/icons'
+import { IonContent, IonPage, IonCard, IonCardContent, IonButton, IonRow, IonCol, IonInput, IonItem, IonIcon, IonText, IonFab, IonFabButton, IonFabList } from '@ionic/react'
+import { arrowForwardOutline, close, pencil, save } from 'ionicons/icons'
 import { useHistory } from 'react-router-dom'
 
 import './Profile.css'
@@ -14,9 +14,19 @@ import { UserContext } from '../../../contexts/UserContext'
 
 const Profile = () => {
 
-  const { thisUser } = useContext(UserContext);
+  const { thisUser, me } = useContext(UserContext);
+  const [ edit, setEdit ] = useState(false);
+  const [ userData, setUserData ] = useState({})
 
-  console.log(thisUser);
+  useEffect(() => {
+    if(!Object.keys(thisUser).length){
+      me();
+    }    
+    else{
+      setUserData(thisUser)
+    }
+  },[thisUser])
+
 
 
   return (
@@ -35,16 +45,54 @@ const Profile = () => {
           </IonCol>
           <IonCol>
             <IonCardContent className="profileInfo">
-              <h1>{thisUser.username}</h1>
-              <h4>@{thisUser.username}</h4>
-              <p>{thisUser.bio}</p>
+              {!edit ? (
+                <>
+                <h1>{thisUser.name}</h1>
+                <h4>@{thisUser.username}</h4>
+                <p>{thisUser.bio}</p>
+                </>
+              ): (
+                <>
+                <IonItem className="loginElement">
+                  <IonInput name="name" value={thisUser.name} placeholder="Name of Profile"></IonInput>
+                </IonItem>
+                <IonItem className="loginElement">
+                  <IonInput name="username" value={thisUser.username} placeholder="Username"></IonInput>
+                </IonItem>
+                <IonItem className="loginElement">
+                  <IonInput name="bio" value={thisUser.bio} placeholder="Profile Bio"></IonInput>
+                </IonItem>
+                </>
+              )}
+              
               <ProfileStats />
               <ProfileHighlights />
             </IonCardContent>
           </IonCol>          
         </IonRow>
         </div>
-      </IonContent>
+      </IonContent>      
+        {!edit ? (
+          <IonFab vertical="bottom" horizontal="end" mode="md" slot="fixes">
+            <IonFabButton onClick={() => setEdit(true)}>
+              <IonIcon icon={pencil}></IonIcon>
+            </IonFabButton>
+          </IonFab>
+        ): (
+          <>
+          <IonFab vertical="bottom" horizontal="end" mode="md" slot="fixes">
+            <IonFabButton onClick={() => setEdit(false)}>
+              <IonIcon icon={save}></IonIcon>
+            </IonFabButton>
+          </IonFab>
+          <IonFab vertical="bottom" horizontal="start" mode="md" slot="fixes">
+            <IonFabButton onClick={() => setEdit(false)}>
+              <IonIcon icon={close}></IonIcon>
+            </IonFabButton>
+          </IonFab>
+          </>
+        )}
+              
     </IonPage> 
   )
 }

@@ -31,9 +31,9 @@ const API_ENDPOINTS = {
 
 
 const API = {
-  request: async (endpoint, data, method = 'GET', isAuth = false) => {    
+  request: async (endpoint, data = undefined, method = 'GET', isAuth = false) => {    
     let headers = {};
-    if(data.headers){
+    if(data!== undefined && data.headers){
       headers = data.headers;
     }
     else{
