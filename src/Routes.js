@@ -12,6 +12,7 @@ import Search from './pages/Search'
 import Profile from './pages/User/Profile'
 import UserInterests from './pages/User/Interests'
 import UserSelectFollowing from './pages/User/SelectFollowing'
+import UserSearch from './pages/User/UserSearch'
 import Itinerary from './pages/Itinerary'
 import View from './pages/View'
 import GooglePhotos from './pages/GooglePhotos'
@@ -34,6 +35,7 @@ const Routes = () => (
       <Route path="/profile" component={Profile} />
       <Route path="/interests" component={UserInterests} />
       <Route path="/select-following" component={UserSelectFollowing} />
+      <Route path="/user-search" component={UserSearch} />
       <Route path="/itinerary" component={Itinerary} />
       <Route path="/view" component={View} />
       <Route path="/callback" component={Explore} />
