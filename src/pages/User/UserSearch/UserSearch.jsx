@@ -30,24 +30,7 @@ const UserSearch = () => {
             <IonIcon icon={arrowBackOutline} className="arrowBack margin-bottom" />
           </IonCol>
         </IonRow>
-        <IonRow>
-          <IonCol size='8'>
-            <IonLabel>
-              <h1 className="placeHeader">Paris, France</h1>    
-              <h3 className="placeSubHeader"><IonIcon slot="end" icon={personSharp} /> Richard Parker</h3>    
-            </IonLabel>
-          </IonCol>
-          <IonCol size="2" className="ion-margin-top">      
-            <IonLabel >    
-                <span className="commentTxt">256</span>  <IonIcon className="smallIcons" slot="end" icon={chatboxOutline}> 98</IonIcon>             
-            </IonLabel>
-          </IonCol>
-          <IonCol size="2" className="ion-margin-top">
-            <IonLabel>
-                <span className="commentTxt">576</span>  <IonIcon className="smallIcons" slot="end" icon={heartOutline}> 98</IonIcon>             
-            </IonLabel>
-          </IonCol>
-        </IonRow>       
+      
       </IonGrid>  
     </IonHeader>
     <IonContent>      
