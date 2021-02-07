@@ -1,0 +1,79 @@
+#userSearchPage .searchbar-left-aligned.sc-ion-searchbar-ios-h .searchbar-search-icon.sc-ion-searchbar-ios {
+    margin-left: calc(100% - 57.5px);   
+}
+
+#userSearchPage .galleryImg {    
+    float: left;
+    width: 105px;
+    height: 105px;
+    margin-right: 8%;
+    border-radius: 8%;
+}
+
+#userSearchPage .clearfix {
+  overflow: auto;  
+}
+
+#userSearchPage .picContent  {  
+    font: normal normal 300 10px/13px Montserrat !important;
+    margin-top:-19px;
+}
+
+#userSearchPage .picTitle {    
+    width: 168px;
+    text-align: left;
+    font: normal normal bold 23px/22px Montserrat;
+    color: #001D2C; 
+    left: -21px;
+}
+
+#userSearchPage .galleryImg > h3 {
+    float:right;
+}
+
+#userSearchPage .contentIcons {
+    height: 10px;
+}
+
+#userSearchPage .iconText {
+    margin-top:5px !important;
+    font: normal normal normal 10px/13px Montserrat !important;
+   
+}
+
+#userSearchPage .card-content-ios {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;  
+}
+
+#userSearchPage .card-content-ios p {
+    margin-top: -6px;
+}
+
+#userSearchPage div.postSaveAction {
+        width: 20px;
+    height: 20px;
+    background: #212427;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 2px;
+    display: inline-block;
+    margin-left: 92%;
+    cursor: pointer;
+    float: right;
+    margin-top: 19%;
+    z-index: 10;
+    position: absolute;
+  
+}
+
+#userSearchPage .returnDownIcon {
+    height: 89%;
+    width: 84%;
+}
+/*ion-searchbar {
+    border-radius: 5px;
+     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 12%), 0 1px 12px 0 rgb(0 0 0 / 15%);
+}*/
