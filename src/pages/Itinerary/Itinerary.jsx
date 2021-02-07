@@ -62,7 +62,8 @@ const Itinerary = () => {
 			  </IonCol>
 		  </IonRow>
 		</IonItem>     
-       <ItineraryHighlights /> 
+		<div className="overlay"> &nbsp;</div>
+       <ItineraryHighlights className="ItineraryHighlights"/> 
     </IonContent>
 
     <IonFooter className="light ion-no-border">

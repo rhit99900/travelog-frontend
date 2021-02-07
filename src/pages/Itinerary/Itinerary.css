@@ -87,7 +87,31 @@
 }
 
 #itineraryPage .itineraryInfo {
-    margin-top: 350px;    
+    margin-top: 350px;   
+    
+}
+
+#itineraryPage .overlay {
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+   /* background-color: rgba(0,0,0,0.2);*/
+       background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 40%,
+    rgba(0, 1, 0, 0.3) 60%
+);
+    z-index: 0;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#itineraryPage div.itineraryHighlightsContainer {   
+    z-index: 1;
+    position: relative;
 }
 
 #itineraryPage .buildingBadge {
@@ -99,7 +123,7 @@
 
 #itineraryPage .smallTxt {
     color: #fff !important;
-    font-size: 8px !important;
+    font-size: 9px !important;
 }
 
 #itineraryPage .arrowBack {
@@ -111,7 +135,11 @@
     width: 48px !important;
     margin-left: 0px !important;
 }
-
+#itineraryPage ion-icon 
+{
+    height: 21px;
+    width: 21px;
+}
 @media (min-height: 300px) {
     #itineraryPage .itineraryInfo {
         margin-top: 200px;
