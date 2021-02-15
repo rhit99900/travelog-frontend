@@ -1,0 +1,89 @@
+#galleryComponent h1.placeHeader {
+    color: var(--unnamed-color-001d2c);
+    text-align: left;
+    font: normal normal bold 20px/22px Montserrat !important;
+    letter-spacing: 0px;
+    color: #001D2C;
+    opacity: 1;
+}
+
+#galleryComponent h3.placeSubHeader {
+    color: var(--unnamed-color-001d2c);
+    text-align: left;
+    font: normal normal 600 13px/22px Montserrat;
+    letter-spacing: 0px;
+    color: #001D2C;
+    opacity: 1;
+}
+
+#galleryComponent .commentTxt {
+    text-align: right;
+    font: normal normal bold 10px/15px Montserrat;
+    letter-spacing: 0px;
+    color: #7F7F7F;
+    opacity: 1;
+}
+
+#galleryComponent .smallIcons {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+}
+
+#galleryComponent .searchIcon {
+    opacity: 0.5;
+    top: 183px;
+    left: 318px;
+    width: 23px;
+    height: 23px;
+}
+
+#galleryComponent .commentTxt {
+    vertical-align: top;
+    font: normal normal bold 10px/15px Montserrat;
+    letter-spacing: 0px;
+    color: #7F7F7F;
+    opacity: 1;
+    padding-top: 19px;
+}
+
+#galleryComponent .active {
+    color: var(--unnamed-color-001d2c);
+    text-align: left;
+    font: normal normal bold 20px/22px Montserrat;
+    letter-spacing: 0px;
+    color: #001D2C;
+    opacity: 1;
+}
+
+#galleryComponent .default {
+    color: var(--unnamed-color-001d2c);
+    text-align: left;
+    font: normal normal bold 20px/22px Montserrat;
+    letter-spacing: 0px;
+    color: #001D2C;
+    opacity: 0.5;
+}
+
+#galleryComponent .smallIcons {
+    width: 15px;
+    height: 16px;
+    opacity: 0.7;
+}
+
+#galleryComponent .imageTag {
+    width: 100%;    
+    height: 100%;
+    border-radius: 8px;
+    padding-right: 2px;
+}
+
+#galleryComponent .galleryGrid {
+    margin-left: -4px;
+    padding-right: 0px;
+}
+
+#galleryComponent .slideBoxCol {
+    padding: 1px !important;
+    margin-top: 1px;
+}

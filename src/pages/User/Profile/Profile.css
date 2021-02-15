@@ -121,6 +121,9 @@ div.profileHighlightsButton{
 
 }
 
+.profileContainer #galleryComponent {
+  top:90%;
+}
 div.profileHighlightsItem p{
   font-size:9px;
 }

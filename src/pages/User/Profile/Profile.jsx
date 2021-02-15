@@ -6,8 +6,10 @@ import { useHistory } from 'react-router-dom'
 
 import './Profile.css'
 
+
 import ProfileStats from '../../../components/Profile/Stats'
 import ProfileHighlights from '../../../components/Profile/Highlights'
+import ProfileGallery from '../../../components/Gallery/Gallery'
 import Back from '../../../components/Common/BackButton'
 
 import { UserContext } from '../../../contexts/UserContext'
@@ -26,8 +28,6 @@ const Profile = () => {
       setUserData(thisUser)
     }
   },[thisUser])
-
-
 
   return (
     <IonPage>
@@ -67,6 +67,7 @@ const Profile = () => {
               
               <ProfileStats />
               <ProfileHighlights />
+              <ProfileGallery/>
             </IonCardContent>
           </IonCol>          
         </IonRow>
