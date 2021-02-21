@@ -27,7 +27,21 @@ const Profile = () => {
     }
   },[thisUser])
 
+  const handleChange = (e) => {
+    setUserData({
+      ...userData,
+      [e.target.name]: e.target.value
+    })
+  }
 
+  const saveUserData = (e) => {
+    
+  }
+
+  const closeEdit = (e) => {
+    setUserData(thisUser)
+    setEdit(false);
+  }
 
   return (
     <IonPage>
@@ -54,13 +68,13 @@ const Profile = () => {
               ): (
                 <>
                 <IonItem className="loginElement">
-                  <IonInput name="name" value={thisUser.name} placeholder="Name of Profile"></IonInput>
+                  <IonInput name="name" onChange={handleChange} value={userData.name} placeholder="Name of Profile"></IonInput>
                 </IonItem>
                 <IonItem className="loginElement">
-                  <IonInput name="username" value={thisUser.username} placeholder="Username"></IonInput>
+                  <IonInput name="username" onChange={handleChange} value={userData.username} placeholder="Username"></IonInput>
                 </IonItem>
                 <IonItem className="loginElement">
-                  <IonInput name="bio" value={thisUser.bio} placeholder="Profile Bio"></IonInput>
+                  <IonInput name="bio" onChange={handleChange} value={userData.bio} placeholder="Profile Bio"></IonInput>
                 </IonItem>
                 </>
               )}
@@ -81,12 +95,12 @@ const Profile = () => {
         ): (
           <>
           <IonFab vertical="bottom" horizontal="end" mode="md" slot="fixes">
-            <IonFabButton onClick={() => setEdit(false)}>
+            <IonFabButton onClick={() => closeEdit}>
               <IonIcon icon={save}></IonIcon>
             </IonFabButton>
           </IonFab>
           <IonFab vertical="bottom" horizontal="start" mode="md" slot="fixes">
-            <IonFabButton onClick={() => setEdit(false)}>
+            <IonFabButton onClick={() => saveUserData}>
               <IonIcon icon={close}></IonIcon>
             </IonFabButton>
           </IonFab>
