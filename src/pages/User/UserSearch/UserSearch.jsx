@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react';
+import API from '../../../utils/API';
 
 import {
     IonContent,
@@ -17,10 +18,23 @@ import {
 } from '@ionic/react'
 
 import { returnDownForward, searchOutline, personSharp, heartSharp, chatboxOutline, heartOutline, arrowBackOutline } from 'ionicons/icons'
-import './UserSearch.css'
+import './UserSearch.css';
+import { UserContext } from '../../../contexts/UserContext'
 
 
 const UserSearch = () => {
+    const [ searchUserData, setSearchUserData ] = useState([]);
+    const [ usernameState, setUsernameState] = useState({username:''});
+    const { getUsers } = useContext(UserContext);
+
+    var username= usernameState.username;
+    const updateField = async (e) => {      
+      if (e.target.value.length >= 3) { // character length checking
+        setUsernameState({username: e.target.value})
+        setSearchUserData(await getUsers(e.target.value));
+      }      
+   }  
+
     return (
         <IonPage id="userSearchPage">
     <IonHeader>
@@ -34,18 +48,16 @@ const UserSearch = () => {
       </IonGrid>  
     </IonHeader>
     <IonContent>      
-     <IonSearchbar color="light" placeholder="" value=""></IonSearchbar>
-        <div className="postSaveAction">
-          <IonIcon className="returnDownIcon" icon={returnDownForward}  data-action="view" />
-        </div>
-      <IonCard>
+     <IonSearchbar color="light" placeholder="" value={username} onIonChange={updateField}></IonSearchbar>
+     {searchUserData.map((item, index) => (      
+      <div key={index}>
+         <IonCard>
       <IonCardContent>
        <IonGrid>  
          <IonRow>
-            <IonCol size="4" >  
+            <IonCol size="4" > 
             <img className="galleryImg" src="https://www.w3schools.com/css/rock600x400.jpg" />     
             </IonCol>
-
              <IonCol  size="8" >  
                <IonCardHeader>
                 <IonCardTitle aliu className="picTitle">Paris, France</IonCardTitle>
@@ -53,38 +65,17 @@ const UserSearch = () => {
             <p className="picContent"> Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, 
             Madison was named.</p>
               <h3 className="iconText" ><IonIcon slot="end" className="contentIcons" icon={personSharp} /> 1.4k &nbsp;  <IonIcon className="contentIcons"  slot="end" icon={heartSharp}> 98</IonIcon><span className="commentTxt">576</span> </h3>            
-             </IonCol>
-           
+             </IonCol>           
           </IonRow>       
-        </IonGrid>   
-         
+        </IonGrid>
         </IonCardContent>
        </IonCard>
-       <div className="postSaveAction">
-          <IonIcon className="returnDownIcon" icon={returnDownForward}  data-action="view" />
+ 
         </div>
-      <IonCard>
-      <IonCardContent>
-       <IonGrid>  
-         <IonRow>
-            <IonCol size="4" >  
-            <img className="galleryImg" src="https://www.w3schools.com/css/rock600x400.jpg" />     
-            </IonCol>
+            ))}                 
+     
+     
 
-             <IonCol  size="8" >  
-               <IonCardHeader>
-                <IonCardTitle aliu className="picTitle">Paris, France</IonCardTitle>
-               </IonCardHeader>
-            <p className="picContent"> Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, 
-            Madison was named.</p>
-              <h3 className="iconText" ><IonIcon slot="end" className="contentIcons" icon={personSharp} /> 1.4k &nbsp;  <IonIcon className="contentIcons"  slot="end" icon={heartSharp}> 98</IonIcon><span className="commentTxt">576</span> </h3>            
-             </IonCol>
-           
-          </IonRow>       
-        </IonGrid>   
-         
-        </IonCardContent>
-       </IonCard>
     </IonContent>
     </IonPage>
     )

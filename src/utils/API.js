@@ -25,14 +25,16 @@ const API_ENDPOINTS = {
   },
   me: {
     url: api_base_url + '/user'
+  },
+  searchUser: {
+    url: api_base_url + '/profiles/searchUser'
   }
 }
 
-
-
 const API = {
-  request: async (endpoint, data = undefined, method = 'GET', isAuth = false) => {    
+  request: async (endpoint, data = undefined, method = 'GET', isAuth = false, param = undefined) => {    
     let headers = {};
+    
     if(data!== undefined && data.headers){
       headers = data.headers;
     }
@@ -44,9 +46,13 @@ const API = {
       if(isAuth){        
         headers['Authorization'] = "Bearer " + LocalStorage.getItem('user');
       }
-    }
+    }  
+   
+    //Checking for GET method parameter(query string)
+    let endPointURL= API_ENDPOINTS[endpoint].url;
+    if (param && method == 'GET') endPointURL+= "?" +param;   
 
-    let result = fetch(API_ENDPOINTS[endpoint].url, {
+    let result = fetch(endPointURL, {
       method: method,
       headers: headers,
       body: data ? JSON.stringify(data) : undefined
@@ -68,4 +74,5 @@ const API = {
   }
 }
 
-export default API;
+export default  API;
+
