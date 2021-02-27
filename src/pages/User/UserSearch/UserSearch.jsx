@@ -60,7 +60,7 @@ const UserSearch = () => {
             </IonCol>
              <IonCol  size="8" >  
                <IonCardHeader>
-                <IonCardTitle aliu className="picTitle">Paris, France</IonCardTitle>
+                <IonCardTitle aliu className="picTitle">{item.username}</IonCardTitle>
                </IonCardHeader>
             <p className="picContent"> Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, 
             Madison was named.</p>
