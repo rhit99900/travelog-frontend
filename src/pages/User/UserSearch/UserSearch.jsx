@@ -28,9 +28,9 @@ const UserSearch = () => {
     const { getUsers } = useContext(UserContext);
 
     var username= usernameState.username;
-    const updateField = async (e) => {      
-      if (e.target.value.length >= 3) { // character length checking
-        setUsernameState({username: e.target.value})
+    const updateField = async (e) => {    
+      setUsernameState({username: e.target.value})  
+      if (e.target.value.length >= 3) { // character length checking        
         setSearchUserData(await getUsers(e.target.value));
       }      
    }  
