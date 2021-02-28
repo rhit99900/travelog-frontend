@@ -18,7 +18,7 @@ export const UserContext = createContext({
   unsetActiveUser: () => {},
   socialLogin: () => {},
   updateUser: () => {},
-  me: () => {},
+  me: () => {}
 });
 
 
@@ -38,7 +38,7 @@ const UserProvider = ({ children }) => {
     unsetActiveUser,
     socialLogin,
     updateUser,
-    me,
+    me
   } = useHandler()  
 
   return (
@@ -158,11 +158,7 @@ const useHandler = () => {
       console.error('Invalid User Data');
     }
   }
-
-  const getUsers = () => {
-
-  }
-
+  
   const socialLogin = async (data) => {
     // setLoading(true);
     const loginDetails = {}
@@ -191,6 +187,20 @@ const useHandler = () => {
       if(user.result && !thisUser){
         setThisUser(user.result)
         return user.result
+      }
+      else{
+        setThisUser(user)
+        return user;
+      }
+    }
+  }
+
+  const getUsers = async (data = '') => {
+    let user = await API.request('searchUser', undefined ,'GET', true, 'username='+data);    
+    if(user){
+      if(user.result && !thisUser) {      
+        setThisUser(user.result)
+        return user.result;
       }
       else{
         setThisUser(user)
