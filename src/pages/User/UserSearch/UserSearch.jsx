@@ -51,14 +51,14 @@ const UserSearch = () => {
      <IonSearchbar color="light" placeholder="" value={username} onIonChange={updateField}></IonSearchbar>
      {searchUserData.map((item, index) => (      
       <div key={index}>
-         <IonCard>
+         <IonCard >
       <IonCardContent>
        <IonGrid>  
          <IonRow>
             <IonCol size="4" > 
             <img className="galleryImg" src="https://www.w3schools.com/css/rock600x400.jpg" />     
             </IonCol>
-             <IonCol  size="8" >  
+             <IonCol className="margin-top"  size="8" >  
                <IonCardHeader>
                 <IonCardTitle aliu className="picTitle">{item.username}</IonCardTitle>
                </IonCardHeader>

@@ -73,6 +73,10 @@
     height: 89%;
     width: 84%;
 }
+
+#userSearchPage .margin-top {
+    top:-11px
+}
 /*ion-searchbar {
     border-radius: 5px;
      box-shadow: 0 4px 8px 0 rgb(0 0 0 / 12%), 0 1px 12px 0 rgb(0 0 0 / 15%);
