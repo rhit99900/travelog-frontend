@@ -196,14 +196,17 @@ const useHandler = () => {
   }
 
   const getUsers = async (data = '') => {
+    setLoading(true);
     let user = await API.request('searchUser', undefined ,'GET', true, 'username='+data);    
     if(user){
       if(user.result && !thisUser) {      
-        setThisUser(user.result)
+        setThisUser(user.result);
+        setLoading(false);
         return user.result;
       }
       else{
-        setThisUser(user)
+        setThisUser(user);
+        setLoading(false);
         return user;
       }
     }
