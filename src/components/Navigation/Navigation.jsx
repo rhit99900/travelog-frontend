@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useMemo, useContext, memo} from 'react'
 
 import { IonIcon, IonAvatar, IonTabBar, IonTabButton, IonRouterOutlet, IonTabs, IonTab, IonChip } from '@ionic/react';
+
 import { BrowserRouter as Router, Route, Redirect, Switch, useHistory } from 'react-router-dom'
 
 import { searchOutline, heartOutline, addCircleOutline, compassOutline } from 'ionicons/icons';
@@ -15,6 +16,7 @@ import Header from '../Header'
 import Login from '../../pages/Login'
 import Register from '../../pages/Register'
 import SplashScreen from '../../pages/SplashScreen'
+import OptionModal from '../../components/OptionModal';
 
 const RouterOutlet = () => (
   <>
@@ -63,7 +65,7 @@ const InitialRoute = memo(({path, exact, component}) => {
 })
 
 const Navigation = () => {  
-
+  const [showOptionModal, setShowOptionModal] = useState(true);
   return(
     <Router>      
       <Switch>
@@ -71,10 +73,11 @@ const Navigation = () => {
         <InitialRoute path="/login" exact={true} component={Login} />
         <InitialRoute path="/register" exact={true} component={Register} />
         <Route> 
-          <RouterOutlet />         
+          <RouterOutlet  />         
         </Route>
-      </Switch>
-    </Router>
+      </Switch>     
+      <OptionModal open={showOptionModal} onClose={() => setShowOptionModal(false)}> </OptionModal>     
+    </Router>    
   )
 }
 
