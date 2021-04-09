@@ -30,7 +30,7 @@ const Details = () => {
 const [txtAreaValue, setTxtAreaValue] = useState("");
 const [txtAreaCount, setTxtAreaCount] = useState(1);
 const [durationVal, setDurationVal] = useState(1);
-const max = 250;
+const maxTxtArea = 250;
 
   useEffect(() => {
     setTxtAreaCount(txtAreaValue.length);
@@ -68,8 +68,8 @@ const max = 250;
           <IonItem lines="none" className="ion-margin-top">
 
             {/* <IonLabel className="descriptionLabel">Description</IonLabel> */}
-            <IonTextarea className="description" value={txtAreaValue} rows="10" maxlength={max} placeholder="Description"  onIonInput={(e) =>  setTxtAreaValue(e.target.value)}></IonTextarea>
-            <IonLabel className="ion-float-right countLabel">{txtAreaCount}/{max}</IonLabel>
+            <IonTextarea className="description" value={txtAreaValue} rows="10" maxlength={maxTxtArea} placeholder="Description"  onIonInput={(e) =>  setTxtAreaValue(e.target.value)}></IonTextarea>
+            <IonLabel className="ion-float-right countLabel">{txtAreaCount}/{maxTxtArea}</IonLabel>
 
           </IonItem>
 
