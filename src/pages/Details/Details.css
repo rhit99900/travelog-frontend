@@ -75,6 +75,11 @@
 
 }
 
+.description::-webkit-ion-textarea-placeholder {
+    color: #000;
+    font-weight: bold;
+}
+
 .descriptionLabel {
     position: absolute;
     left: 4%;
@@ -85,6 +90,9 @@
 .nextBtn {
     margin-right: 4%;
     height: 35px;
+    margin-top:1%;
+    margin-bottom: 78%;
+    
 }
 
 .next-arrowForward {
