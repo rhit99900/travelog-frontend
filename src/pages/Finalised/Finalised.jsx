@@ -40,8 +40,11 @@ const maxTxtArea = 250;
 
         <IonGrid>
           <IonRow className="arrowBackIonRow margin-top">
-            <IonCol>
+            <IonCol size="2">
               <IonIcon icon={arrowBackOutline} className="arrowBack margin-bottom" />
+            </IonCol>
+            <IonCol size="8">
+            <IonLabel className="locationLabel" color="primary">Some Location...</IonLabel>
             </IonCol>
           </IonRow>
         </IonGrid>

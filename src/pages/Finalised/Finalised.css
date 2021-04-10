@@ -15,6 +15,15 @@
     object-fit: contain;
 }
 
+#finalisedPage  .locationLabel{
+    color: #000;
+    font-size: 23px;
+   
+    position: relative;
+    font-weight: bold;
+
+}   
+
 #finalisedPage .nameInput {
     padding-left: 2%;
     padding-right: 2%;
@@ -111,8 +120,10 @@
 
 #finalisedPage .nextBtn {
     margin-right: 4%;
-    height: 35px;   
-    margin-bottom: 78%;    
+    height: 35px;
+    margin-bottom: 72%;
+    top: -28px;
+    position: relative; 
 }
 
 #finalisedPage .next-arrowForward {
