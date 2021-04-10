@@ -18,6 +18,7 @@ import GooglePhotos from './pages/GooglePhotos'
 import Gallery from './pages/Gallery'
 import SubGallery from './pages/SubGallery'
 import Details from './pages/Details'
+import Finalised from './pages/Finalised'
 import _404 from './pages/404'
 
 const PrivateRoute = ({path, component, exact}) => {
@@ -42,10 +43,10 @@ const Routes = () => (
       <Route path="/gallery" component={Gallery} />
       <Route path="/subgallery" component={SubGallery} />
       <Route path="/details" component={Details} />
+      <Route path="/finalised" component={Finalised} />
       <Route>
         <_404 />
       </Route>
-
     </Switch>
   </Router>
 )

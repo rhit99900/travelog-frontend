@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react'
 import {
   IonContent,
   IonPage,
-  IonSegment,
-  IonSegmentButton,
   IonRow,
   IonCol,
   IonInput,
@@ -12,18 +10,20 @@ import {
   IonIcon,
   IonLabel,
   IonItem,
-  IonHeader,
   IonList,
   IonButton,
-  IonTextarea
+  IonTextarea,
+  IonSelect,
+  IonSelectOption,
+  IonDatetime
 
 } from '@ionic/react';
 
-import './Details.css'
+import './Finalised.css'
 
-import { arrowBackOutline, arrowForwardOutline} from 'ionicons/icons';
+import { arrowBackOutline, arrowForwardOutline, timerOutline} from 'ionicons/icons';
 
-const Details = () => {
+const Finalised = () => {
   
 const [txtAreaValue, setTxtAreaValue] = useState("");
 const [txtAreaCount, setTxtAreaCount] = useState(1);
@@ -35,7 +35,7 @@ const maxTxtArea = 250;
   }, [txtAreaValue]);
 
   return (
-    <IonPage id="detailsPage">
+    <IonPage id="finalisedPage">
       <IonContent className="light">
 
         <IonGrid>
@@ -46,14 +46,49 @@ const maxTxtArea = 250;
           </IonRow>
         </IonGrid>
 
+        <div class="galleryImageContainer">
+          <img class="postImage" src="https://picsum.photos/536/354" />
+        </div>
+
         <IonList lines="full" class="ion-no-margin">
-          <IonItem className="nameInput">
-            <IonInput placeholder="Your Travelog Name.."></IonInput>
+        
+          <IonItem lines="none">
+            <IonGrid>
+              <IonRow className="arrowBackIonRow margin-top">
+                <IonCol size="6">             
+                  <IonSelect className="daySelectorBox"  value="day1" interface="action-sheet">
+                    <IonSelectOption value="day1">Day 1</IonSelectOption>
+                    <IonSelectOption value="day2">Day 2</IonSelectOption>
+                  </IonSelect>
+                </IonCol>
+                <IonCol size="6">      
+                 
+                 <IonIcon className="timerIcon" icon={timerOutline} />
+                  <IonDatetime displayFormat="HH:mm:ss" className="locationInput" display-timezone="utc"></IonDatetime>
+                  <span item-right>
+                 
+                
+                </span>     
+                </IonCol>
+              </IonRow>
+            </IonGrid>
+          </IonItem>
+        
+          <IonItem lines="none">
+            <IonInput class="locationInput" placeholder="Travelog Location"></IonInput>
+          </IonItem>
+          <IonItem lines="none" className="ion-margin-top">
+            <IonTextarea className="description" value={txtAreaValue} rows="10" maxlength={maxTxtArea} placeholder="Description" onIonInput={(e) => setTxtAreaValue(e.target.value)}></IonTextarea>
+            <IonLabel className="ion-float-right countLabel">{txtAreaCount}/{maxTxtArea}</IonLabel>
           </IonItem>
 
-          <IonItem lines="none">
-            <IonInput class="shadow-red" placeholder="Travelog Location"></IonInput>
-          </IonItem>
+        </IonList>
+        
+        <IonButton className="ion-float-right ion-margin-right nextBtn"  size="small" shape="round">UPLOAD <IonIcon icon={arrowForwardOutline} className="next-arrowForward margin-bottom" /></IonButton>
+
+
+    
+        {/*
 
           <IonItem lines="none">
             <IonLabel>Duration of Travel</IonLabel><br />    <br />
@@ -65,17 +100,17 @@ const maxTxtArea = 250;
 
           <IonItem lines="none" className="ion-margin-top">
 
-            {/* <IonLabel className="descriptionLabel">Description</IonLabel> */}
+ 
             <IonTextarea className="description" value={txtAreaValue} rows="10" maxlength={maxTxtArea} placeholder="Description"  onIonInput={(e) =>  setTxtAreaValue(e.target.value)}></IonTextarea>
             <IonLabel className="ion-float-right countLabel">{txtAreaCount}/{maxTxtArea}</IonLabel>
 
           </IonItem>
 
           <IonButton className="ion-float-right ion-margin-right nextBtn"  size="small" shape="round">NEXT <IonIcon icon={arrowForwardOutline} className="next-arrowForward margin-bottom" /></IonButton>
-        </IonList>
+        </IonList> */}
       </IonContent>
     </IonPage>
   )
 }
 
-export default Details;
+export default Finalised;

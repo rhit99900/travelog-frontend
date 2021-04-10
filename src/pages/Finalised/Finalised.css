@@ -1,14 +1,26 @@
-#detailsPage {
+#finalisedPage {
     margin-top:50px;
 }
 
-#detailsPage .nameInput {
+#finalisedPage .galleryImageContainer {
+    width: 100%;
+    height: auto;
+    max-height: 30vh;
+    overflow: hidden;  
+}
+
+
+#finalisedPage div.galleryImageContainer img{
+    width: 100%;
+    object-fit: contain;
+}
+
+#finalisedPage .nameInput {
     padding-left: 2%;
     padding-right: 2%;
 }
 
-
-#detailsPage .shadowBox {    
+#finalisedPage .shadowBox {    
     /* -webkit-box-shadow: 0 0 5px 2px rgb(22, 13, 13);
     -moz-box-shadow: 0 0 5px 2px rgb(22, 13, 13); */
     box-shadow: 0 0 15px 1px rgb(22, 13, 13);
@@ -16,10 +28,8 @@
     border: 1px solid red;
 }
 
-#detailsPage .shadow-red{
-    /* border-radius: 5px;
-    box-shadow: 0px 14px 25px rgba(182, 30, 30, 0.59); */
-        margin-top:30px;
+#finalisedPage .locationInput {   
+   
         border-radius: 30px !important;
         padding-left: 10px !important;
         font-size: 0.9em;
@@ -30,7 +40,21 @@
         margin-left:0px;    
 }
 
-#detailsPage .durationBtn{
+
+#finalisedPage .daySelectorBox {        
+        border-radius: 30px !important;
+        padding-left: 10px !important;
+        font-size: 0.9em;
+        margin-bottom: 10px;
+        border: 1px solid #9fa6ad;
+        border-top: 0px !important;
+        box-shadow:  0px 4px 11px #9fa6ad;
+        margin-left:0px;    
+        max-width: 90% !important;
+}
+
+
+#finalisedPage .durationBtn {
     border-radius: 64px;
     padding: 0px;
     /* padding-top: 0; */
@@ -44,20 +68,19 @@
     margin-left: 25%;
 }
 
-#detailsPage .plus {
-    float:left;
-  
+#finalisedPage .plus {
+    float:left;  
     font-size: 19px;
     font-weight: bold;
 }
 
-#detailsPage .minus {
+#finalisedPage .minus {
     float:right;  
     font-size: 19px;
     font-weight: bold;
 }
 
-.counterInput {
+#finalisedPage .counterInput {
     background-color: #fff;
     color: #000;
     font-weight: bold;
@@ -66,7 +89,7 @@
     margin-right: 15%;
 }
 
-#detailsPage .description {
+#finalisedPage .description {
     border: 1px solid #9fa6ad;
     border-top: 0px !important;
     box-shadow: 0px 4px 11px #9fa6ad;
@@ -74,32 +97,30 @@
     height: 76%;
 }
 
-#detailsPage .description::-webkit-ion-textarea-placeholder {
+#finalisedPage .description::-webkit-ion-textarea-placeholder {
     color: #000;
     font-weight: bold;
 }
 
-#detailsPage .descriptionLabel {
+#finalisedPage .descriptionLabel {
     position: absolute;
     left: 4%;
     font-weight: bold;
     font-size: 12px !important;
 }
 
-#detailsPage .nextBtn {
+#finalisedPage .nextBtn {
     margin-right: 4%;
-    height: 35px;
-    margin-top:1%;
-    margin-bottom: 78%;
-    
+    height: 35px;   
+    margin-bottom: 78%;    
 }
 
-#detailsPage .next-arrowForward {
+#finalisedPage .next-arrowForward {
     left: 20px;
     position: relative;
 }
 
-#detailsPage .countLabel {
+#finalisedPage .countLabel {
     position: absolute;
     left: 80%;
     float: right;
@@ -107,3 +128,17 @@
     font-size: 12px !important;    
     top: 60%;
 }
+
+#finalisedPage .timerIcon {
+    color: #9fa6ad !important;
+    /* margin: 15px -13px -33px 0 !important; */
+    background-color: transparent;
+    font-size: 27px;
+    padding: 0px 7px 12px 0px;
+    position: absolute;
+    margin: 6px -14px -33px 71% !important;
+}
+
+.item-inner {
+    flex-direction: row-reverse !important;
+  }
