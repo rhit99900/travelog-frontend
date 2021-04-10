@@ -56,7 +56,7 @@ const maxTxtArea = 250;
           </IonItem>
 
           <IonItem lines="none">
-            <IonLabel>Duration of Travel</IonLabel><br />    <br />
+            <IonLabel className="durationLabel">Duration of Travel</IonLabel><br />    <br />
           </IonItem>
 
           <IonItem lines="none">

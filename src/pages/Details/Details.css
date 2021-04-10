@@ -39,7 +39,7 @@
     font-weight: 500;
     letter-spacing: -0.03em;
     display: block;
-    width: 44%;
+    width: 50%;
     height: 80%;
     margin-left: 25%;
 }
@@ -106,4 +106,9 @@
     color: #9fa6ad !important;
     font-size: 12px !important;    
     top: 60%;
+}
+
+
+#detailsPage .durationLabel {
+    font-weight: bold;
 }
