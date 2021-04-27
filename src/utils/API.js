@@ -25,6 +25,9 @@ const API_ENDPOINTS = {
   },
   me: {
     url: api_base_url + '/user'
+  },
+  travelog: {
+    url:  api_base_url + '/travelog'
   }
 }
 

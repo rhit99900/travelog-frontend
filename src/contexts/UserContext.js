@@ -19,6 +19,7 @@ export const UserContext = createContext({
   socialLogin: () => {},
   updateUser: () => {},
   me: () => {},
+  travelog: () => {},
 });
 
 
@@ -39,6 +40,7 @@ const UserProvider = ({ children }) => {
     socialLogin,
     updateUser,
     me,
+    travelog,
   } = useHandler()  
 
   return (
@@ -55,7 +57,8 @@ const UserProvider = ({ children }) => {
       unsetActiveUser,
       socialLogin,
       updateUser,
-      me
+      me,
+      travelog
     }}>
       {children}
     </Provider>
@@ -199,6 +202,15 @@ const useHandler = () => {
     }
   }
 
+  const travelog = async (data) => {  
+    let responseData = await API.request('travelog', data ,'POST', true)
+    if(responseData){     
+        return responseData;      
+    } else {
+      return false;
+    }
+  }
+
   return{
     thisUser,
     loading,
@@ -213,7 +225,8 @@ const useHandler = () => {
     unsetActiveUser,
     socialLogin,
     updateUser,
-    me
+    me,
+    travelog
   }
 }
 
