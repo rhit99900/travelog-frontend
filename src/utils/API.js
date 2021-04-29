@@ -28,6 +28,9 @@ const API_ENDPOINTS = {
   },
   searchUser: {
     url: api_base_url + '/profiles/searchUser'
+  },
+  travelog: {
+    url:  api_base_url + '/travelog'
   }
 }
 

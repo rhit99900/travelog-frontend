@@ -87,16 +87,10 @@
 }
 
 #detailsPage .nextBtn {
-    margin-right: 4%;
+    margin-right: 2%;
     height: 35px;
     margin-top:1%;
-    margin-bottom: 78%;
-    
-}
-
-#detailsPage .next-arrowForward {
-    left: 20px;
-    position: relative;
+    margin-bottom: 78%;    
 }
 
 #detailsPage .countLabel {
