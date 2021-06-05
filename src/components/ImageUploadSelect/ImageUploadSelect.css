@@ -1,0 +1,26 @@
+ion-item.new-post-title{
+  color: #000;
+  --background: transparent;
+  --border-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+
+ion-segment-button.post-selection-segment{
+  --background: transparent;
+  --background-checked: transparent;
+  --background-focused: transparent;
+  --color-checked: #000;
+  --color: #000;  
+}
+
+ion-segment-button.post-selection-segment ion-label{
+  text-align: left;
+  margin-left:0px
+}
+
+ion-button.upload-files-button{
+  --background: var(--pink);
+  
+}

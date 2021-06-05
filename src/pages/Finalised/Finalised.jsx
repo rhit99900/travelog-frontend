@@ -55,7 +55,7 @@ const maxTxtArea = 250;
 
         <IonList lines="full" class="ion-no-margin">
         
-          <IonItem lines="none">
+          <IonItem lines="none" mode="md">
             <IonGrid>
               <IonRow className="arrowBackIonRow margin-top">
                 <IonCol size="6">             
@@ -77,7 +77,7 @@ const maxTxtArea = 250;
             </IonGrid>
           </IonItem>
         
-          <IonItem lines="none">
+          <IonItem lines="none" mode="md">
             <IonInput class="locationInput" placeholder="Travelog Location"></IonInput>
           </IonItem>
           <IonItem lines="none" className="ion-margin-top">

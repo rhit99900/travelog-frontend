@@ -16,9 +16,9 @@ const Header = () => {
   }
 
   return(
-    <IonHeader collapse="condense">
+    <IonHeader>
       <IonToolbar mode="md" className="light">
-        <IonButtons slot="start">
+        <IonButtons slot="start" mode="md">
           <IonButton onClick={openMenu}>
             <IonIcon className="headerMenuIcon" icon={menuOutline}></IonIcon>
           </IonButton>

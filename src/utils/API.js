@@ -6,31 +6,34 @@ const api_base_url = 'http://api.travelog.voyage/'
 
 const API_ENDPOINTS = {
   users: {
-    url: api_base_url+'/users'
+    url: api_base_url +'users'
+  },
+  register: {
+    url: api_base_url +'users/register'
   },
   posts: {
-    url: api_base_url+'/posts'
+    url: api_base_url +'posts'
   },
   login: {
-    url: api_base_url+'/users/login'
+    url: api_base_url +'users/login'
   },
   profiles:{
-    url: api_base_url+'/profiles'
+    url: api_base_url +'profiles'
   },
   getGooglePhotos:{
     url: 'https://photoslibrary.googleapis.com/v1/albums'
   },
   social: {
-    url: api_base_url + '/users/socialLogin'
+    url: api_base_url + 'users/socialLogin'
   },
   me: {
-    url: api_base_url + '/user'
+    url: api_base_url + 'user'
   },
   searchUser: {
-    url: api_base_url + '/profiles/searchUser'
+    url: api_base_url + 'profiles/searchUser'
   },
   travelog: {
-    url:  api_base_url + '/travelog'
+    url:  api_base_url + 'travelog'
   }
 }
 

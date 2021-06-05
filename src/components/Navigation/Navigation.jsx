@@ -17,8 +17,7 @@ import Register from '../../pages/Register'
 import SplashScreen from '../../pages/SplashScreen'
 
 const RouterOutlet = () => (
-  <>
-  <Header/>
+  <>  
   <Menu/>
   <IonTabs>
     <IonRouterOutlet>

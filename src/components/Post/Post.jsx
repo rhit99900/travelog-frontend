@@ -42,25 +42,30 @@ const Post = (post) => {
         <IonLabel className="postAuthorName">Chip Avatar</IonLabel>
       </IonChip>
       <div className="postImageContainer">
-        <img className="postImage" src="https://picsum.photos/seed/name/500/320"/>        
+        <img className="postImage" src="https://picsum.photos/seed/something/500/500"/>        
       </div>      
       <div className="postSaveActionContainer">        
-        <div className="postSaveAction">
+        <IonChip className="postActionCountLabel">View Itinerary</IonChip>
+        {/* <div className="postSaveAction">
           <IonIcon 
             icon={postStatus.is_saved ? bookmark : bookmarkOutline} 
             onClick={postActionTrigger} data-action="save" 
             className={`${postStatus.is_saved? 'active': null}`}/>
-        </div>
-        <div className="postSaveAction">
+        </div> */}
+        {/* <div className="postSaveAction">
           <IonIcon icon={returnDownForward} onClick={postActionTrigger} data-action="view" />
-        </div>
+        </div> */}
       </div>
       <IonCardContent className="postDetailsContainer">
-        <div className="postActionContainer">
+        <div className="postActionContainer">          
           <IonIcon onClick={postActionTrigger} className={`postActionIcons ${postStatus.is_liked ? 'active': null}`} icon={heart} data-action="like"></IonIcon>
-          <IonChip className="postActionCountLabel">300</IonChip>
+          {/* <IonChip className="postActionCountLabel">300</IonChip> */}
           <IonIcon onClick={postActionTrigger} className="postActionIcons" icon={chatbubble} data-action="comment"></IonIcon>
-          <IonChip className="postActionCountLabel">200</IonChip>
+          {/* <IonChip className="postActionCountLabel">200</IonChip>           */}
+          <div className="saveCounter">
+            <IonIcon onClick={postActionTrigger} className="postActionIcons saves" icon={postStatus.is_saved ? bookmark : bookmarkOutline} data-action="comment"></IonIcon>
+            <IonChip className="postActionCountLabel saves">40</IonChip>
+          </div>
         </div>
         <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 

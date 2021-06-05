@@ -127,7 +127,7 @@ const useHandler = () => {
     }
 
     if(userData.username && userData.password && userData.email){      
-      let user = await API.request('users',userData,'POST');
+      let user = await API.request('register',userData,'POST');
       if(user){
         setActiveUser(user);
         setLoading(false);

@@ -1,40 +1,59 @@
 ion-card.postContainer{
   --background: none;
-  box-shadow: none;
-  margin-left: -20px;  
+  box-shadow: none;  
+  font-family: 'Montserrat', sans-serif;
 }
 
 ion-chip.postAuthorContainer{
-  margin-left: 30px;
+  margin-left: 10px;
   margin-bottom: 10px;
   --background: none;
+  font-family: 'Montserrat', sans-serif;
 }
 
 ion-card-content.postDetailsContainer{
-  margin-left: 20px;
+  margin-left: 0;
+  padding: 15px 0 15px 0;  
 }
 
 ion-chip.postActionCountLabel{
   font-size: 14px; 
   --background: none;
-  padding: 0px 5px 3px 5px;
+  padding: 3px 5px 3px 5px;
   height: 20px;
-  margin-top: -4px
+  margin-top: -4px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 ion-icon.postActionIcons{
   font-size: 20px;  
   --color: #000000;
+  margin-right: 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 ion-icon.postActionIcons.active{
   color: var(--pink);
 }
 
+.saveCounter{
+  float: right;
+}
+
+.saveCounter ion-icon.postActionIcons{
+  margin-right: 0px;
+  font-size: 22px;
+}
+
+.saveCounter ion-chip.postActionCountLabel{
+  margin-left: -3px;
+  margin-top: -3px;
+}
 
 ion-label.postAuthorName, 
 ion-chip.postActionCountLabel{  
   color: #000;
+  background-color: rgba(255,255,255,0.7);  
 }
 
 div.postActionContainer{
@@ -44,8 +63,8 @@ div.postActionContainer{
 div.postImageContainer{
   width: 100%;
   height: auto;  
-  max-height: 30vh;
-  border-radius: 0 30px 30px 0;
+  max-height: 50vh;
+  border-radius: 15px;
   overflow: hidden;  
 }
 
@@ -57,8 +76,8 @@ div.postImageContainer img{
 
 div.postSaveActionContainer{
   position: absolute;
-  right: 10px;    
-  margin-top: -20px;
+  right: 5px;    
+  margin-top: -25px;
   z-index: 2; 
 }
 

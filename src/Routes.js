@@ -8,6 +8,7 @@ import {
 
 import Explore from './pages/Feed/Explore'
 import NewPost from './pages/NewPost'
+import CreatePost from './pages/CreatePost'
 import Search from './pages/Search'
 import Profile from './pages/User/Profile'
 import UserInterests from './pages/User/Interests'
@@ -33,7 +34,7 @@ const Routes = () => (
   <Router>
     <Switch>      
       <PrivateRoute path="/explore" component={Explore} exact={true} />    
-      <Route path="/new" component={NewPost} exact={true} />
+      <Route path="/new" component={CreatePost} exact={true} />
       <Route path="/search" component={Search} />        
       <Route path="/profile" component={Profile} />
       <Route path="/interests" component={UserInterests} />

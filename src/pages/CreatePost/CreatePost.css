@@ -1,0 +1,56 @@
+ion-card.mediaWrapper{
+  box-shadow: none;
+}
+
+ion-card.mediaWrapper canvas{
+  width: 100% !important;
+  height: auto !important;
+  /* height: calc(100% * 3 / 5) !important; */
+  /* height: 60vh !important; */
+}
+
+canvas#canvas{
+  border: 1px solid;
+}
+
+.tui-image-editor-header-logo{
+  display: none;
+}
+
+.newMediaContainer{
+  min-height: 40vh;  
+  max-height: 50vh;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.newMediaContainer img{
+  width: 100%;  
+  margin-top: 50%;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ion-item.inputBox{
+  --border-width: 0px;  
+  --highlight-background: var(--pink);
+}
+
+ion-item.inputBox.item-has-focus ion-label{
+  color: var(--pink) !important;
+}
+
+ion-item.inputBox ion-label{
+  --color: var(--black) !important; 
+}
+
+ion-item.inputBox ion-input{
+  --color: var(--black) !important;
+  --placeholder-color: var(--black);
+}
+
+ion-item.inputBox ion-textarea{
+  --color: var(--black) !important;
+  --placeholder-color: var(--black);
+}
